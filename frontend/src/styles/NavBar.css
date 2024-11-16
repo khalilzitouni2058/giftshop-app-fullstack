@@ -1,0 +1,54 @@
+*,*::after,*::before{
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 2rem;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 12vh;
+    background: black;
+}
+.nav_menu{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    gap: 3rem;
+    
+}
+.brand{
+    font-size: 60px;
+    color: white;
+    font-family :Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.nav_item button{
+    display: flex;
+    font-size: x-large;
+    padding: 10px;
+    position: relative;
+    left: 280px;
+   
+}
+.nav_item2 button{
+    display: flex;
+    
+    font-size: x-large;
+    padding: 10px;
+    
+    
+   
+}
+
