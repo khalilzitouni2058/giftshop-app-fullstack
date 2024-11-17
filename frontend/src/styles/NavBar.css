@@ -1,6 +1,6 @@
 *,*::after,*::before{
     margin: 0;
-    box-sizing: border-box;
+    
 }
 html{
     font-size: 62.5%;
@@ -19,7 +19,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 12vh;
+    height: 8vh;
     background: black;
 }
 .nav_menu{
@@ -30,23 +30,26 @@ nav{
     
 }
 .brand{
-    font-size: 60px;
+    font-size: 40px;
     color: white;
     font-family :Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .nav_item button{
     display: flex;
-    font-size: x-large;
+    font-size: medium;
     padding: 10px;
     position: relative;
     left: 280px;
+    border: none;
+    
    
 }
 .nav_item2 button{
     display: flex;
     
-    font-size: x-large;
+    font-size: large;
     padding: 10px;
+    border: none;
     
     
    
