@@ -2,3 +2,15 @@
   margin: 0;
   padding: 0;
 }
+
+.Iconcontainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.GiftCard {
+width: 320px;
+
+}
