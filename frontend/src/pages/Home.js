@@ -10,19 +10,34 @@ function Home() {
     <div>
       
       <NavBar />
-      <div style={{height:'780px'}}>
+      <div style={{height:'620px'}}>
         <div>
-          <h1 className='anton-regular'> Welcome to your favorite  <br />  <Button  className="custom-button">gift shop</Button></h1>
+          <h1 className='anton-regular' style={{zIndex:"1"}}> Welcome to your favorite  <br />  <Button  className="custom-button">gift shop</Button></h1>
         </div>
-      <Spline
-        scene="https://prod.spline.design/Edos8XMI2nOBGRVD/scene.splinecode" 
-        width={847}
-        height={712}
-        style={{position:"relative",left:'1000px',bottom:'250px'}}
-      />
+        
+         
+       
+<Spline scene="https://prod.spline.design/Edos8XMI2nOBGRVD/scene.splinecode" 
+style={{
+  position: 'absolute', 
+  top: '120px',
+  left: '800px',
+  width: '700px',
+  pointerEvents: 'auto', // Ensure clicks are handled
+}}/>
+ 
+  
+ 
+ 
+
+        
+        
+        
       </div>
+      
       <Carousels />
     <Cards />
+    
        </div>
   )
 }
