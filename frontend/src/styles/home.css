@@ -9,7 +9,7 @@
     font-size: 90px;
     position: relative;
     top: 150px;
-    left: 20px;
+    margin-left: 50px;
 }
 .custom-button {
     background-color: #000000; /* Initial background color */
