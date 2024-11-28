@@ -1,0 +1,38 @@
+.card-container {
+  position: relative;
+  opacity: 0.5; /* Make the card semi-transparent */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.card-container:hover {
+  transform: translateY(-30px); /* Lift effect */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  opacity: 1; /* Regain full opacity */
+}
+
+.hover-button {
+  position: absolute;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Semi-transparent button background */
+  color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-family: "Anton, sans-serif";
+  text-transform: uppercase;
+  cursor: pointer;
+  display: none; /* Hide the button initially */
+  transition: opacity 0.3s ease;
+}
+
+.card-container:hover .hover-button {
+  display: block; 
+}
