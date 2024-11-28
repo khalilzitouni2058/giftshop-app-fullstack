@@ -4,16 +4,18 @@ import mom from '../assets/moms.jpg';
 import Card from 'react-bootstrap/Card';
 import flo from '../assets/flo.jpg';
 import Button from 'react-bootstrap/Button';
-
-
-
+import motherday from "../assets/Motherday.png"
+import mother from "../assets/momo.jpg"
+import birthday from "../assets/birthday.png"
+import valentine from '../assets/vv.png'
 function RotatingCard({ title, frontImage, backContent }) {
   return (
+    
     <div className="rotating-card">
       {/* Front Side */}
-      <div className="card-side front">
-        <img src={frontImage} alt="Front" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        <div className="card-title">{title}</div>
+      <div className="card-side front " style={{backgroundColor:"rgb(17 24 39)"}} >
+        <img src={frontImage} alt="Front" style={{ width: '100%', height: '100%', objectFit: 'cover', }} />
+        <div  style={{fontSize:"30px",fontFamily:"Anton",textTransform:"uppercase",color:"white"}}>{title}</div>
       </div>
 
       {/* Back Side */}
@@ -47,17 +49,18 @@ function Cards() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setActiveCard((prevCard) => (prevCard === 0 ? 1 : 0));
-    }, 3000); // Change card every 3 seconds
+    }, 3000); 
 
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
   }, []);
   const activeCardData = cards[activeCard];
   return (
-    <div style={{ display: 'flex', gap: '220px', padding: '20px' }}>
+    <>
+    <div style={{ display: 'flex', gap: '100px', padding: '20px' }}>
       <RotatingCard
-        title="Card 1"
-        frontImage={mom}
+        title="Mother Day"
+        frontImage={motherday}
         backContent={
           
            
@@ -76,7 +79,7 @@ function Cards() {
                 alignItems: "center",
                 justifyContent: "space-between",
                 padding: "0 10px 100px",
-                marginTop:'60px'
+                marginTop:'20px'
               }}
             >
               <h2>{activeCardData.price}</h2>
@@ -88,8 +91,8 @@ function Cards() {
         }
       />
       <RotatingCard
-        title="Card 2"
-        frontImage={mom}
+        title="Birthday"
+        frontImage={birthday}
         backContent={
           
            
@@ -108,7 +111,7 @@ function Cards() {
                alignItems: "center",
                justifyContent: "space-between",
                padding: "0 10px 100px",
-               marginTop:'60px'
+               marginTop:'20px'
              }}
            >
              <h2>{activeCardData.price}</h2>
@@ -120,8 +123,8 @@ function Cards() {
        }
       />
       <RotatingCard
-        title="Card 3"
-        frontImage={mom}
+        title="Valentine Day"
+        frontImage={valentine}
         backContent={
           
            
@@ -140,7 +143,7 @@ function Cards() {
                alignItems: "center",
                justifyContent: "space-between",
                padding: "0 10px 100px",
-               marginTop:'60px'
+               marginTop:'20px'
              }}
            >
              <h2>{activeCardData.price}</h2>
@@ -151,7 +154,25 @@ function Cards() {
          
        }
       />
+      
     </div>
+    <div className='stock-ticker'>
+      <ul>
+        <li>Check products by Gategory</li>
+        <li>Check products by Gategory</li>
+        <li>Mother Day</li>
+        <li>Birthday</li>
+        <li>Valentine Day</li>
+        <li>Check products by Gategory</li>
+        <li>Check products by Gategory</li>
+        
+      </ul>
+
+    </div>
+        
+
+     
+    </>
   );
 }
 

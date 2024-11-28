@@ -4,6 +4,7 @@ import { MdLogin } from "react-icons/md";
 import { FaShoppingBag } from "react-icons/fa";
 import '../styles/NavBar.css'
 import Button from 'react-bootstrap/Button';
+import SearchNavbar from "./SearchNavbar";
 
 function NavBar() {
   return (
@@ -11,11 +12,13 @@ function NavBar() {
     <div>
     <nav>
         <a href='/' className='brand'>Giftshop</a>
+       
         <ul className='nav_menu'>
             <li className='nav_item'><Button  variant="outline-light"><MdLogin /></Button></li>
             <li className='nav_item'><Button variant="outline-light"><FaSearch /></Button></li>
             <li className='nav_item'><Button variant="outline-light"><FaShoppingBag /></Button></li>
         </ul>
+        
     </nav>
     <nav>
        
