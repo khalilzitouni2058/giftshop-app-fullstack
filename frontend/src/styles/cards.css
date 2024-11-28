@@ -1,7 +1,7 @@
 /* Rotating Card Container */
 .rotating-card {
-  width: 350px;
-  height: 500px;
+  width: 300px;
+  height: 400px;
   perspective: 150rem;
   position: relative;
 }
@@ -21,7 +21,40 @@
   border-radius: 10px;
   overflow: hidden;
 }
+.stock-ticker {
+  font-size: 30px;
+  padding-block: 8px;
+  border-block: 1px solid;
+  overflow: hidden; /* Ensures text outside the container is hidden */
+  user-select: none;
+  display: flex;
+  position: relative;
+  top: 115px;
+  width: 100vw;
+  gap: 2rem;
+  background-color: rgb(17 24 39); /* Full page width */
+}
+li {
+  font-family: "Anton";
+  text-transform: uppercase;
+  color: white;
+}
 
+.stock-ticker ul {
+  list-style: none;
+  display: flex;
+  gap: 10rem; /* Space between items */
+  animation: scroll 15s linear infinite; /* Controls scrolling speed */
+  white-space: nowrap; /* Prevents items from wrapping to the next line */
+}
+@keyframes scroll {
+  from {
+    transform: translateX(100%); /* Start outside the right of the container */
+  }
+  to {
+    transform: translateX(-100%); /* End outside the left of the container */
+  }
+}
 /* Front Side */
 .rotating-card .card-side.front {
   transform: rotateY(0deg);
