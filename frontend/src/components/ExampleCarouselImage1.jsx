@@ -1,5 +1,5 @@
 import React from 'react'
-import choclateImage from "../assets/choclate.png";
+import choclateImage from "../assets/chocolate.png";
 function ExampleCarouselImage1({text}) {
   return (
     <>

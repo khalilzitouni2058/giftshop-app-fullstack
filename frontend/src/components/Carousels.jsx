@@ -2,7 +2,7 @@ import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage1 from './ExampleCarouselImage1';
 import choclateImage from "../assets/realcho.jpg";
-import choca from "../assets/choclate.png"
+import choca from "../assets/chocolate.png"
 function Carousels() {
   return (
     <Carousel style={{backgroundColor:'green', height:'500px'}}>

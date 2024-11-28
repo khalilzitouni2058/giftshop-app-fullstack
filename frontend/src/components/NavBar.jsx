@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 function NavBar() {
   return (
     <>
-    
+    <div>
     <nav>
         <a href='/' className='brand'>Giftshop</a>
         <ul className='nav_menu'>
@@ -28,6 +28,7 @@ function NavBar() {
             <li className='nav_item2'><Button  variant="outline-secondary">Handmade Gift</Button></li>
         </ul>
     </nav>
+    </div>
     </>
   )
 }
