@@ -4,9 +4,14 @@ import { MdLogin } from "react-icons/md";
 import { FaShoppingBag } from "react-icons/fa";
 import '../styles/NavBar.css'
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 import SearchNavbar from "./SearchNavbar";
 
 function NavBar() {
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate("/flowers"); // Replace "/flowers" with your desired path
+  };
   return (
     <>
     <div>
@@ -23,7 +28,7 @@ function NavBar() {
     <nav>
        
         <ul className='nav_menu'>
-            <li className='nav_item2'><Button variant="outline-secondary" >Flowers</Button></li>
+            <li className='nav_item2'><Button variant="outline-secondary" onClick={handleRedirect}>Flowers</Button></li>
             <li className='nav_item2'><Button variant="outline-secondary" >Cosmetic Products</Button></li>
             <li className='nav_item2'><Button  variant="outline-secondary">Chocolate</Button></li>
             <li className='nav_item2'><Button  variant="outline-secondary">Occasion</Button></li>
