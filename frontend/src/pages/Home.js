@@ -42,7 +42,7 @@ function Home() {
     
     width:"1000px",
     position:"relative",
-    left:"500px"
+    left:'500px'
    
     
   }}

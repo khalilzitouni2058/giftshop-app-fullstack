@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 .App {
-  margin: 0;
-  padding: 0;
   background-color: rgb(255, 255, 255);
 }
 
@@ -42,7 +40,6 @@
 .icon-container:hover p {
   color: rgb(210, 173, 41); /* Change text color on hover */
 }
-
 
 .GiftCard {
   width: 320px;
