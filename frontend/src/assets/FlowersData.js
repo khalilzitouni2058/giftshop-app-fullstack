@@ -14,7 +14,7 @@ export const flowers = [{
     subImage2:Flower3,
     subImage3:Flower4,
     Description:"A bouquet of red roses accompanied by white statice. A bouquet wrapped to perfection and suitable for any occasions as red roses simply symbolizes your passion, true love and desire while leaving the white statice to portray your utmost sincerity. This is the go-to gift that expresses your love and intentions without having to say a word ",
-    price:100,
+    price:10,
     qte: 0,
 
     rating:"5",
@@ -108,37 +108,38 @@ export const flowers = [{
       ],
 },
 {
-    id:4,
-    subImage1:Flower2,
-    subImage2:Flower3,
-    subImage3:Flower4,
-    name:"Roses bouquet",
-    image:Flower1,
-    Description:"A bouquet of red roses accompanied by white statice. A bouquet wrapped to perfection and suitable for any occasions as red roses simply symbolizes your passion, true love and desire while leaving the white statice to portray your utmost sincerity. This is the go-to gift that expresses your love and intentions without having to say a word ",
-    qte: 0,
+  id:4,
+  category:"flowers",
+  subImage1:Flower2,
+  subImage2:Flower3,
+  subImage3:Flower4,
+  name:"Roses bouquet",
+  image:Flower1,
+  Description:"A bouquet of red roses accompanied by white statice. A bouquet wrapped to perfection and suitable for any occasions as red roses simply symbolizes your passion, true love and desire while leaving the white statice to portray your utmost sincerity. This is the go-to gift that expresses your love and intentions without having to say a word ",
+  qte: 0,
 
-    price:100,
-    rating:"5",
-    reviews: [
+  price:300,
+  rating:"2",
+  reviews: [
+      {
+          name: "Lisa",
+          date: "Nov 24, 2024",
+          rating: 5,
+          comment: "Great! Very beautiful colors and patterns.",
+        },
         {
-            name: "Lisa",
-            date: "Nov 24, 2024",
-            rating: 5,
-            comment: "Great! Very beautiful colors and patterns.",
-          },
-          {
-            name: "Margaret Lakata",
-            date: "Nov 23, 2024",
-            rating: 5,
-            comment: "Love the bouquet, so beautiful.",
-          },
-          {
-            name: "Melissa Alness",
-            date: "Nov 23, 2024",
-            rating: 5,
-            comment: "My daughter loves her flowers!",
-          },
-      ],
+          name: "Margaret Lakata",
+          date: "Nov 23, 2024",
+          rating: 5,
+          comment: "Love the bouquet, so beautiful.",
+        },
+        {
+          name: "Melissa Alness",
+          date: "Nov 23, 2024",
+          rating: 5,
+          comment: "My daughter loves her flowers!",
+        },
+    ],
 },
 {
     id:5,
@@ -185,7 +186,7 @@ export const flowers = [{
     Description:"A bouquet of red roses accompanied by white statice. A bouquet wrapped to perfection and suitable for any occasions as red roses simply symbolizes your passion, true love and desire while leaving the white statice to portray your utmost sincerity. This is the go-to gift that expresses your love and intentions without having to say a word ",
     qte: 0,
 
-    price:100,
+    price:60,
     rating:"5",
     reviews: [
         {
@@ -219,7 +220,7 @@ export const flowers = [{
     Description:"A bouquet of red roses accompanied by white statice. A bouquet wrapped to perfection and suitable for any occasions as red roses simply symbolizes your passion, true love and desire while leaving the white statice to portray your utmost sincerity. This is the go-to gift that expresses your love and intentions without having to say a word ",
     qte: 0,
 
-    price:100,
+    price:40,
     rating:"5",
     reviews: [
         {
@@ -253,7 +254,7 @@ export const flowers = [{
     Description:"A bouquet of red roses accompanied by white statice. A bouquet wrapped to perfection and suitable for any occasions as red roses simply symbolizes your passion, true love and desire while leaving the white statice to portray your utmost sincerity. This is the go-to gift that expresses your love and intentions without having to say a word ",
     qte: 0,
 
-    price:100,
+    price:80,
     rating:"5",
     reviews: [
         {

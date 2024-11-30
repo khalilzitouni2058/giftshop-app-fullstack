@@ -37,3 +37,33 @@
     z-index: 0; /* Ensure the button is below the ribbon */
   }
   
+  .similar-item {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden; /* Ensures the image stays within the border */
+    transition: transform 0.3s ease;
+    cursor: pointer; /* Indicate that the whole div is clickable */
+  }
+  
+  .similar-item:hover {
+    transform: scale(1.1); /* Slight scaling effect on hover */
+  }
+  
+  .similar-item-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .similar-item-image:hover {
+    transform: scale(1.05); /* Slight zoom-in effect for the image on hover */
+  }
+  
+  .similar-item-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  

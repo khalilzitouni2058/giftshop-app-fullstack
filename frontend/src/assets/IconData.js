@@ -16,7 +16,7 @@ iconAlt:"Flower-icon"
 {
     iconName:"Chocolates",
     iconPath:chocolateBar,
-    iconLink:"ChocolateGifts",
+    iconLink:"Chocolates",
     iconAlt:"Chocolate-icon"
 
     },

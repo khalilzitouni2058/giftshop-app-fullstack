@@ -55,7 +55,7 @@ function App() {
           <Route path='/Flowers/:id' element={<ProductDetails products={listflowers} handleSumDecrement={handleSumDecrement} 
           handleDecrement={handleDecrement} handleIncrement={handleIncrement} handleSumIncrement={handleSumIncrement}/>}> </Route>
 
-          <Route path='/ChocolateGifts' element={<GiftList products={chocolates}/>}> </Route>
+          <Route path='/Chocolates' element={<GiftList products={chocolates}/>}> </Route>
           <Route path='/chocolates/:id' element={<ProductDetails products={chocolates}/>}> </Route>
           <Route path='/SignIn' element={<SignIn />}> </Route>
 
