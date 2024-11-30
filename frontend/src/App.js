@@ -8,6 +8,7 @@ import { flowers } from './assets/FlowersData';
 import { chocolates } from './assets/chocolatesData';
 import ProductDetails from './components/ProductDetails';
 import { useState } from 'react';
+import SignIn from './components/SignIn';
 
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
 
           <Route path='/ChocolateGifts' element={<GiftList products={chocolates}/>}> </Route>
           <Route path='/chocolates/:id' element={<ProductDetails products={chocolates}/>}> </Route>
-
+          <Route path='/SignIn' element={<SignIn />}> </Route>
 
 
         </Routes>

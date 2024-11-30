@@ -8,6 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import { MdLogin } from "react-icons/md";
 import { FaShoppingBag } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
+import '../styles/NavBar.css'
 function GiftList({products}) {
 
   

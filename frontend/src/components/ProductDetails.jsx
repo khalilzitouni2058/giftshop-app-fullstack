@@ -6,7 +6,8 @@ import { GiBowTieRibbon } from "react-icons/gi"; // Importing Bow Tie Ribbon Ico
 import NavBar from "./NavBar";
 import Button from 'react-bootstrap/Button';
 import '../styles/ProductDetails.css'; // External CSS for styling the ribbon
-
+import { FaCircleArrowLeft } from "react-icons/fa6";
+import { useNavigate } from 'react-router-dom';
 function ProductDetails({ products,
   handleIncrement,
   handleDecrement,
@@ -18,7 +19,15 @@ function ProductDetails({ products,
 
   
   const { id } = useParams();
-
+  const path = window.location.pathname; // Example: "/flowers/1"
+    const category = path.split('/')[1];
+  console.log(category)
+  const navigate=useNavigate();
+  const goback = () => {
+    // Use template literals to dynamically create the path
+    navigate(`/${category}`);
+  };
+  
   // Find the product based on the ID from the URL
   const elt = products.find((elt) => elt.id === Number(id));
 
@@ -58,6 +67,7 @@ function ProductDetails({ products,
   return (
     <>
       <NavBar />
+      <div ><FaCircleArrowLeft onClick={goback}  style={{color:'black',position:"absolute",left:"100px",top:"130px",width:"50px",height:"50px"}} /></div>
       <div className="DetailsContainer" style={{ marginTop: "20px",flexDirection:"column", padding: "20px", display: "flex", gap: "50px", marginLeft:"100px" }}>
         <div style={{display:"flex"}}>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -107,6 +117,7 @@ function ProductDetails({ products,
         {/* Product Description */}
         
         <div style={{ marginTop: "50px", marginLeft: "200px", textAlign: "left", maxWidth: "600px" }}>
+          
           <p style={{ fontSize: "50px" }}>{elt.name}</p>
           <div style={{ display: "flex", gap: "250px", alignItems: "center" }}>
             <div style={{ textAlign: "center", margin: "0px" }}>{renderStars(elt.rating)}</div>

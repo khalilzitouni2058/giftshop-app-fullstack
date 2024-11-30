@@ -12,6 +12,9 @@ function NavBar() {
   const handleRedirect = () => {
     navigate("/flowers"); // Replace "/flowers" with your desired path
   };
+  const goSignIn = () => {
+    navigate("/SignIn"); // Replace "/flowers" with your desired path
+  };
   return (
     <>
     <div>
@@ -19,7 +22,7 @@ function NavBar() {
         <a href='/' className='brand'>Giftshop</a>
        
         <ul className='nav_menu'>
-            <li className='nav_item'><Button  variant="outline-light"><MdLogin /></Button></li>
+            <li className='nav_item'><Button  variant="outline-light"><MdLogin onClick={goSignIn} /></Button></li>
             <li className='nav_item'><Button variant="outline-light"><FaSearch /></Button></li>
             <li className='nav_item'><Button variant="outline-light"><FaShoppingBag /></Button></li>
         </ul>
