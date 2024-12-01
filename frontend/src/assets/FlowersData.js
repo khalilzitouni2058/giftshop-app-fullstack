@@ -2,14 +2,18 @@ import Flower1 from "../assets/Flower1.png"
 import Flower2 from "../assets/Flower2.png"
 import Flower3 from "../assets/Flower3.png"
 import Flower4 from "../assets/Flower4.png"
-
-
+import momo from "../assets/momo.jpg"
+import motheday from "../assets/Motherday.png"
+import flowerskh from "../assets/flowersKH.jpg"
+import flowerskh2 from "../assets/flowerskh2.jpg"
+import flowerskh3 from "../assets/flowerkh3.jpg"
+import subimageflower3 from "../assets/subimageflower3.jpg"
 export const flowers = [{
 
     id:1,
     name:"Roses bouquet",
     category:"flowers",
-    image:Flower1,
+    image:momo,
     subImage1:Flower2,
     subImage2:Flower3,
     subImage3:Flower4,
@@ -46,7 +50,7 @@ export const flowers = [{
     subImage2:Flower3,
     subImage3:Flower4,
     name:"Roses bouquet",
-    image:Flower1,
+    image:motheday,
     Description:"A bouquet of red roses accompanied by white statice. A bouquet wrapped to perfection and suitable for any occasions as red roses simply symbolizes your passion, true love and desire while leaving the white statice to portray your utmost sincerity. This is the go-to gift that expresses your love and intentions without having to say a word ",
     qte: 0,
 
@@ -76,11 +80,11 @@ export const flowers = [{
 {
     id:3,
     category:"flowers",
-    subImage1:Flower2,
+    subImage1:subimageflower3,
     subImage2:Flower3,
     subImage3:Flower4,
     name:"Roses bouquet",
-    image:Flower1,
+    image:flowerskh3,
     Description:"A bouquet of red roses accompanied by white statice. A bouquet wrapped to perfection and suitable for any occasions as red roses simply symbolizes your passion, true love and desire while leaving the white statice to portray your utmost sincerity. This is the go-to gift that expresses your love and intentions without having to say a word ",
     qte: 0,
 
@@ -114,7 +118,7 @@ export const flowers = [{
   subImage2:Flower3,
   subImage3:Flower4,
   name:"Roses bouquet",
-  image:Flower1,
+  image:flowerskh,
   Description:"A bouquet of red roses accompanied by white statice. A bouquet wrapped to perfection and suitable for any occasions as red roses simply symbolizes your passion, true love and desire while leaving the white statice to portray your utmost sincerity. This is the go-to gift that expresses your love and intentions without having to say a word ",
   qte: 0,
 

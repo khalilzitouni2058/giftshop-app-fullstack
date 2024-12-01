@@ -36,40 +36,32 @@ function GiftCard({ product }) {
   };
 
   return (
-    <Card className='GiftCard'>
-      <div
-        style={{
-          position: "relative",
-          height: "300px", // Set a fixed height for the image container
-          width: "100%",
-          overflow: "hidden",
-        }}
+    <Card className='GiftCard' >
+      
+      <div 
+        
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+
       >
         {/* Main Image */}
         <Card.Img
-          variant="top"
+          
           src={image}
-          style={{
-            height: "100%",
-            width: "100%",
-            objectFit: "cover",
-            transition: "1s ease-in-out",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            opacity: isHovered ? 0 : 1, // Fade out on hover
-          }}
+          onClick={showDetails}
+          style={{cursor: "pointer"}}
+        
         />
+        
+        
         {/* Subimage */}
         {subImage1 && (
           <Card.Img
             variant="top"
             src={subImage1}
+            onClick={showDetails}
             style={{
-              height: "100%",
-              width: "100%",
+              cursor:"pointer",
               objectFit: "cover",
               transition: "0.5s ease-in-out",
               position: "absolute",
@@ -80,26 +72,19 @@ function GiftCard({ product }) {
           />
         )}
       </div>
-      <Card.Body>
-        <Card.Text style={{ position: "center" }}>
-          {name}
-        </Card.Text>
+      
+       
 
-        <div style={{ textAlign: "center", margin: "15px 0" }}>{renderStars(rating)}</div>
+        
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-          <Card.Text style={{ fontSize: "24px", fontWeight: "650" }}>
-            {price} $
-          </Card.Text>
-          <Button
-            style={{ height: "50px", fontSize: "20px", fontWeight: "2px" }}
-            variant="success"
-            onClick={showDetails}
-          >
-            Show more
-          </Button>
+          
+          
         </div>
 
         {/* Heart Icon with White Circle Background */}
+        <div>
+            <h3 style={{display:"flex",alignItems:"flex-end",position:"absolute",bottom:"10px",left:"10px",backgroundColor:"white",padding:"5px",borderRadius:"30px",fontSize:"15px"}}> {price} TND </h3>
+          </div>
         <div
           style={{
             position: "absolute",
@@ -112,6 +97,7 @@ function GiftCard({ product }) {
           onClick={() => setIsLiked(!isLiked)} // Toggle the heart icon
         >
           {/* White circle background */}
+          
           <div
             style={{
               display: "flex",
@@ -120,8 +106,8 @@ function GiftCard({ product }) {
               width: "40px",
               height: "40px",
               borderRadius: "50%",
-              backgroundColor: "white", // White circle background
-              boxShadow: "0 2px 10px rgba(0,0,0,0.1)", // Optional: Shadow for the circle
+               // White circle background
+               // Optional: Shadow for the circle
               padding: "5px",
             }}
           >
@@ -132,7 +118,7 @@ function GiftCard({ product }) {
             )}
           </div>
         </div>
-      </Card.Body>
+      
     </Card>
   );
 }
