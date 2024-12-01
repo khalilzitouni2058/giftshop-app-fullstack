@@ -1,0 +1,371 @@
+{
+  "category": "Flower",  // Missing category, added "Flower"
+  "title": "Rose Bouquet",
+  "brand": "Generic",  // Missing brand, added "Generic"
+  "price": 25.99,
+  "description": "A beautiful bouquet of red roses, perfect for any romantic occasion.",
+  "rating": 4.7,
+  "imageURL": "https://i.postimg.cc/5tbqZXz0/roses.jpg",
+  "subImageURL1": "https://i.postimg.cc/dVrYVV0r/rosessubimage1.webp",
+  "subImageURL2": "https://i.postimg.cc/nhvytSd1/rosessubimage.webp",
+  "subImageURL3": ""  // Missing subImageURL3, added empty string
+},
+{
+  "category": "Flower",  // Missing category, added "Flower"
+  "title": "Orchid Elegance",
+  "brand": "Generic",  // Missing brand, added "Generic"
+  "price": 30,
+  "description": "Elegant orchids in a lovely arrangement for a touch of sophistication.",
+  "rating": 4.9,
+  "imageURL": "https://i.postimg.cc/65ZSd1NN/Orchid-Elegance.jpg",
+  "subImageURL1": "",  // Missing subImageURL1, added empty string
+  "subImageURL2": "",  // Missing subImageURL2, added empty string
+  "subImageURL3": ""  // Missing subImageURL3, added empty string
+},
+{
+  "category": "Flower",  // Missing category, added "Flower"
+  "title": "Lily Splendor",
+  "brand": "Generic",  // Missing brand, added "Generic"
+  "price": 28,
+  "description": "Graceful lilies arranged in an exquisite design.",
+  "rating": 4.7,
+  "imageURL": "https://i.postimg.cc/SsXVmJSp/Lily-Splendor.jpg",
+  "subImageURL1": "",  // Missing subImageURL1, added empty string
+  "subImageURL2": "",  // Missing subImageURL2, added empty string
+  "subImageURL3": ""  // Missing subImageURL3, added empty string
+},
+{
+  "category": "Flower",  // Missing category, added "Flower"
+  "title": "Tulip Delight",
+  "brand": "Generic",  // Missing brand, added "Generic"
+  "price": 20.99,
+  "description": "A vibrant mix of colorful tulips to brighten anyone's day.",
+  "rating": 4.5,
+  "imageURL": "https://i.postimg.cc/6QWnMDs4/Tulip-Delight.jpg",
+  "subImageURL1": "",  // Missing subImageURL1, added empty string
+  "subImageURL2": "",  // Missing subImageURL2, added empty string
+  "subImageURL3": ""  // Missing subImageURL3, added empty string
+},
+{
+  "category": "Flower",  // Missing category, added "Flower"
+  "title": "Sunflower Charm",
+  "brand": "Generic",  // Missing brand, added "Generic"
+  "price": 18.5,
+  "description": "A cheerful bunch of sunflowers, symbolizing happiness and longevity.",
+  "rating": 4.8,
+  "imageURL": "https://i.postimg.cc/8c66FGv9/Sunflower-Charm.jpg",
+  "subImageURL1": "",  // Missing subImageURL1, added empty string
+  "subImageURL2": "",  // Missing subImageURL2, added empty string
+  "subImageURL3": ""  // Missing subImageURL3, added empty string
+},
+{
+  "category": "Flower",  // Missing category, added "Flower"
+  "title": "Carnation Mix",
+  "brand": "Generic",  // Missing brand, added "Generic"
+  "price": 19.99,
+  "description": "A delightful mix of carnations for all occasions.",
+  "rating": 4.3,
+  "imageURL": "https://i.postimg.cc/pLZsZwG3/Carnation-Mix.jpg",
+  "subImageURL1": "",  // Missing subImageURL1, added empty string
+  "subImageURL2": "",  // Missing subImageURL2, added empty string
+  "subImageURL3": ""  // Missing subImageURL3, added empty string
+},
+{
+  "category": "Flower",  // Missing category, added "Flower"
+  "title": "Peony Paradise",
+  "brand": "Generic",  // Missing brand, added "Generic"
+  "price": 35,
+  "description": "Lush pink peonies for a stunning and classic gift.",
+  "rating": 4.9,
+  "imageURL": "https://i.postimg.cc/Bvj2KkdT/Peony-Paradise.jpg",
+  "subImageURL1": "",  // Missing subImageURL1, added empty string
+  "subImageURL2": "",  // Missing subImageURL2, added empty string
+  "subImageURL3": ""  // Missing subImageURL3, added empty string
+},
+{
+  "category": "Flower",  // Missing category, added "Flower"
+  "title": "Daisy Dream",
+  "brand": "Generic",  // Missing brand, added "Generic"
+  "price": 15,
+  "description": "A sweet collection of daisies, perfect for spreading joy.",
+  "rating": 4.4,
+  "imageURL": "https://i.postimg.cc/43fSRfHJ/Daisy-Dream.jpg",
+  "subImageURL1": "",  // Missing subImageURL1, added empty string
+  "subImageURL2": "",  // Missing subImageURL2, added empty string
+  "subImageURL3": ""  // Missing subImageURL3, added empty string
+},
+{
+  "category": "Flower",  // Missing category, added "Flower"
+  "title": "Lavender Bliss",
+  "brand": "Generic",  // Missing brand, added "Generic"
+  "price": 22.75,
+  "description": "A soothing bouquet of lavender flowers, ideal for relaxation.",
+  "rating": 4.6,
+  "imageURL": "https://i.postimg.cc/RVws36cS/Lavender-Bliss.jpg",
+  "subImageURL1": "",  // Missing subImageURL1, added empty string
+  "subImageURL2": "",  // Missing subImageURL2, added empty string
+  "subImageURL3": ""  // Missing subImageURL3, added empty string
+},
+{
+  "category": "Chocolate",
+  "title": "Milka Oreo Chocolate Bar",
+  "brand": "Milka",
+  "price": 1.8,
+  "description": "Delicious combination of Milka milk chocolate and crunchy Oreo cookie pieces.",
+  "rating": 4.7,
+  "imageURL": "https://i.postimg.cc/t4CMLRx9/Milka-Oreo-Chocolate-Bar.jpg",
+  "subImageURL1": "",
+  "subImageURL2": "",
+  "subImageURL3": ""
+},
+{
+  "category": "Chocolate",
+  "title": "Ferrero Rocher",
+  "brand": "Ferrero Rocher",
+  "price": 10,
+  "description": "Hazelnut chocolate balls with a whole hazelnut, creamy filling, and crunchy coating.",
+  "rating": 4.8,
+  "imageURL": "https://i.postimg.cc/k481xBkv/Ferrero-Rocher.jpg",
+  "subImageURL1": "",
+  "subImageURL2": "",
+  "subImageURL3": ""
+},
+{
+  "category": "Chocolate",
+  "title": "Maestro Passion Caramel",
+  "brand": "Maestro",
+  "price": 2,
+  "description": "Smooth and creamy milk chocolate crafted with high-quality cocoa beans and a touch of passion caramel.",
+  "rating": 4.4,
+  "imageURL": "https://i.postimg.cc/jdqcjgdX/Maestro-passion.jpg",
+  "subImageURL1": "",
+  "subImageURL2": "",
+  "subImageURL3": ""
+},
+{
+    "category": "Chocolate",
+    "title": "Milka Alpine Milk Chocolate",
+    "brand": "Milka",
+    "price": 1.5,
+    "description": "Classic smooth and creamy milk chocolate made with 100% Alpine milk.",
+    "rating": 4.5,
+    "imageURL": "https://i.postimg.cc/Fsx6Wk1P/Milka-Alpine-Milk-Chocolate.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+  {
+    "category": "Chocolate",
+    "title": "Ferrero Rondnoir",
+    "brand": "Ferrero Rocher",
+    "price": 12,
+    "description": "Dark chocolate delight featuring a crisp wafer surrounding a creamy, dark chocolate filling.",
+    "rating": 4.6,
+    "imageURL": "https://i.postimg.cc/mr18sP2W/Ferrero-Rondnoir.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+{
+    "category": "Chocolate",
+    "title": "Lindt Excellence 70% Cocoa Dark Chocolate",
+    "brand": "Lindt",
+    "price": 3,
+    "description": "Rich and refined dark chocolate with 70% cocoa content, offering a smooth and intense experience.",
+    "rating": 4.7,
+    "imageURL": "https://i.postimg.cc/mr18sP2W/Ferrero-Rondnoir.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+  {
+    "category": "Chocolate",
+    "title": "Lindt Les Grandes Hazelnut Milk Chocolate",
+    "brand": "Lindt",
+    "price": 4.5,
+    "description": "Premium milk chocolate bar loaded with whole roasted hazelnuts for a crunchy and creamy indulgence.",
+    "rating": 4.8,
+    "imageURL": "https://i.postimg.cc/1XBKH6Mw/Lindt-Les-Grandes-Hazelnut-Milk-Chocola.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+{
+    "category": "Chocolate",
+    "title": "Maestro Dark Chocolate",
+    "brand": "Maestro",
+    "price": 2.5,
+    "description": "Rich dark chocolate infused with crunchy almond pieces for a delightful experience.",
+    "rating": 4.5,
+    "imageURL": "https://i.postimg.cc/nrF4CrZz/maestro-black.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+  {
+    "category": "Chocolate",
+    "title": "Lindt Lindor Milk Chocolate Truffles",
+    "brand": "Lindt",
+    "price": 6,
+    "description": "Irresistibly smooth milk chocolate truffles with a delicate, melting center.",
+    "rating": 4.9,
+    "imageURL": "https://i.postimg.cc/KjxNBQ7m/Lindt-Lindor-Milk-Chocolate-Truffles.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+
+
+  {
+    "category": "HandmadeGifts",
+    "title": "Handcrafted Wooden Box",
+    "brand": "Artisan Creations",
+    "price": 25.99,
+    "description": "A beautifully carved wooden box, perfect for storing your precious items.",
+    "rating": 4.6,
+    "imageURL": "https://i.postimg.cc/8PChpLbw/Handcrafted-Wooden-Box.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+  {
+    "category": "HandmadeGifts",
+    "title": "Handwoven Throw Blanket",
+    "brand": "CozyWeaves",
+    "price": 45.99,
+    "description": "A soft, handwoven throw blanket made from organic cotton for warmth and style.",
+    "rating": 4.8,
+    "imageURL": "https://i.postimg.cc/NM02kFYh/Handwoven-Throw-Blanket.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+  {
+    "category": "HandmadeGifts",
+    "title": "Ceramic Coffee Mug",
+    "brand": "Pottery By Hand",
+    "price": 12.99,
+    "description": "A unique, hand-painted ceramic coffee mug to brighten your morning routine.",
+    "rating": 4.4,
+    "imageURL": "https://i.postimg.cc/LXz5tbbv/Ceramic-Coffee-Mug.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+  {
+    "category": "HandmadeGifts",
+    "title": "Personalized Leather Journal",
+    "brand": "Crafted Goods",
+    "price": 19.99,
+    "description": "A premium leather journal personalized with your name, perfect for writing and sketching.",
+    "rating": 4.9,
+    "imageURL": "https://i.postimg.cc/KYRkdT7J/Personalized-Leather-Journal.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+  {
+    "category": "HandmadeGifts",
+    "title": "Beaded Friendship Bracelet",
+    "brand": "BeadCraft",
+    "price": 8.99,
+    "description": "A vibrant beaded bracelet, handmade with love, perfect for gifting a friend.",
+    "rating": 4.7,
+    "imageURL": "https://i.postimg.cc/vm9Xg9g3/Beaded-Friendship-Bracelet.jpg",
+    "subImageURL1": "",
+    "subImageURL2": "",
+    "subImageURL3": ""
+  },
+  {
+    category: "Cosmetics",
+    title: "Hydrating Face Cream",
+    brand: "BeautyGlow",
+    price: 25.00,
+    description: "A deeply hydrating face cream for radiant and smooth skin.",
+    imageURL: "https://example.com/images/cosmetics/hydrating_face_cream.jpg",
+    subimageURL1: "https://example.com/images/cosmetics/hydrating_face_cream_1.jpg",
+    subimageURL2: "https://example.com/images/cosmetics/hydrating_face_cream_2.jpg",
+    subimageURL3: "https://example.com/images/cosmetics/hydrating_face_cream_3.jpg"
+  },
+  {
+    category: "Cosmetics",
+    title: "Matte Liquid Lipstick",
+    brand: "GlamLuxe",
+    price: 15.00,
+    description: "A long-lasting matte liquid lipstick in vibrant shades.",
+    imageURL: "https://example.com/images/cosmetics/matte_liquid_lipstick.jpg",
+    subimageURL1: "https://example.com/images/cosmetics/matte_liquid_lipstick_1.jpg",
+    subimageURL2: "https://example.com/images/cosmetics/matte_liquid_lipstick_2.jpg",
+    subimageURL3: "https://example.com/images/cosmetics/matte_liquid_lipstick_3.jpg"
+  },
+  {
+    category: "Cosmetics",
+    title: "Volumizing Mascara",
+    brand: "LashPro",
+    price: 18.50,
+    description: "A volumizing mascara for fuller, longer lashes.",
+    imageURL: "https://example.com/images/cosmetics/volumizing_mascara.jpg",
+    subimageURL1: "https://example.com/images/cosmetics/volumizing_mascara_1.jpg",
+    subimageURL2: "https://example.com/images/cosmetics/volumizing_mascara_2.jpg",
+    subimageURL3: "https://example.com/images/cosmetics/volumizing_mascara_3.jpg"
+  },
+  {
+    category: "Cosmetics",
+    title: "Natural Mineral Foundation",
+    brand: "PureSkin",
+    price: 30.00,
+    description: "A lightweight, natural mineral foundation for even coverage.",
+    imageURL: "https://example.com/images/cosmetics/natural_mineral_foundation.jpg",
+    subimageURL1: "https://example.com/images/cosmetics/natural_mineral_foundation_1.jpg",
+    subimageURL2: "https://example.com/images/cosmetics/natural_mineral_foundation_2.jpg",
+    subimageURL3: "https://example.com/images/cosmetics/natural_mineral_foundation_3.jpg"
+  },
+  {
+    category: "Cosmetics",
+    title: "Refreshing Facial Mist",
+    brand: "SkinEssence",
+    price: 20.00,
+    description: "A refreshing facial mist to hydrate and revitalize your skin.",
+    imageURL: "https://example.com/images/cosmetics/refreshing_facial_mist.jpg",
+    subimageURL1: "https://example.com/images/cosmetics/refreshing_facial_mist_1.jpg",
+    subimageURL2: "https://example.com/images/cosmetics/refreshing_facial_mist_2.jpg",
+    subimageURL3: "https://example.com/images/cosmetics/refreshing_facial_mist_3.jpg"
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
