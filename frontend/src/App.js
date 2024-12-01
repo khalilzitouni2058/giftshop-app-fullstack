@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route ,Navigate} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Home from './pages/Home';
 import GiftList from './pages/GiftList';
@@ -8,8 +8,9 @@ import { flowers } from './assets/FlowersData';
 import { chocolates } from './assets/chocolatesData';
 import ProductDetails from './components/ProductDetails';
 import { useState } from 'react';
+import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
-
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
 
@@ -45,9 +46,14 @@ function App() {
       setSum(sum - article.price);
     }
   };
+  const ProtectedRoute = ({ children }) => {
+    const token = localStorage.getItem('accessToken');
+    return token ? children : <Navigate to="/signIn" />;
+  };
 
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home/>}> </Route>
@@ -57,11 +63,14 @@ function App() {
 
           <Route path='/Chocolates' element={<GiftList products={chocolates}/>}> </Route>
           <Route path='/chocolates/:id' element={<ProductDetails products={chocolates}/>}> </Route>
+          <Route path='/SignUp' element={<SignUp />}> </Route>
           <Route path='/SignIn' element={<SignIn />}> </Route>
+
 
 
         </Routes>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
