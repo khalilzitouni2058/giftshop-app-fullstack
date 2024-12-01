@@ -23,6 +23,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         enum: ['user', 'admin'], // Allowed roles
         default: 'user' // Default role
+    },
+    phoneNumber:{
+        type: String,
+        required: true
+    },
+    dateOfBirth:{
+        type: String,
+        required: true
     }
 });
 
