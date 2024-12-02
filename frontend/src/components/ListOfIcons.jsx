@@ -4,7 +4,7 @@ import IconBar from './IconBar'
 
 function ListOfIcons() {
   return (
-    <div style={{ display: "flex", gap: "100px", marginTop:"100px", justifyContent:"center" }}>
+    <div style={{ display: "flex", gap: "100px", marginTop:"5px", justifyContent:"center" }}>
     {icons.map((icon, index) => (
       <IconBar key={index} icon={icon} />
     ))}

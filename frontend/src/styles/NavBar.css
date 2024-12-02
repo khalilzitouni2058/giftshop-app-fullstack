@@ -37,6 +37,9 @@ nav {
 
   top: 5px;
 }
+div::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+}
 .nav_item button {
   display: flex;
   font-size: medium;

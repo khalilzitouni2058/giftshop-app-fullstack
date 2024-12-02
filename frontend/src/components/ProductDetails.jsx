@@ -8,6 +8,8 @@ import Button from "react-bootstrap/Button";
 import "../styles/ProductDetails.css"; // External CSS for styling the ribbon
 import { FaCircleArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 function ProductDetails({
   products,
@@ -20,6 +22,7 @@ function ProductDetails({
   const path = window.location.pathname; // Example: "/flowers/1"
   const category = path.split("/")[1];
   const navigate = useNavigate();
+  const { addToCart } = useContext(AuthContext);
   const showDetails = (itemId) => {
     window.scrollTo(0, 0);
     navigate(`/${category}/${itemId}`);
@@ -213,6 +216,7 @@ function ProductDetails({
             {/* Add to Cart Section */}
             <div style={{ display: "flex", flexDirection: "row" }}>
               <Button
+                onClick={() => addToCart(elt)}
                 style={{
                   height: "70px",
                   width: "220px",
@@ -222,7 +226,7 @@ function ProductDetails({
                   color: "white",
                   alignItems: "center",
                   justifyContent: "center",
-                  backgroundColor: "pink",
+                  backgroundColor: "black",
                   borderColor: "pink",
                 }}
               >
