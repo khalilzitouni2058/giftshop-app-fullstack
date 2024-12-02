@@ -6,6 +6,7 @@ import { FaSearch, FaShoppingBag } from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import '../styles/NavBar.css';
+import NavBar from '../components/NavBar';
 
 function GiftList({ products }) {
   const [visibleItems, setVisibleItems] = useState(7); // Initially show 5 items
@@ -24,21 +25,7 @@ function GiftList({ products }) {
 
   return (
     <>
-      <nav>
-        <a href="/" className="brand">Giftshop</a>
-        <ul className="nav_menu">
-          <li className="nav_item">
-            <Button variant="outline-light"><MdLogin /></Button>
-          </li>
-          <li className="nav_item">
-            <Button variant="outline-light"><FaSearch /></Button>
-          </li>
-          <li className="nav_item">
-            <Button variant="outline-light"><FaShoppingBag /></Button>
-          </li>
-        </ul>
-      </nav>
-
+      <NavBar />
       <div style={{ marginTop: "-20px" }}>
         <ListOfIcons />
 
