@@ -18,7 +18,7 @@ function ProductDetails({
   handleSumIncrement,
   handleSumDecrement,
 }) {
-  const { id } = useParams();
+  const { _id } = useParams();
   const path = window.location.pathname; // Example: "/flowers/1"
   const category = path.split("/")[1];
   const navigate = useNavigate();
@@ -35,14 +35,14 @@ function ProductDetails({
   };
 
   // Find the product based on the ID from the URL
-  const elt = products.find((elt) => elt.id === Number(id));
+  const elt = products.find((elt) => elt._id === Number(_id));
 
   const increment = () => {
-    handleIncrement(elt.id);
+    handleIncrement(elt._id);
     handleSumIncrement(elt.Price);
   };
   const decrement = () => {
-    handleDecrement(elt.id);
+    handleDecrement(elt._id);
     handleSumDecrement(elt);
   };
 
@@ -171,7 +171,7 @@ function ProductDetails({
               maxWidth: "600px",
             }}
           >
-            <p style={{ fontSize: "50px" }}>{elt.name}</p>
+            <p style={{ fontSize: "50px" }}>{elt.title}</p>
             <div
               style={{
                 display: "flex",

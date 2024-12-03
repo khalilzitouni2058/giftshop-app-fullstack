@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ListOfIcons from '../components/ListOfIcons';
 import GiftCard from '../components/GiftCard';
 import { MdLogin } from "react-icons/md";
@@ -7,10 +7,32 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import '../styles/NavBar.css';
 import NavBar from '../components/NavBar';
+import axios from 'axios';
 
-function GiftList({ products }) {
+function GiftList({ category }) {
+  const [products, setProducts] = useState([]);
   const [visibleItems, setVisibleItems] = useState(7); // Initially show 5 items
   const [loading, setLoading] = useState(false); // Track loading state
+
+  const url = `http://localhost:9002/api/products/${category}`;
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true); // Set loading to true before fetching
+        const response = await axios.get(url);
+        setProducts(response.data.products); // Update products state
+        setLoading(false); // Set loading to false after fetching
+        
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setLoading(false); // Set loading to false if there's an error
+      }
+    };
+
+    fetchProducts();
+    
+  }, [category]);
 
   // Function to show more items
   const showMoreItems = () => {
@@ -22,7 +44,7 @@ function GiftList({ products }) {
       setLoading(false); // Stop loading after delay
     }, 1000); // Adjust the delay as needed
   };
-
+  console.log(products)
   return (
     <>
       <NavBar />
@@ -39,7 +61,7 @@ function GiftList({ products }) {
 >
   {products.slice(0, visibleItems).map((product) => (
     <div
-      key={product.id} // Add a key prop to prevent React warnings
+      key={product._id} // Add a key prop to prevent React warnings
       style={{
         breakInside: "avoid", // Prevent items from breaking inside the column
         marginBottom: "30px", // Add spacing between items
@@ -47,9 +69,9 @@ function GiftList({ products }) {
     >
       <GiftCard
         product={product}
-        subImage1={product.subImage1}
-        subImage2={product.subImage2}
-        subImage3={product.subImage3}
+        subImage1={product.subImageURL1}
+        subImage2={product.subImageURL2}
+        subImage3={product.subImageURL3}
       />
     </div>
   ))}

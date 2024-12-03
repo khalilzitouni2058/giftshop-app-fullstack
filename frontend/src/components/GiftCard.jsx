@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import { FaRegHeart, FaHeart } from "react-icons/fa"; // Heart icons
 
 function GiftCard({ product }) {
-  const { id, category, name, image, subImage1, price, rating } = product;
+  const { _id, category, title, imageURL, subImage1, price, rating } = product;
+  console.log(product._id)
 
   const [isHovered, setIsHovered] = useState(false); // State to track hover
   const [isLiked, setIsLiked] = useState(false); // State to track the heart icon toggle
@@ -14,7 +15,7 @@ function GiftCard({ product }) {
   const navigate = useNavigate();
 
   const showDetails = () => {
-    navigate(`/${category}/${id}`);
+    navigate(`/${category}/${_id}`);
   };
 
   const renderStars = (rating) => {
@@ -47,7 +48,7 @@ function GiftCard({ product }) {
         {/* Main Image */}
         <Card.Img
           
-          src={image}
+          src={imageURL}
           onClick={showDetails}
           style={{cursor: "pointer"}}
         
