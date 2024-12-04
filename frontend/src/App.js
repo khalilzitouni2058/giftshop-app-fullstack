@@ -57,12 +57,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home/>}> </Route>
-          <Route path='/Flowers' element={<GiftList category ="Flower" />}> </Route>
-          <Route path='/Flowers/:id' element={<ProductDetails products={listflowers} handleSumDecrement={handleSumDecrement} 
+          <Route path='/:category' element={<GiftList/>}> </Route>
+          <Route path='/:category/:id' element={<ProductDetails   handleSumDecrement={handleSumDecrement} 
           handleDecrement={handleDecrement} handleIncrement={handleIncrement} handleSumIncrement={handleSumIncrement}/>}> </Route>
 
-          <Route path='/Chocolates' element={<GiftList category ="Chocolate"/>}> </Route>
-          <Route path='/chocolates/:id' element={<ProductDetails products={chocolates}/>}> </Route>
           <Route path='/SignUp' element={<SignUp />}> </Route>
           <Route path='/SignIn' element={<SignIn />}> </Route>
 

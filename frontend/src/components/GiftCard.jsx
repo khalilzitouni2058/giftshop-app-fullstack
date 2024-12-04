@@ -15,7 +15,7 @@ function GiftCard({ product }) {
   const navigate = useNavigate();
 
   const showDetails = () => {
-    navigate(`/${category}/${_id}`);
+        navigate(`/${category}/${_id}`);
   };
 
   const renderStars = (rating) => {

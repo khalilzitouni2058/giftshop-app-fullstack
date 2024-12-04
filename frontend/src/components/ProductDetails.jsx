@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 import { StarFill, StarHalf, Star } from "react-bootstrap-icons"; // For star icons
@@ -10,24 +10,51 @@ import { FaCircleArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import axios from "axios";
 
 function ProductDetails({
-  products,
   handleIncrement,
   handleDecrement,
   handleSumIncrement,
   handleSumDecrement,
 }) {
-  const { _id } = useParams();
-  const path = window.location.pathname; // Example: "/flowers/1"
-  const category = path.split("/")[1];
+  const [oneProduct, setOneProduct] = useState();
+
+  const [loading, setLoading] = useState(false);
+
+  // const path = window.location.pathname; // Example: "/flowers/1"
+  // const category = path.split("/")[1];
+  // const id = path.split("/")[2];
+  const { id, category } = useParams();
+  console.log(category);
+  console.log(id);
+  const url_1 = `http://localhost:9002/api/products/${category}/${id}`;
   const navigate = useNavigate();
   const { addToCart } = useContext(AuthContext);
-  const showDetails = (itemId) => {
-    window.scrollTo(0, 0);
-    navigate(`/${category}/${itemId}`);
-  };
 
+  useEffect(() => {
+    const fetchProductById = async () => {
+      try {
+        console.log("Fetching product...");
+        setLoading(true); // Start loading
+        const response = await axios.get(url_1); // Fetch product data
+        console.log("Fetched product:", response.data.product); // Debug log
+        setOneProduct(response.data.product); // Set the product state
+        setLoading(false); // Stop loading
+      } catch (error) {
+        console.error("Error fetching product by ID:", error);
+        setLoading(false); // Stop loading on error
+      }
+    };
+
+    if (id && category) {
+      fetchProductById(); // Trigger the fetch
+    }
+  }, [id, category]);
+  const showDetails = (id) => {
+    window.scrollTo(0, 0);
+    navigate(`/${category}/${id}`);
+  };
 
   const goback = () => {
     // Use template literals to dynamically create the path
@@ -35,19 +62,26 @@ function ProductDetails({
   };
 
   // Find the product based on the ID from the URL
-  const elt = products.find((elt) => elt._id === Number(_id));
+
+  console.log(oneProduct);
 
   const increment = () => {
-    handleIncrement(elt._id);
-    handleSumIncrement(elt.Price);
+    handleIncrement(oneProduct._id);
+    handleSumIncrement(oneProduct.Price);
   };
   const decrement = () => {
-    handleDecrement(elt._id);
-    handleSumDecrement(elt);
+    handleDecrement(oneProduct._id);
+    handleSumDecrement(oneProduct);
   };
 
   // Array of all images (main + subimages)
-  const images = [elt.image, elt.subImage1, elt.subImage2, elt.subImage3];
+  const images = [
+    oneProduct.imageURL,
+    oneProduct.subImageURL1,
+    oneProduct.subImageURL2,
+    oneProduct.subImageURL3,
+  ];
+  console.log(images)
 
   // State to track the current index in the slider
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -72,8 +106,9 @@ function ProductDetails({
   };
 
   // Filter similar items (exclude the current product and match the same category)
-  const similarItems = products.filter(
-    (product) => product.category === elt.category && product.id !== elt.id
+  const similarItems = oneProduct.filter(
+    (product) =>
+      product.category === oneProduct.category && product.id !== oneProduct.id
   );
 
   return (
@@ -171,7 +206,7 @@ function ProductDetails({
               maxWidth: "600px",
             }}
           >
-            <p style={{ fontSize: "50px" }}>{elt.title}</p>
+            <p style={{ fontSize: "50px" }}>{oneProduct.title}</p>
             <div
               style={{
                 display: "flex",
@@ -180,7 +215,7 @@ function ProductDetails({
               }}
             >
               <div style={{ textAlign: "center", margin: "0px" }}>
-                {renderStars(elt.rating)}
+                {renderStars(oneProduct.rating)}
               </div>
               <p
                 style={{
@@ -189,7 +224,7 @@ function ProductDetails({
                   fontSize: "30px",
                 }}
               >
-                Price: {elt.price} $
+                Price: {oneProduct.price} $
               </p>
             </div>
             <hr />
@@ -210,13 +245,13 @@ function ProductDetails({
                 marginBottom: "30px",
               }}
             >
-              {elt.Description}
+              {oneProduct.Description}
             </p>
 
             {/* Add to Cart Section */}
             <div style={{ display: "flex", flexDirection: "row" }}>
               <Button
-                onClick={() => addToCart(elt)}
+                onClick={() => addToCart(oneProduct)}
                 style={{
                   height: "70px",
                   width: "220px",
@@ -261,7 +296,7 @@ function ProductDetails({
                 >
                   +
                 </Button>
-                <span>{elt.qte}</span>
+                <span>{oneProduct.qte}</span>
                 <Button
                   variant="danger"
                   onClick={decrement}
@@ -281,8 +316,8 @@ function ProductDetails({
         {/* Reviews Section */}
         <div style={{ marginTop: "100px" }}>
           <h3>Customer Reviews</h3>
-          {elt.reviews?.length > 0 ? (
-            elt.reviews.map((review, index) => (
+          {oneProduct.reviews?.length > 0 ? (
+            oneProduct.reviews.map((review, index) => (
               <div
                 key={index}
                 style={{
@@ -304,45 +339,47 @@ function ProductDetails({
 
         {/* Similar Items Section */}
         <div
-  style={{
-    marginTop: "50px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  }}
->
-  <h3
-    style={{
-      backgroundColor: "#ffd77a",
-      padding: "10px 10px",
-      borderRadius: "10px",
-      fontSize: "30px",
-    }}
-  >
-    Similar Items
-  </h3>
-  <div
-    style={{
-      display: "flex",
-      gap: "30px",
-      width: "max-content",
-      marginTop: "20px",
-    }}
-  >
-    {similarItems.slice(0, 5).map((item) => (
-      <div
-        key={item.id}
-        className="similar-item"
-        onClick={() => showDetails(item.id)}
-      >
-        <img src={item.image} alt={item.name} className="similar-item-image" />
-        <h5 className="similar-item-title">{item.name}</h5>
-      </div>
-    ))}
-  </div>
-</div>
-
-
+          style={{
+            marginTop: "50px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <h3
+            style={{
+              backgroundColor: "#ffd77a",
+              padding: "10px 10px",
+              borderRadius: "10px",
+              fontSize: "30px",
+            }}
+          >
+            Similar Items
+          </h3>
+          <div
+            style={{
+              display: "flex",
+              gap: "30px",
+              width: "max-content",
+              marginTop: "20px",
+            }}
+          >
+            {similarItems.slice(0, 5).map((item) => (
+              <div
+                key={item.id}
+                className="similar-item"
+                onClick={() => showDetails(item.id)}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="similar-item-image"
+                />
+                <h5 className="similar-item-title">{item.name}</h5>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );
