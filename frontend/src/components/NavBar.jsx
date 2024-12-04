@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate,useLocation  } from "react-router-dom";
 import SearchNavbar from "./SearchNavbar";
 import { AuthContext } from '../context/AuthContext';
+import logoHedya from "../assets/logoHedya.jpg"
 function NavBar() {
   const { user, logout } = useContext(AuthContext);
  
@@ -43,7 +44,7 @@ function NavBar() {
     <>
     <div>
     <nav>
-        <a href='/' className='brand'>Giftshop</a>
+        <a href='/' className='brand'><img style={{width:"100px",marginTop:'50px'}} src={logoHedya}alt="" /></a>
        
         <ul className='nav_menu'>
             
