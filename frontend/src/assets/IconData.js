@@ -8,15 +8,15 @@ import Plushs from "../assets/Plushs.png"
 
 
 export const icons = [{
-iconName:"Flowers",
+iconName:"Flower",
 iconPath:flowers,
-iconLink:"Flowers",
+iconLink:"Flower",
 iconAlt:"Flower-icon"
 },
 {
     iconName:"Chocolates",
     iconPath:chocolateBar,
-    iconLink:"Chocolates",
+    iconLink:"Chocolate",
     iconAlt:"Chocolate-icon"
 
     },

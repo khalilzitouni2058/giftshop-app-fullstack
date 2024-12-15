@@ -11,7 +11,7 @@ import { useState } from 'react';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import { AuthProvider } from './context/AuthContext';
-
+import CheckoutPage from './pages/CheckoutPage';
 function App() {
 
   const [listflowers, setflowers] = useState(flowers);
@@ -63,6 +63,7 @@ function App() {
 
           <Route path='/SignUp' element={<SignUp />}> </Route>
           <Route path='/SignIn' element={<SignIn />}> </Route>
+          <Route path='/checkout' element={<CheckoutPage/>}></Route>
 
 
 

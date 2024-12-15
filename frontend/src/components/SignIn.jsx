@@ -10,7 +10,7 @@ function SignIn() {
     const navigate = useNavigate();
     const { login } = useContext(AuthContext); 
   const handleRedirect = () => {
-    navigate("/"); // 
+    navigate("/" ,{ state: { showSuccessAlert: true } }); // 
   };
   const handleredirectSignUP = () => {
     navigate("/SignUp"); // 

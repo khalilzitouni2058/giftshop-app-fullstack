@@ -7,6 +7,8 @@ import "../styles/home.css";
 import Footer from "../components/Footer";
 import BarWithButton from "../components/BarWithButton";
 import SignInhomePage from "../components/SignInhomePage";
+import { useLocation } from "react-router-dom";
+import { Alert } from "@material-tailwind/react";
 const SplineScene = React.memo(() => (
   <Spline  scene="https://prod.spline.design/0dcUPUKvuXzn4Oru/scene.splinecode"  style={{
     
@@ -25,12 +27,25 @@ const SplineScene = React.memo(() => (
 function Home() {
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
-
+  const location = useLocation();
+    const [showAlert, setShowAlert] = useState(false);
+    useEffect(() => {
+      if (location.state?.showSuccessAlert) {
+          setShowAlert(true);
+          const timer = setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+          return () => clearTimeout(timer);
+      }
+  }, [location.state]);
   const sections = [
     <div>
       
       <NavBar />
-      
+      {showAlert && (
+                <div className="absolute left-1/3 bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded">
+                    <strong className="font-bold">Success!</strong>
+                    <span className="block sm:inline"> You have logged in successfully.</span>
+                </div>
+            )}
       <div style={{ height: "600px" }}>
        
       <h1
@@ -47,6 +62,7 @@ function Home() {
     
   }}
 >
+   
   Welcome to your favorite <br />
   <button
     className="before:content-['giftshop'] hover:before:content-['Hedya']"

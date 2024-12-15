@@ -14,8 +14,9 @@ function NavBar() {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
   console.log(isHomePage)
-  const { cart,resetCart } = useContext(AuthContext);
+  const { cart,resetCart,removeFromCart } = useContext(AuthContext);
   const [isPopoverVisible, setPopoverVisible] = useState(false);
+  console.log(cart)
   const togglePopover = () => {
     setPopoverVisible((prev) => !prev);
   };
@@ -35,11 +36,14 @@ function NavBar() {
   }, []);
   const navigate = useNavigate();
   const handleRedirect = () => {
-    navigate("/flowers"); // Replace "/flowers" with your desired path
+    navigate("/Flower");
   };
   const goSignIn = () => {
-    navigate("/SignIn"); // Replace "/flowers" with your desired path
+    navigate("/SignIn"); 
   };
+  const handlecheckout = () =>{
+    navigate("/checkout")
+  }
   return (
     <>
     <div>
@@ -120,49 +124,71 @@ function NavBar() {
       </div>
       
       <div style={{ maxHeight: "200px", overflowY: "auto" }}>
-        {cart.length > 0 ? (
-          cart.map((item, index) => (
-            <div
-              key={index}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                padding: "10px",
-                borderBottom: "1px solid #f0f0f0",
-              }}
-            >
-              {/* Product Image */}
-              <img
-                src={item.image}
-                alt={item.name}
-                style={{
-                  width: "50px",
-                  height: "50px",
-                  objectFit: "cover",
-                  borderRadius: "4px",
-                  marginRight: "10px",
-                }}
-              />
-              <div style={{ flex: 1 }}>
-                {/* Product Name */}
-                <span style={{ fontSize: "14px", fontWeight: "bold",color:"black" }}>
-                  {item.name}
-                </span>
-                <br />
-                {/* Product Quantity and Total Price */}
-                <span style={{ fontSize: "14px", color: "#555" }}>
-                  Quantity: {item.qte} × ${item.price.toFixed(2)} = $
-                  {(item.qte * item.price).toFixed(2)}
-                </span>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div style={{ padding: "20px", textAlign: "center", color: "#888" }}>
-            Your cart is empty.
-          </div>
-        )}
+  {cart.length > 0 ? (
+    cart.map((item, index) => (
+      <div
+        key={index}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "10px",
+          borderBottom: "1px solid #f0f0f0",
+        }}
+      >
+        {/* Product Image */}
+        <img
+          src={item.product.imageURL}
+          alt={item.product.title}
+          style={{
+            width: "50px",
+            height: "50px",
+            objectFit: "cover",
+            borderRadius: "4px",
+            marginRight: "10px",
+          }}
+        />
+        
+        <div style={{ flex: 1 }}>
+          {/* Product Name */}
+          <span style={{ fontSize: "14px", fontWeight: "bold", color: "black" }}>
+            {item.product.title}
+          </span>
+          <br />
+          {/* Product Quantity and Total Price */}
+          <span style={{ fontSize: "14px", color: "#555" }}>
+            Quantity: {item.count} × ${item.product.price.toFixed(2)} = $
+            {(item.count * item.product.price).toFixed(2)}
+          </span>
+        </div>
+
+        {/* Delete Button */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation(); 
+            console.log(index)// Prevent the event from bubbling up
+            removeFromCart(index); // Remove the item from the cart
+          }}
+          style={{
+            backgroundColor: "#ff4d4f",
+            color: "#fff",
+            border: "none",
+            borderRadius: "4px",
+            padding: "5px 10px",
+            cursor: "pointer",
+            width:"20px",
+            marginRight:"30px"
+          }}
+        >
+          -
+        </button>
       </div>
+    ))
+  ) : (
+    <div style={{ padding: "20px", textAlign: "center", color: "#888" }}>
+      Your cart is empty.
+    </div>
+  )}
+</div>
       {cart.length > 0 && (
         <div style={{ padding: "10px" ,display:"flex",gap:"10px"}}>
           <button
@@ -177,7 +203,7 @@ function NavBar() {
               marginLeft:"-20px"
               
             }}
-            onClick={() => alert("Proceed to Checkout")}
+            onClick={() => handlecheckout()}
           >
             Checkout
           </button>
