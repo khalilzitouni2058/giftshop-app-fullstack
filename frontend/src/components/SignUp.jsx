@@ -6,14 +6,12 @@ import { redirect, useNavigate } from "react-router-dom";
 
 function SignUp() {
   const navigate = useNavigate();
-  const handleredirectSignin =() =>{
-    navigate("/SignIn")
-  }
+  
   const [formData, setFormData] = useState({
     userName: '',
     email: '',
     password: '',
-    
+    role:'user',
     dateOfBirth:'',
     phoneNumber: '',
     
@@ -41,6 +39,7 @@ function SignUp() {
       console.log(formData)
       const response = await axios.post(backendUrl, formData);
       console.log('User created:', response.data);
+      navigate("/SignIn")
       
     } catch (err) {
       setError('An error occurred while creating the user. Please try again.');
@@ -192,7 +191,7 @@ function SignUp() {
                 marginTop: "30px",
                 transition: "background-color 0.3s",
               }}
-              onClick={handleredirectSignin}
+              
             >
               Sign Up
             </button>

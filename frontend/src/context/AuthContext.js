@@ -24,17 +24,22 @@ export const AuthProvider = ({ children }) => {
       return updatedCart;
     });
   };
-
-  const removeFromCart = (itemId) => {
+  
+  const removeFromCart = (itemIndex) => {
+    
     setCart((prevCart) => {
-      const updatedCart = prevCart.filter((item) => item.id !== itemId);
+      
+      const updatedCart = prevCart.filter((_, index) => index !== itemIndex);
+      
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       return updatedCart;
     });
   };
   const resetCart = () => {
-    setCart([]); // Clears the cart state
-    localStorage.setItem("cart", JSON.stringify([])); // Clears the cart in localStorage
+    if (window.confirm("Are you sure you want to clear the cart?")) {
+      setCart([]);
+      localStorage.setItem("cart", JSON.stringify([]));
+    } 
   };
 
   useEffect(() => {
