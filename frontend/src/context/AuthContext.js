@@ -3,25 +3,23 @@ import { createContext, useState, useEffect } from 'react';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
   const [cart, setCart] = useState([]);
 
   const login = (userData, token) => {
     setUser(userData);
-    console.log(userData)
     localStorage.setItem('accessToken', token);
     localStorage.setItem('userName', userData.userName);
     localStorage.setItem('user', JSON.stringify(userData));
-    
-
-
   };
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userName');
+    localStorage.removeItem('user'); // Ensure user is cleared from localStorage
   };
+
   const addToCart = (item) => {
     setCart((prevCart) => {
       const updatedCart = [...prevCart, item];
@@ -31,27 +29,30 @@ export const AuthProvider = ({ children }) => {
   };
   
   const removeFromCart = (itemIndex) => {
-    
     setCart((prevCart) => {
-      
       const updatedCart = prevCart.filter((_, index) => index !== itemIndex);
-      
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       return updatedCart;
     });
   };
+
   const resetCart = () => {
     if (window.confirm("Are you sure you want to clear the cart?")) {
       setCart([]);
       localStorage.setItem("cart", JSON.stringify([]));
-    } 
+    }
+  };
+
+  const updateUser = (updatedUserData) => {
+    setUser(updatedUserData);
+    localStorage.setItem('user', JSON.stringify(updatedUserData)); // Update user data in localStorage
   };
 
   useEffect(() => {
-    const storedUserName = localStorage.getItem('userName');
+    const storedUser = localStorage.getItem('user');
     const token = localStorage.getItem('accessToken');
-    if (storedUserName && token) {
-      setUser({ userName: storedUserName });
+    if (storedUser && token) {
+      setUser(JSON.parse(storedUser));
     }
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
@@ -60,7 +61,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, cart, addToCart, removeFromCart,resetCart }}>
+    <AuthContext.Provider value={{ user, login, logout, cart, addToCart, removeFromCart, resetCart, updateUser }}>
       {children}
     </AuthContext.Provider>
   );

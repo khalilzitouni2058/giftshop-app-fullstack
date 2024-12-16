@@ -1,21 +1,21 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import NavBar from '../components/NavBar';
-import '../styles/Profile.css';  // Import the CSS styles
+import '../styles/Profile.css';
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, updateUser } = useContext(AuthContext);
   const userdata = JSON.parse(localStorage.getItem("user"));
   
   const [isEditing, setIsEditing] = useState(false);
-  const [isPasswordEditing, setIsPasswordEditing] = useState(false);  // State to manage password visibility
+  const [isPasswordEditing, setIsPasswordEditing] = useState(false);
   const [formData, setFormData] = useState({
     userName: userdata?.userName || '',
     email: userdata?.email || '',
     age: userdata?.age || '',
-    currentpassword: '',  // Add current password field
-    password: '',          // Add new password field
-    confirmPassword: '',   // Add confirm password field
+    currentpassword: '',
+    password: '',
+    confirmPassword: '',
   });
 
   const handleChange = (e) => {
@@ -66,6 +66,9 @@ const Profile = () => {
         throw new Error(result.message || "Failed to update user.");
       }
 
+      // After successful profile update, update user data in the context
+      updateUser(updatedData);
+
       alert("Profile updated successfully!");
     } catch (error) {
       console.error("Error:", error.message);
@@ -82,7 +85,6 @@ const Profile = () => {
             <h2 className="profile-header">Update Profile</h2>
             {isEditing ? (
               <>
-                {/* Existing fields */}
                 <div className="profile-info">
                   <label>Name</label>
                   <input
@@ -111,7 +113,6 @@ const Profile = () => {
                   />
                 </div>
 
-                {/* Conditionally render password fields when password editing is enabled */}
                 {isPasswordEditing && (
                   <>
                     <div className="profile-info">
@@ -145,7 +146,6 @@ const Profile = () => {
                   </>
                 )}
 
-                {/* Button to toggle password editing */}
                 <div className="profile-buttons">
                   <button onClick={() => setIsPasswordEditing(!isPasswordEditing)}>
                     {isPasswordEditing ? "Cancel Password Change" : "Change Password"}
@@ -155,7 +155,6 @@ const Profile = () => {
               </>
             ) : (
               <>
-                {/* Display user information when not editing */}
                 <div className="profile-info">
                   <strong>Name</strong>
                   <p>{userdata.userName}</p>
