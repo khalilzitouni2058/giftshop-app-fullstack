@@ -39,6 +39,7 @@ function SignIn() {
           const response = await axios.post(backendUrl, formData);
           console.log('User loggedIn:', response.data);
           const { token, user } = response.data;
+          console.log(user)
           login(user, token);
           console.log(user.userName)
           handleRedirect()

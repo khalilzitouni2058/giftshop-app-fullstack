@@ -3,13 +3,18 @@ import { createContext, useState, useEffect } from 'react';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
   const [cart, setCart] = useState([]);
 
   const login = (userData, token) => {
     setUser(userData);
+    console.log(userData)
     localStorage.setItem('accessToken', token);
     localStorage.setItem('userName', userData.userName);
+    localStorage.setItem('user', JSON.stringify(userData));
+    
+
+
   };
 
   const logout = () => {

@@ -12,6 +12,8 @@ import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import { AuthProvider } from './context/AuthContext';
 import CheckoutPage from './pages/CheckoutPage';
+import Profile from './pages/Profile';
+
 function App() {
 
   const [listflowers, setflowers] = useState(flowers);
@@ -57,6 +59,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home/>}> </Route>
+          <Route path='/Profile' element={<Profile />}> </Route>
+
           <Route path='/:category' element={<GiftList/>}> </Route>
           <Route path='/:category/:id' element={<ProductDetails   handleSumDecrement={handleSumDecrement} 
           handleDecrement={handleDecrement} handleIncrement={handleIncrement} handleSumIncrement={handleSumIncrement}/>}> </Route>

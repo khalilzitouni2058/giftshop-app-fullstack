@@ -56,7 +56,7 @@ const putUser = async (req, res) => {
         await User.findByIdAndUpdate(id,user)
         res.status(200).json({ msg: "update success" });
     }catch (error){
-        res.status(500).json({ msg: "error on updating user" });
+        res.status(400).json({ msg: "error on updating user" });
     }
 };
 
@@ -93,5 +93,10 @@ const signIn = async (req, res) => {
     res.status(500).json({ msg: "Server error" });
     }
     };        
-module.exports = { getUsers, postUser, putUser, deleteUser, getOneUser, signIn };
+
+    
+      
+    
+    
+module.exports = { getUsers, postUser, putUser, deleteUser, getOneUser, signIn,  };
 

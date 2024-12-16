@@ -8,6 +8,10 @@ import { useNavigate,useLocation  } from "react-router-dom";
 import SearchNavbar from "./SearchNavbar";
 import { AuthContext } from '../context/AuthContext';
 import logoHedya from "../assets/logoHedya.jpg"
+import { CgProfile } from "react-icons/cg";
+
+
+
 function NavBar() {
   const { user, logout } = useContext(AuthContext);
  
@@ -41,7 +45,13 @@ function NavBar() {
   const goSignIn = () => {
     navigate("/SignIn"); 
   };
-  const handlecheckout = () =>{
+
+  const goToProfile = () => {
+    navigate("/Profile"); 
+  };
+
+  const handlecheckout = () =>{ 
+
     navigate("/checkout")
   }
   return (
@@ -85,6 +95,8 @@ function NavBar() {
         </Button>
       )}
     </li>
+    <li className='nav_item' style={{fontSize:"150px" }}><Button variant="outline-light" onClick={goToProfile}><CgProfile /></Button></li>
+
             <li className='nav_item'><Button variant="outline-light"><FaSearch /></Button></li>
             <li className="nav_item" style={{ position: "relative" }}>
   <Button
