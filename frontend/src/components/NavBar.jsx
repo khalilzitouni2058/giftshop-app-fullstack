@@ -13,10 +13,10 @@ function NavBar() {
  
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  console.log(isHomePage)
+
   const { cart,resetCart,removeFromCart } = useContext(AuthContext);
   const [isPopoverVisible, setPopoverVisible] = useState(false);
-  console.log(cart)
+
   const togglePopover = () => {
     setPopoverVisible((prev) => !prev);
   };
@@ -48,7 +48,7 @@ function NavBar() {
     <>
     <div>
     <nav>
-        <a href='/' className='brand'><img style={{width:"100px",marginTop:'50px'}} src={logoHedya}alt="" /></a>
+        <a href='/' className='brand'><img style={{width:"100px"}} src={logoHedya}alt="" /></a>
        
         <ul className='nav_menu'>
             
@@ -165,7 +165,7 @@ function NavBar() {
         <button
           onClick={(e) => {
             e.stopPropagation(); 
-            console.log(index)// Prevent the event from bubbling up
+            
             removeFromCart(index); // Remove the item from the cart
           }}
           style={{
