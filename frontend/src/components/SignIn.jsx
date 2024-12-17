@@ -42,7 +42,11 @@ function SignIn() {
           console.log(user)
           login(user, token);
           console.log(user.userName)
-          handleRedirect()
+          if (user.role === 'admin') {
+            navigate("/dashboard"); 
+          } else {
+            handleRedirect(); 
+          }
         } catch (err) {
           setError('An error occurred while creating the user. Please try again.');
           console.error(err);

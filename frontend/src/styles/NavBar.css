@@ -1,13 +1,9 @@
-*,
-*::after,
-*::before {
-  margin: 0;
-}
 html {
   font-size: 62.5%;
 }
 body {
-  font-size: 2rem;
+  font-size: 1rem;
+  
 }
 li {
   list-style: none;
@@ -19,8 +15,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 10vh;
-
+  height: 8vh;
+  
   background: rgb(255, 255, 255);
 }
 .nav_menu {
@@ -38,13 +34,13 @@ nav {
   top: 5px;
 }
 div::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+  display: none;
 }
 .nav_item button {
   display: flex;
   font-size: medium;
   padding: 10px;
-  
+
   position: relative;
   left: 28px;
   border: none;

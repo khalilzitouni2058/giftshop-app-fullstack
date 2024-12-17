@@ -7,11 +7,13 @@ import { FaRegHeart, FaHeart } from "react-icons/fa"; // Heart icons
 
 function GiftCard({ product }) {
   const { _id, category, title, imageURL, subImage1, price, rating } = product;
-  console.log(product._id)
+  
 
   const [isHovered, setIsHovered] = useState(false); // State to track hover
   const [isLiked, setIsLiked] = useState(false); // State to track the heart icon toggle
-
+if(isLiked){
+  console.log(product._id);
+}
   const navigate = useNavigate();
 
   const showDetails = () => {
@@ -95,7 +97,7 @@ function GiftCard({ product }) {
             fontSize: "30px",
             transition: "color 0.3s ease", // Smooth color transition
           }}
-          onClick={() => setIsLiked(!isLiked)} // Toggle the heart icon
+          onClick={() => setIsLiked(!isLiked) } // Toggle the heart icon
         >
           {/* White circle background */}
           
