@@ -13,7 +13,8 @@ import SignIn from './components/SignIn';
 import { AuthProvider } from './context/AuthContext';
 import CheckoutPage from './pages/CheckoutPage';
 import Profile from './pages/Profile';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
   const [listflowers, setflowers] = useState(flowers);
@@ -57,6 +58,7 @@ function App() {
     <div className="App">
       <AuthProvider>
       <BrowserRouter>
+      
         <Routes>
           <Route path='/' element={<Home/>}> </Route>
           <Route path='/Profile' element={<Profile />}> </Route>
@@ -68,10 +70,11 @@ function App() {
           <Route path='/SignUp' element={<SignUp />}> </Route>
           <Route path='/SignIn' element={<SignIn />}> </Route>
           <Route path='/checkout' element={<CheckoutPage/>}></Route>
-
+        
 
 
         </Routes>
+        <ToastContainer position="bottom-right" />
       </BrowserRouter>
       </AuthProvider>
     </div>

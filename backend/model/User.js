@@ -27,7 +27,8 @@ const UserSchema = new mongoose.Schema({
     dateOfBirth:{
         type: String,
         required: true
-    }
+    },
+    favorites: [{ type: String }],
 });
 
 module.exports = mongoose.model('User', UserSchema);

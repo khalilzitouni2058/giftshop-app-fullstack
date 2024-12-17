@@ -28,3 +28,38 @@
 .custom-button:hover {
   background-color: #f023db; /* Hover background color */
 }
+/* Chill Welcome Text Styling */
+.welcome-text {
+  font-family: "Poppins", sans-serif; /* A more relaxed and modern font */
+  color: #3a3a3a; /* Soft, dark gray color */
+  background: transparent;
+  font-size: 6rem; /* Moderate size for a chill vibe */
+  text-align: left;
+  line-height: 1.2;
+  font-weight: 400; /* Lighter weight for a relaxed look */
+  padding: 0 20px; /* Subtle padding */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  position: relative;
+  animation: fadeIn 2s ease-out; /* Smooth fade-in animation */
+  z-index: 1;
+  margin-top: 80px;
+  /* Smooth hover effect */
+}
+
+/* Animation for Gentle Fade-In */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover Effect */
+.welcome-text:hover {
+  /* Slight upward movement on hover */
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.15);
+}

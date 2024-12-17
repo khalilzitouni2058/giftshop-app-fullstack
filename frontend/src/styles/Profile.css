@@ -1,56 +1,131 @@
 /* Add general profile styles */
 .profile-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .profile-header {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .profile-info {
-    margin-bottom: 20px;
-  }
-  
-  .profile-info label {
-    font-weight: bold;
-    display: block;
-  }
-  
-  .profile-info input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff; /* Set background color to white */
-  }
-  
-  .profile-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  .profile-buttons button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .profile-buttons button:hover {
-    background-color: #45a049;
-  }
-  
-  .profile-info p {
-    font-size: 16px;
-    margin-top: 5px;
-  }
-  
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.profile-info {
+  margin-bottom: 20px;
+}
+
+.profile-info label {
+  font-weight: bold;
+  display: block;
+}
+
+.profile-info input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff; /* Set background color to white */
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.profile-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.profile-buttons button:hover {
+  background-color: #45a049;
+}
+
+.profile-info p {
+  font-size: 16px;
+  margin-top: 5px;
+}
+/* Container for the list of products */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Responsive grid */
+  gap: 20px;
+  padding: 20px;
+  list-style-type: none;
+  margin: 0;
+}
+
+/* Individual product card */
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px; /* Adjust as needed */
+}
+
+/* Hover effect to enlarge the card and show a shadow */
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Product image styling */
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Ensure the image covers the box */
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Product title styling */
+.product-title {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* Price styling */
+.product-price {
+  font-size: 16px;
+  color: #f39c12;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Add to Cart or Action Button styling */
+.add-to-cart-btn {
+  background-color: #f39c12;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: auto; /* Push the button to the bottom */
+}
+
+.add-to-cart-btn:hover {
+  background-color: #e67e22;
+}

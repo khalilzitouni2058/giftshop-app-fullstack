@@ -95,8 +95,82 @@ const signIn = async (req, res) => {
     };        
 
     
+    const getFavorites = async (req, res) => {
+        try {
+          const { userId } = req.query; // Retrieve userId from query params
+          const user = await User.findOne({ _id: userId }); 
+            console.log
+          if (!user) {
+            return res.status(404).json({ message: "User not found" });
+          }
       
+          res.status(200).json(user.favorites); // Respond with the favorites
+        } catch (error) {
+          res.status(500).json({ message: "Error fetching favorites", error });
+        }
+      };
+      const addFavorite = async (req, res) => {
+        try {
+            let { userId, productId } = req.query;
+            
+            // Trim any extra whitespace or newline characters
+            productId = productId.trim();
+    
+            // Find the user by userId
+            const user = await User.findOne({ _id: userId });
+    
+            if (!user) {
+                return res.status(404).json({ message: "User not found" });
+            }
+    
+            // Check if the product is already in the favorites list
+            if (user.favorites.includes(productId)) {
+                return res.status(400).json({ message: "Product already in favorites" });
+            }
+    
+            // Add the productId to the favorites list
+            user.favorites.push(productId);
+    
+            // Save the user document with the updated favorites list
+            await user.save();
+    
+            res.status(200).json({ message: "Product added to favorites", favorites: user.favorites });
+        } catch (error) {
+            res.status(500).json({ message: "Error adding product to favorites", error });
+        }
+    };
+    const removeFavorite = async (req, res) => {
+        try {
+            let { userId, productId } = req.query;
+            
+            // Trim any extra whitespace or newline characters
+            productId = productId.trim();
+    
+            // Find the user by userId
+            const user = await User.findOne({ _id: userId });
+    
+            if (!user) {
+                return res.status(404).json({ message: "User not found" });
+            }
+    
+            // Check if the productId is in the favorites list
+            const productIndex = user.favorites.indexOf(productId);
+            if (productIndex === -1) {
+                return res.status(400).json({ message: "Product not in favorites" });
+            }
+    
+            // Remove the productId from the favorites list
+            user.favorites.splice(productIndex, 1);
+    
+            // Save the updated user document
+            await user.save();
+    
+            res.status(200).json({ message: "Product removed from favorites", favorites: user.favorites });
+        } catch (error) {
+            res.status(500).json({ message: "Error removing product from favorites", error });
+        }
+    };
     
     
-module.exports = { getUsers, postUser, putUser, deleteUser, getOneUser, signIn,  };
+module.exports = { getUsers, postUser, putUser, deleteUser, getOneUser, signIn, getFavorites,addFavorite ,removeFavorite};
 
