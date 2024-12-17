@@ -33,6 +33,22 @@ const getProductById = async (req, res) => {
         res.status(500).json({ msg: "Error retrieving product" }); 
     }
 };
+const getProduct= async (req, res) => {
+        try {
+          const { productId } = req.query; // Retrieve userId from query params
+          const product = await Product.findOne({ _id: productId }); 
+            console.log
+          if (!product) {
+            return res.status(404).json({ message: "product not found" });
+          }
+      
+          res.status(200).json(product); 
+        } catch (error) {
+          res.status(500).json({ message: "Error fetching favorites", error });
+        }
+      };
+    
+
 
 
 
@@ -86,4 +102,5 @@ module.exports = {
     postProduct,
     deleteProduct,
     getProductById,
+    getProduct
 };

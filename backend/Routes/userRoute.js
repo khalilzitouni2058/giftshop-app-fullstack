@@ -7,6 +7,9 @@ const {
     deleteUser,
     getOneUser,
     signIn,
+    getFavorites,
+    addFavorite,
+    removeFavorite
 } = require("../Controllers/userController");
 const isAuth = require("../middleware/isAuth")
 const isAutho=require('../middleware/isAutho')
@@ -16,5 +19,8 @@ userRoute.post("/users", postUser);
 userRoute.put("/users/:id", putUser);
 userRoute.delete("/users/:id",isAuth,isAutho(['admin']), deleteUser);
 userRoute.post("/signIn", signIn);
+userRoute.post("/Profile/addfavorite",addFavorite)
+userRoute.post("/Profile/removefavorite",removeFavorite)
+userRoute.get("/Profile",getFavorites)
 
 module.exports = userRoute;

@@ -76,6 +76,7 @@ function App() {
     <div className="App">
       <AuthProvider>
       <BrowserRouter>
+      
         <Routes>
           <Route path='/' element={<Home/>}> </Route>
           <Route path='/Profile' element={<Profile />}> </Route>
@@ -99,6 +100,7 @@ function App() {
 
 
         </Routes>
+        <ToastContainer position="bottom-right" />
       </BrowserRouter>
       </AuthProvider>
     </div>

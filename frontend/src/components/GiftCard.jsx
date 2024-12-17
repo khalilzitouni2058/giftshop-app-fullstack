@@ -1,19 +1,86 @@
-import React, { useState } from 'react';
+import React, { useState,useContext ,useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import axios from "axios";
 import { StarFill, StarHalf, Star } from "react-bootstrap-icons"; // For star icons
 import { useNavigate } from 'react-router-dom';
 import { FaRegHeart, FaHeart } from "react-icons/fa"; // Heart icons
-
+import "../styles/giftcard.css"
+import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function GiftCard({ product }) {
   const { _id, category, title, imageURL, subImage1, price, rating } = product;
-  
+    const { user, updateUser } = useContext(AuthContext);
 
   const [isHovered, setIsHovered] = useState(false); // State to track hover
-  const [isLiked, setIsLiked] = useState(false); // State to track the heart icon toggle
-if(isLiked){
-  console.log(product._id);
-}
+  const [isLiked, setIsLiked] = useState(false); 
+  const [favorites, setFavorites] = useState([]);
+  const notify = () => toast("Wow so easy!");
+    useEffect(() => {
+        const fetchFavorites = async () => {
+            try {
+                const response = await axios.get('http://localhost:9002/api/Profile', {
+                    params: { userId: user._id }
+                });
+                setFavorites(response.data); 
+            } catch (error) {
+                console.error('Error fetching favorites:', error);
+            }
+        };
+
+        fetchFavorites();
+    }, [user._id]); 
+    console.log(favorites)
+  useEffect(() => {
+    // Initialize the isLiked state based on the user's favorites list
+    if (favorites && favorites.includes(_id)) {
+        setIsLiked(true);
+    } else {
+        setIsLiked(false);
+    }
+}, [favorites, _id]);
+const handleLikeClick = async () => {
+  try {
+      // Toggle the like status
+      const newIsLiked = !isLiked;
+      setIsLiked(newIsLiked);
+    
+      
+      const endpoint = newIsLiked
+          ? 'http://localhost:9002/api/Profile/addfavorite'
+          : 'http://localhost:9002/api/Profile/removefavorite';
+
+      // Send the request to either add or remove the favorite
+      const response = await axios.post(endpoint, null, {
+          params: {
+              userId: user._id,
+              productId: _id
+          }
+      });
+      if (newIsLiked == true) {
+        toast.success('Product added to favorites!', {
+          style: {
+            fontSize: '15px', 
+            
+          }
+        });
+    } if(newIsLiked == false) {
+        toast.warning('Product removed from favorites!',{
+          style: {
+            fontSize: '15px', 
+            
+          }
+          
+        });
+    }
+
+      console.log('Favorites updated:', response.data);
+  } catch (error) {
+      console.error('Error updating favorite:', error);
+  }
+};
+
   const navigate = useNavigate();
 
   const showDetails = () => {
@@ -40,7 +107,7 @@ if(isLiked){
 
   return (
     <Card className='GiftCard' >
-      
+      <div >
       <div 
         
         onMouseEnter={() => setIsHovered(true)}
@@ -85,9 +152,13 @@ if(isLiked){
         </div>
 
         {/* Heart Icon with White Circle Background */}
-        <div>
-            <h3 style={{display:"flex",alignItems:"flex-end",position:"absolute",bottom:"10px",left:"10px",backgroundColor:"white",padding:"5px",borderRadius:"30px",fontSize:"15px"}}> {price} TND </h3>
-          </div>
+              
+        
+        <div className="product-details" onClick={showDetails} style={{cursor:"pointer"}}>
+          <h1 className="product-title">{title}</h1>
+          <h3 className="product-price" style={{color:"black"}}>{price} TND</h3>
+        </div>
+      </div>
         <div
           style={{
             position: "absolute",
@@ -97,29 +168,33 @@ if(isLiked){
             fontSize: "30px",
             transition: "color 0.3s ease", // Smooth color transition
           }}
-          onClick={() => setIsLiked(!isLiked) } // Toggle the heart icon
+          onClick={() => handleLikeClick() } // Toggle the heart icon
         >
           {/* White circle background */}
           
           <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "40px",
-              height: "40px",
-              borderRadius: "50%",
-               // White circle background
-               // Optional: Shadow for the circle
-              padding: "5px",
-            }}
-          >
-            {isLiked ? (
-              <FaHeart color="red" /> // Red heart when liked
-            ) : (
-              <FaRegHeart color="gray" /> // Gray heart when unliked
-            )}
-          </div>
+      
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "50px", // Adjust size as needed
+        height: "50px",
+        borderRadius: "50%",
+        backgroundColor: "white",
+        padding: "5px",
+        cursor: "pointer", // Add pointer cursor for better UX
+        position: "relative",
+        overflow: "hidden",
+      }}
+      className="heart-container"
+    >
+      {isLiked ? (
+        <FaHeart color="red" className="heart-icon liked" />
+      ) : (
+        <FaRegHeart color="gray" className="heart-icon" />
+      )}
+    </div>
         </div>
       
     </Card>

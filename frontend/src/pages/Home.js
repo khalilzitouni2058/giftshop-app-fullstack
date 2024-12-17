@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import NavBar from "../components/NavBar";
 import Carousels from "../components/Carousels";
 import Cards from "../components/Cards";
@@ -7,111 +7,84 @@ import "../styles/home.css";
 import Footer from "../components/Footer";
 import BarWithButton from "../components/BarWithButton";
 import SignInhomePage from "../components/SignInhomePage";
+import { AuthContext } from '../context/AuthContext';
 import { useLocation } from "react-router-dom";
+import { toast } from 'react-toastify';
 import { Alert } from "@material-tailwind/react";
-const SplineScene = React.memo(() => (
-  <Spline  scene="https://prod.spline.design/0dcUPUKvuXzn4Oru/scene.splinecode"  style={{
-    
-    
-    bottom:"200px",
-    position:"relative",
-   
-    height:'400px',
-    width:'1000px',
-    left:"1200px"
-    
-    
-  }} />
-));
+import imageproducts from "../assets/ourPproduct.png"
+// Memoizing the Spline component
+
+
+const sectionStyles = [
+  { backgroundColor: "white", height: "100vh", flexDirection: "column", justifyContent: "center", alignItems: "center" },
+  { backgroundColor: "rgb(251 146 60)", height: "100vh" },
+  { backgroundColor: "rgb(244 244 245)", height: "100vh" },
+  { backgroundColor: "white", height: "100vh" }
+];
 
 function Home() {
   const [currentSection, setCurrentSection] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const location = useLocation();
-    const [showAlert, setShowAlert] = useState(false);
-    useEffect(() => {
-      if (location.state?.showSuccessAlert) {
-          setShowAlert(true);
-          const timer = setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
-          return () => clearTimeout(timer);
-      }
-  }, [location.state]);
+  const { user, logout } = useContext(AuthContext);
+
+  
   const sections = [
-    <div>
-      
+    <div key="section1" style={{display:"flex",flexDirection:"column"}}>
       <NavBar />
-      {showAlert && (
-                <div className="absolute left-1/3 bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded">
-                    <strong className="font-bold">Success!</strong>
-                    <span className="block sm:inline"> You have logged in successfully.</span>
-                </div>
-            )}
-      <div style={{ height: "600px" }}>
-       
-      <h1
-  className="anton-regular"
-  style={{
-    color:"black",
-    fontSize: "8rem",
-    textAlign: "left",
-    
-    width:"1000px",
-    position:"relative",
-    left:'500px'
-   
-    
-  }}
->
-   
-  Welcome to your favorite <br />
-  <button
-    className="before:content-['giftshop'] hover:before:content-['Hedya']"
+      <div style={{}}>
+            <h1 className="welcome-text">
+            Welcome To Hdeya <br />
+            
+            <div style={{ position: "relative", width: "900px", left: "600px",bottom:"620px"}}>
+            <BarWithButton />
+  <img
+    src={imageproducts}
+    width={900}
     style={{
-      color:"black",
-      
-      WebkitBackgroundClip: "text",
-      
-      border: "none",
-      fontSize: "inherit",
-      cursor: "pointer",
-      
+      position: "relative",
+      zIndex: "-1",
     }}
-  >
-    
-  </button>
-</h1>
-       
+    alt="Product"
+  />
+  <div
+    style={{
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: "100%",
+      height: "150px", // Adjust height for fade coverage
+      background: "linear-gradient(transparent, white)", // Adjust 'white' to match your background
+      zIndex: "0",
+    }}
+  ></div>
+  
+</div>
+
+      </h1>
         
-          <SplineScene />
-        <BarWithButton  />
-        
+      
       </div>
+      
     </div>,
-    
-    <Carousels />,
-    
-    <Cards />,
-    <SignInhomePage />
-    
-    
+    <Carousels key="section2" />,
+    <Cards key="section3" />,
+    <SignInhomePage key="section4" />
   ];
 
-  // Throttle the scroll handler to improve performance
-  const handleWheel = useCallback(
-    (event) => {
-      if (isScrolling) return;
+  // Debounced Scroll Handler
+  const handleWheel = useCallback((event) => {
+    if (isScrolling) return;
+    setIsScrolling(true);
 
-      setIsScrolling(true);
-      if (event.deltaY > 0 && currentSection < sections.length - 1) {
-        setCurrentSection((prev) => prev + 1);
-      } else if (event.deltaY < 0 && currentSection > 0) {
-        setCurrentSection((prev) => prev - 1);
-      }
+    if (event.deltaY > 0 && currentSection < sections.length - 1) {
+      setCurrentSection(prev => prev + 1);
+    } else if (event.deltaY < 0 && currentSection > 0) {
+      setCurrentSection(prev => prev - 1);
+    }
 
-      setTimeout(() => setIsScrolling(false), 1500); // Match transition duration
-    },
-    [currentSection, isScrolling, sections.length]
-  );
+    setTimeout(() => setIsScrolling(false), 1500);
+  }, [currentSection, isScrolling, sections.length]);
 
   useEffect(() => {
     window.addEventListener("wheel", handleWheel);
@@ -121,13 +94,7 @@ function Home() {
   }, [handleWheel]);
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        overflow: "hidden",
-        position: "relative",
-      }}
-    >
+    <div style={{ height: "100vh", overflow: "hidden", position: "relative" }}>
       <div
         style={{
           display: "flex",
@@ -139,25 +106,11 @@ function Home() {
         {sections.map((section, index) => (
           <div
             key={index}
-            style={{
-              height: "100vh",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              overflow: "hidden",
-              backgroundColor: index === 1 
-              ? "rgb(251 146 60)" 
-              : index === 2 
-                ? "rgb(244 244 245)" 
-                : "white",
-              
-            }}
+            style={sectionStyles[index] || { height: "100vh" }}
           >
             {section}
           </div>
         ))}
-        
       </div>
     </div>
   );
