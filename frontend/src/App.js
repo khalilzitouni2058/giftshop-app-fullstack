@@ -14,7 +14,7 @@ import { AuthProvider } from './context/AuthContext';
 import CheckoutPage from './pages/CheckoutPage';
 import Profile from './pages/Profile';
 
-
+import {ToastContainer} from "react-toastify"
 
 import Dashboard from './pages/Dashboard'; // Import the admin dashboard component
 
