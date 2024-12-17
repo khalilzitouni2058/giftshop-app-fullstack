@@ -13,8 +13,26 @@ import SignIn from './components/SignIn';
 import { AuthProvider } from './context/AuthContext';
 import CheckoutPage from './pages/CheckoutPage';
 import Profile from './pages/Profile';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+
+
+import Dashboard from './pages/Dashboard'; // Import the admin dashboard component
+
+// Helper function for ProtectedRoute with roles
+const ProtectedRoute = ({ children, role }) => {
+  const token = localStorage.getItem('accessToken');
+  const userRole = localStorage.getItem('userRole');
+
+  if (!token) {
+    return <Navigate to="/signIn" />;
+  }
+
+  if (role && userRole !== role) {
+    return <Navigate to="/" />; // Redirect to home if role doesn't match
+  }
+
+  return children;
+};
 function App() {
 
   const [listflowers, setflowers] = useState(flowers);
@@ -49,10 +67,10 @@ function App() {
       setSum(sum - article.price);
     }
   };
-  const ProtectedRoute = ({ children }) => {
-    const token = localStorage.getItem('accessToken');
-    return token ? children : <Navigate to="/signIn" />;
-  };
+  // const ProtectedRoute = ({ children }) => {
+  //   const token = localStorage.getItem('accessToken');
+  //   return token ? children : <Navigate to="/signIn" />;
+  // };
 
   return (
     <div className="App">
@@ -70,7 +88,15 @@ function App() {
           <Route path='/SignUp' element={<SignUp />}> </Route>
           <Route path='/SignIn' element={<SignIn />}> </Route>
           <Route path='/checkout' element={<CheckoutPage/>}></Route>
-        
+          <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute role="admin">
+                  <Dashboard />
+               </ProtectedRoute>
+              }
+           />
+
 
 
         </Routes>

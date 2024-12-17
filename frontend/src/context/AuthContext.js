@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
     setUser(userData);
     localStorage.setItem('accessToken', token);
     localStorage.setItem('userName', userData.userName);
+    localStorage.setItem('userRole', userData.role);//added by alaa
     localStorage.setItem('user', JSON.stringify(userData));
   };
 
@@ -17,6 +18,7 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userName');
+    localStorage.removeItem('userRole');// added by alaa
     localStorage.removeItem('user'); // Ensure user is cleared from localStorage
   };
 
@@ -51,8 +53,9 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     const token = localStorage.getItem('accessToken');
+    const role = localStorage.getItem('userRole');  
     if (storedUser && token) {
-      setUser(JSON.parse(storedUser));
+      setUser({ ...JSON.parse(storedUser), role });//modified by alaa
     }
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
