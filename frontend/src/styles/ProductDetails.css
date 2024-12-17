@@ -66,4 +66,159 @@
     margin-bottom: 10px;
   }
   
+  .carousel-image {
+    width: 400px; /* Fixed width */
+    height: 497px; /* Fixed height */
+    object-fit: cover; /* Ensures the image fits while maintaining aspect ratio */
+    border-radius: 5px; /* Optional: rounded corners */
+  }
   
+  .custom-accordion-header {
+     /* Add a border */
+    border-radius: 20px; /* Rounded corners */
+    background-color: #eaeaea; /* Light gray background */
+    transition: border-color 0.3s ease-in-out;
+    outline: none;
+  }
+  
+  .custom-accordion-header:hover {
+    border-color: #999; /* Darker border color on hover */
+    background-color: #eaeaea; /* Darker gray background */
+    outline: none;
+  }
+  /* Style for the accordion button */
+
+
+/* Style for the active (pressed) accordion button */
+/* General accordion button styling */
+.accordion-button {
+  outline: none;
+  border-radius: 20px; /* Rounded corners */
+  background-color: #eaeaea; /* Default background */
+  border: 2px solid #ccc; /* Default border color */
+  box-shadow: none; /* Remove shadow */
+  transition: all 0.3s ease; /* Smooth transitions for hover/click effects */
+  text-decoration: black;
+  
+}
+
+
+
+/* Active (clicked/open) accordion button */
+.accordion-button:not(.collapsed) {
+  background-color: white; /* Darker background for active state */
+  border-color: white; /* Slightly darker border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+  border-radius: 20px; /* Ensure border-radius remains */
+  transition: all 0.3s ease; /* Smooth transition */
+
+  outline: none;
+  font-size: 25px;
+  font-weight: 700;
+  color: black;
+
+}
+
+.accordion-button.collapsed {
+  background-color: white; /* Darker background for active state */
+  border-color: white; /* Slightly darker border */
+  border-radius: 20px; /* Ensure border-radius remains */
+  transition: all 0.3s ease; /* Smooth transition */
+  outline: none;
+  font-weight: 600;
+  font-size: 15px;
+
+  color: black;
+
+}
+
+/* Focus state - clean look */
+.accordion-button:focus {
+  outline: none; /* Remove default outline */
+}
+
+/* Custom hover effect for the header container */
+.custom-accordion-header .accordion-button:hover {
+  cursor: pointer; /* Indicate interactivity */
+  outline: none;
+  text-decoration: black;
+
+}
+
+/* Smooth transition for collapsed state */
+.accordion-button.collapsed:hover {
+  transition: all 0.3s ease; /* Smooth transition when collapsed */
+  background-color: #eaeaea; /* Default background */
+  border-color: #ccc;
+  transform: scale(1.05); /* Reset scaling */
+  outline: none;
+}
+
+.accordion-button:not(collapsed):hover {
+  transition: all 0.3s ease; /* Smooth transition when collapsed */
+  background-color: #eaeaea; /* Default background */
+  border-color: #ccc;
+  transform: scale(1.05); /* Reset scaling */
+  outline: none;
+}
+
+/* Button Styling */
+.add-to-cart-btn {
+  height: 70px;
+  width: 400px;
+  font-size: 20px;
+  position: relative;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: black;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  border:none ,
+}
+
+/* Hover Effect */
+.add-to-cart-btn:hover {
+  background-color: gray;  /* Change to gray when hovered */
+  border-color: gray; /* Change border to gray */
+  transform: scale(1.05); /* Slightly scale up */
+  
+}
+
+.dropDown > button {
+  width: 400px;
+  background-color: gray;
+  border: none;
+  outline: none;
+  padding: 10px 10px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+.dropDown > button:hover {
+  width: 400px;
+  background-color: rgb(77, 77, 77);
+  border: none;
+  outline: none;
+  padding: 10px 10px;
+  border-radius: 20px;
+}
+.dropDown > button:focus {
+  width: 400px;
+  background-color: gray;
+  border: none;
+  outline: none;
+  padding: 10px 10px;
+  border-radius: 20px;
+}
+
+.dropDown {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+
+}
+
+#Dropdown.Item {}
+
