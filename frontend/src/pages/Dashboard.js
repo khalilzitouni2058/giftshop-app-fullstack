@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/Dashboard.css';
+import logoHedyaRemovebgWhite from '../assets/logoHedyaRemovebgWhite.png'
+import AddItem from '../components/AddItem';
 
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('addItem'); // State to track the active sidebar tab
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -14,26 +16,34 @@ const Dashboard = () => {
   const renderContent = () => {
     switch (activeTab) {
       case 'addItem':
-        return <div className="content">Hello Add Item</div>;
+        return (
+          <>
+          <div className={`content ${isSidebarOpen ? 'open' : ''}`}>Add Product</div>
+          <AddItem/>
+          </>
+        );
       case 'listProducts':
-        return <div className="content">Hello List of Products</div>;
+        return <div className={`content ${isSidebarOpen ? 'open' : ''}`}> List of Products</div>;
       case 'orders':
-        return <div className="content">Hello Orders</div>;
+        return <div className={`content ${isSidebarOpen ? 'open' : ''}`}> Orders</div>;
       case 'users':
-        return <div className="content">Hello Users</div>;
+        return <div className={`content ${isSidebarOpen ? 'open' : ''}`}> Users</div>;
       default:
-        return <div className="content">Welcome to the Admin Dashboard</div>;
+        return <div className={`content ${isSidebarOpen ? 'open' : ''}`}>Welcome to the Admin Dashboard</div>;
     }
   };
 
   return (
-    <div className="dashboard">
+    <div className={`dashboard ${isSidebarOpen ? 'open' : ''}`}>
       {/* Sidebar */}
-      <button className="toggle-btn" onClick={toggleSidebar}>
+      <button className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}>
       {isSidebarOpen ? '✖' : '☰'}
       </button>
-      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        <h2>Admin Dashboard</h2>
+      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`} >
+        <div className={`header ${isSidebarOpen ? 'open' : ''}`} >
+          <img src={logoHedyaRemovebgWhite} alt='logo' style={{width: "80px",height: "80px",objectFit: "cover", borderRadius: "4px"}}/>
+          <h2 style={{ marginTop:"50px" }}> Dashboard</h2>
+        </div>
         <ul>
           <li
             className={activeTab === 'addItem' ? 'active' : ''}

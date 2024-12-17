@@ -43,6 +43,14 @@ const ProductsSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    quantity:{
+        type: Number,
+        required: true,
+    },
+    tags:{
+        type: [String],
+        required:true,
+    }
     
 });
 
