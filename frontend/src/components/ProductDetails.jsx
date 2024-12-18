@@ -64,7 +64,7 @@ function ProductDetails() {
   const decrement = () => {
     Setcount(count-1)
   };
-
+ 
   const images = oneProduct ? [
     oneProduct.imageURL,
     oneProduct.subImageURL1,

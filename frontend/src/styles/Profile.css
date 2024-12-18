@@ -1,35 +1,50 @@
-/* Add general profile styles */
+/* Profile Container */
 .profile-container {
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
 }
 
 .profile-header {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
+  color: #333;
   margin-bottom: 20px;
+  text-align: center;
 }
 
+/* Profile Info Sections */
 .profile-info {
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-info label {
-  font-weight: bold;
-  display: block;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 8px;
 }
 
 .profile-info input {
-  width: 100%;
   padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff; /* Set background color to white */
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.3s;
+  background-color: white;
 }
 
+.profile-info input:focus {
+  border-color: #171717;
+  outline: none;
+}
+
+/* Profile Buttons */
 .profile-buttons {
   display: flex;
   justify-content: space-between;
@@ -38,94 +53,121 @@
 
 .profile-buttons button {
   padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4caf50;
+  font-size: 16px;
+  background-color: #101010;
   color: white;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .profile-buttons button:hover {
-  background-color: #45a049;
+  background-color: #000000;
 }
 
-.profile-info p {
-  font-size: 16px;
-  margin-top: 5px;
-}
-/* Container for the list of products */
-.product-list {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(250px, 1fr)
-  ); /* Responsive grid */
-  gap: 20px;
-  padding: 20px;
-  list-style-type: none;
-  margin: 0;
+.profile-buttons button:focus {
+  outline: none;
 }
 
-/* Individual product card */
-.product-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 400px; /* Adjust as needed */
+.profile-buttons button.cancel-password-change {
+  background-color: #464646;
 }
 
-/* Hover effect to enlarge the card and show a shadow */
-.product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.profile-buttons button.cancel-password-change:hover {
+  background-color: #494949;
 }
 
-/* Product image styling */
-.product-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; /* Ensure the image covers the box */
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-/* Product title styling */
-.product-title {
-  font-size: 18px;
+/* Favorites Section */
+h1 {
+  font-size: 28px;
+  font-weight: bold;
   color: #333;
-  margin: 10px 0;
-  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-/* Price styling */
-.product-price {
-  font-size: 16px;
-  color: #f39c12;
-  margin: 0;
+h2 {
+  font-size: 24px;
   font-weight: bold;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-/* Add to Cart or Action Button styling */
-.add-to-cart-btn {
-  background-color: #f39c12;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-cardprofile {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #ddd;
   cursor: pointer;
+}
+
+.product-cardprofile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.product-cardprofile img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-titleProfile {
+  font-size: 18px;
+  font-weight: bold;
+  color: #434343;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.product-title:hover {
+  color: #000000;
+}
+
+.product-priceProfile {
   font-size: 16px;
-  transition: background-color 0.3s ease;
-  margin-top: auto; /* Push the button to the bottom */
+  color: #7c7c7c;
+  margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+  padding: 8px 18px;
+  font-size: 20px;
+  width: 200px;
+  height: 40px;
+  background-color: #646464;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .add-to-cart-btn:hover {
-  background-color: #e67e22;
+  background-color: #000000;
+}
+
+.add-to-cart-btn:focus {
+  outline: none;
+}
+
+/* Loading State */
+.profile-container .loading {
+  text-align: center;
+  font-size: 18px;
+  color: #888;
 }

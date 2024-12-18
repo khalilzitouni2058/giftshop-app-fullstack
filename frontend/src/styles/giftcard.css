@@ -76,12 +76,10 @@
 .product-price {
   font-size: 18px;
   font-weight: 700;
-  color: black; 
+  color: black;
   margin-bottom: 12px;
-  
 }
 
-/* Optional: Add a small hover effect to the price text */
 .product-price:hover {
   color: #e74c3c; /* Change price color on hover */
   cursor: pointer; /* Pointer cursor for interactivity */
