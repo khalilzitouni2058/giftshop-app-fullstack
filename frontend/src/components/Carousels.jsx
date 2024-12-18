@@ -9,6 +9,7 @@ import belguin1 from "../assets/choclatebelguin.jpg"
 import belguin2  from "../assets/builguin2.jpg"
 import belguin3  from "../assets/builguin3.jpg"
 import belguin4  from "../assets/builguin4.jpg"
+import { useNavigate } from 'react-router-dom';
 function Carousels() {
   const products = [
     { id: 1, img: belguin1, name: "Belgian Dark Chocolate", price: " TND 15.99" },
@@ -17,6 +18,11 @@ function Carousels() {
     { id: 4, img: belguin4, name: "Hazelnut Chocolate", price: " TND 16.99" },
     
   ];
+  const navigate = useNavigate()
+  const handleshop = () =>{
+    navigate("/Chocolate")
+
+  }
 
   return (
     <Carousel controls={false} indicators={false}>
@@ -90,7 +96,7 @@ function Carousels() {
               textTransform: "uppercase",
               fontWeight: "bold",
             }}
-            onClick={() => alert('Button clicked!')}
+            onClick={() =>handleshop()}
           >
             Shop Now
           </button>
@@ -114,7 +120,7 @@ function Carousels() {
               <img src={product.img} alt={product.name} />
               <h4>{product.name}</h4>
               <p>{product.price}</p>
-              <button>Buy Now</button>
+              <button onClick={handleshop}>Buy Now</button>
             </div>
           ))}
         </div>

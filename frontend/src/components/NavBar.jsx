@@ -102,7 +102,7 @@ function NavBar() {
     </li>
     <li className='nav_item' style={{fontSize:"150px" }}><Button variant="outline-light" onClick={goToProfile}><CgProfile /></Button></li>
 
-            <li className='nav_item'><Button variant="outline-light"><FaSearch /></Button></li>
+            
             <li className="nav_item" style={{ position: "relative" }}>
   <Button
     variant="outline-light"
@@ -255,13 +255,13 @@ function NavBar() {
                         </Button>
                     </li>
                     <li className="nav_item2">
-                        <Button variant="outline-secondary">Cosmetic Products</Button>
+                        <Button variant="outline-secondary">Chocolate</Button>
                     </li>
                     <li className="nav_item2">
-                        <Button variant="outline-secondary" onClick={handleRedirect}>Chocolate</Button>
+                        <Button variant="outline-secondary" onClick={handleRedirect}>Handmade Gift</Button>
                     </li>
                     <li className="nav_item2">
-                        <Button variant="outline-secondary" >Occasion</Button>
+                        <Button variant="outline-secondary" >Cosmetic Products</Button>
                     </li>
                     <li className="nav_item2">
                         <Button variant="outline-secondary">Gift Set</Button>

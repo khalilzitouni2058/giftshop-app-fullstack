@@ -88,6 +88,7 @@ function GiftList() {
                 textAlign: "center",
                 marginTop: "20px",
                 position: "relative",
+               
               }}
             >
               {/* Semicircle behind the button */}
@@ -98,7 +99,7 @@ function GiftList() {
                   left: "50%",
                   transform: "translateX(-50%)", // Centers the semicircle
                   width: "800px", // Adjust width to match the button
-                  height: "150px", // Half of the width to create a semicircle
+                  height: "100px", // Half of the width to create a semicircle
                   backgroundColor: "lightgray",
                   borderTopLeftRadius: "300px", // Makes a semicircle
                   borderTopRightRadius: " 300px",
@@ -109,6 +110,7 @@ function GiftList() {
               <Button
                 onClick={showMoreItems}
                 style={{
+                  
                   marginBottom: "50px",
                   fontSize: "15px",
                   borderRadius: "50px",
