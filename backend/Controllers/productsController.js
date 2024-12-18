@@ -62,6 +62,9 @@ const getProduct= async (req, res) => {
           res.status(500).json({ message: "Error fetching favorites", error });
         }
       };
+
+
+
     
 
 
@@ -78,6 +81,9 @@ const getProduct= async (req, res) => {
 //         res.status(500).json({ msg: "Error on adding product" });
 //     }
 // };
+
+
+
 
 
 const postProduct = async (req, res) => {
@@ -112,11 +118,55 @@ const deleteProduct = async (req, res) => {
     }
 };
 
+
+
+const addReviewToProduct = async (req, res) => {
+    const { productId } = req.params;  // Get the product ID from URL params
+    const {  userName, comment, rating } = req.body;  // Get review details from request body
+
+    // Validate the review data
+    
+
+    if (rating < 1 || rating > 5) {
+        return res.status(400).json({ msg: "Rating must be between 1 and 5" });
+    }
+
+    try {
+        // Find the product by ID and update the reviews array
+        const product = await Product.findById(productId);
+        if (!product) {
+            return res.status(404).json({ msg: "Product not found" });
+        }
+
+        // Create the new review object
+        const newReview = {
+            userName,
+            comment,
+            rating,
+            date: new Date(),
+        };
+
+        // Push the new review to the product's reviews array
+        product.reviews.push(newReview);
+
+        // Save the updated product
+        await product.save();
+
+        // Return the updated product with the new review
+        res.status(200).json({ product, msg: "Review added successfully" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: "Error adding review" });
+    }
+};
+
+
+
 module.exports = {
     getProductsByCategory,
     postProduct,
     deleteProduct,
     getProductById,
     getProduct,
-    getProducts
+    addReviewToProduct,
 };

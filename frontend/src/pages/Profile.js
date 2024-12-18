@@ -20,6 +20,7 @@ const Profile = () => {
     password: '',
     confirmPassword: '',
   });
+  console.log(userdata._id)
   const fetchProductDetails = async (productId) => {
     try {
       const response = await axios.get("http://localhost:9002/api/products", {
@@ -235,10 +236,10 @@ const Profile = () => {
       <ul className="product-list">
       {productDetails.length > 0 ? (
     productDetails.map((product) => (
-      <li key={product._id} className="product-card">
-        <img className="product-image" src={product.imageURL} alt={product.title} />
-        <h3 className="product-title">{product.title}</h3>
-        <p className="product-price">Price: ${product.price}</p>
+      <li key={product._id} className="product-cardprofile">
+        <img className="product-imageprofile" src={product.imageURL} alt={product.title} />
+        <h3 className="product-titleProfile">{product.title}</h3>
+        <p className="product-priceProfile">Price: ${product.price}</p>
         {/* Optional: Add an 'Add to Cart' or similar action button */}
         <button className="add-to-cart-btn">Add to Cart</button>
       </li>

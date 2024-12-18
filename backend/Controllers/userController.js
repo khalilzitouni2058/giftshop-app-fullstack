@@ -1,6 +1,7 @@
 
 const User = require("../model/User");
 const userRoute = require("../Routes/userRoute");
+const Logs  = require("../model/Logs")
 const getUsers = async(request,response) => {
     try{
         const users = await User.find()
@@ -170,7 +171,20 @@ const signIn = async (req, res) => {
             res.status(500).json({ message: "Error removing product from favorites", error });
         }
     };
+    const postLogs = async (req, res) => {
+        try {
+          const logData = req.body;
+      
+          // Create and save a new log
+          const log = new Logs(logData);
+          await log.save();
+      
+          res.status(201).json(log);
+        } catch (error) {
+          res.status(500).json({ error: error.message });
+        }
+      };
     
     
-module.exports = { getUsers, postUser, putUser, deleteUser, getOneUser, signIn, getFavorites,addFavorite ,removeFavorite};
+module.exports = { getUsers, postUser, putUser, deleteUser, getOneUser, signIn, getFavorites,addFavorite ,removeFavorite,postLogs};
 

@@ -18,6 +18,7 @@ import {ToastContainer} from "react-toastify"
 
 import Dashboard from './pages/Dashboard'; // Import the admin dashboard component
 
+
 // Helper function for ProtectedRoute with roles
 const ProtectedRoute = ({ children, role }) => {
   const token = localStorage.getItem('accessToken');
@@ -88,6 +89,7 @@ function App() {
           <Route path='/SignUp' element={<SignUp />}> </Route>
           <Route path='/SignIn' element={<SignIn />}> </Route>
           <Route path='/checkout' element={<CheckoutPage/>}></Route>
+          
           <Route
               path="/dashboard"
               element={

@@ -13,9 +13,9 @@ function RotatingCard({ title, frontImage, backContent }) {
     
     <div className="rotating-card">
       {/* Front Side */}
-      <div className="card-side front " style={{backgroundColor:"rgb(17 24 39)"}} >
+      <div className="card-side front " style={{backgroundColor:"rgb(255 255 255)"}} >
         <img src={frontImage} alt="Front" style={{ width: '100%', height: '100%', objectFit: 'cover', }} />
-        <div  style={{fontSize:"30px",fontFamily:"Anton",textTransform:"uppercase",color:"white"}}>{title}</div>
+        <div  style={{fontSize:"30px",fontFamily:"Anton",textTransform:"uppercase",color:"black",}}>{title}</div>
       </div>
 
       {/* Back Side */}
@@ -57,7 +57,7 @@ function Cards() {
   const activeCardData = cards[activeCard];
   return (
     <>
-    <div style={{ display: 'flex', gap: '100px', padding: '20px' }}>
+    <div style={{ display: 'flex', gap: '100px', padding: '20px',marginLeft:"180px",marginTop:"112px" }}>
       <RotatingCard
         title="Mother Day"
         frontImage={motherday}
@@ -79,11 +79,12 @@ function Cards() {
                 alignItems: "center",
                 justifyContent: "space-between",
                 padding: "0 10px 100px",
-                marginTop:'20px'
+                marginTop:'20px',
+                fontSize:"20px"
               }}
             >
               <h2>{activeCardData.price}</h2>
-              <Button size='lg'>Go shop</Button>
+              <Button size='lg' style={{backgroundColor:"black",borderColor:"black"}}>Go shop</Button>
             </div>
           </Card>
         </div>
@@ -111,11 +112,12 @@ function Cards() {
                alignItems: "center",
                justifyContent: "space-between",
                padding: "0 10px 100px",
-               marginTop:'20px'
+               marginTop:'20px',
+               fontSize:"20px"
              }}
            >
              <h2>{activeCardData.price}</h2>
-             <Button size='lg'>Go shop</Button>
+             <Button size='lg'  style={{backgroundColor:"black",borderColor:"black"}}>Go shop</Button>
            </div>
          </Card>
        </div>
@@ -143,11 +145,11 @@ function Cards() {
                alignItems: "center",
                justifyContent: "space-between",
                padding: "0 10px 100px",
-               marginTop:'20px'
+               marginTop:'20px',fontSize:"20px"
              }}
            >
              <h2>{activeCardData.price}</h2>
-             <Button size='lg'>Go shop</Button>
+             <Button size='lg' style={{backgroundColor:"black",borderColor:"black"}}>Go shop</Button>
            </div>
          </Card>
        </div>

@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 const BarWithButton = () => {
   return (
     <div className="bar-container">
-      <div className="circle-button"><IoIosArrowDown />
+      <div className="circle-button" style={{color:"white"}}><IoIosArrowDown />
       </div>
       <div className="bar">
         <span>Check Our Products</span>

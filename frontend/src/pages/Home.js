@@ -17,9 +17,9 @@ import imageproducts from "../assets/ourPproduct.png"
 
 const sectionStyles = [
   { backgroundColor: "white", height: "100vh", flexDirection: "column", justifyContent: "center", alignItems: "center" },
-  { backgroundColor: "rgb(251 146 60)", height: "100vh" },
+  { backgroundColor: "rgba(169,138,123,255)", height: "100vh" },
   { backgroundColor: "rgb(244 244 245)", height: "100vh" },
-  { backgroundColor: "white", height: "100vh" }
+  { backgroundColor: "rgba(255,255,255)", height: "100vh" }
 ];
 
 function Home() {
@@ -31,11 +31,12 @@ function Home() {
   
   const sections = [
     <div key="section1" style={{display:"flex",flexDirection:"column"}}>
-      <NavBar />
+      
       <div style={{}}>
+      <NavBar />
             <h1 className="welcome-text">
-            Welcome To Hdeya <br />
-            
+             HDEYA <br />
+            <h5 style={{fontSize:"30px",fontFamily:"ragular",position:"absolute",marginTop:"20px"}}>Where Every Gift Tells a Story  <br /> Find the Perfect Gift for Every Occasion!</h5>
             <div style={{ position: "relative", width: "900px", left: "600px",bottom:"620px"}}>
             <BarWithButton />
   <img
@@ -43,7 +44,9 @@ function Home() {
     width={900}
     style={{
       position: "relative",
-      zIndex: "-1",
+      zIndex: "-10",
+      
+      objectFit:"cover"
     }}
     alt="Product"
   />
@@ -53,9 +56,9 @@ function Home() {
       bottom: 0,
       left: 0,
       width: "100%",
-      height: "150px", // Adjust height for fade coverage
+      height: "100px", // Adjust height for fade coverage
       background: "linear-gradient(transparent, white)", // Adjust 'white' to match your background
-      zIndex: "0",
+      zIndex: "-1",
     }}
   ></div>
   

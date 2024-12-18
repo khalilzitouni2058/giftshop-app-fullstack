@@ -6,7 +6,7 @@ import bougie from "../assets/bougie.png"
 import Stickers from "../assets/Stickers.png"
 import Plushs from "../assets/Plushs.png"
 
-
+import Cosmetics from "../assets/cosmetics.png"
 export const icons = [{
 iconName:"Flower",
 iconPath:flowers,
@@ -28,10 +28,10 @@ iconAlt:"Flower-icon"
 
         },
         {
-            iconName:"Tote Bags",
-            iconPath:ToteBags,
-            iconLink:"ToteBags",
-            iconAlt:"Tote-Bags-icon"
+            iconName:"Cosmetics",
+            iconPath:Cosmetics,
+            iconLink:"Cosmetics",
+            iconAlt:"Cosmetics"
     
             },
             {
@@ -41,13 +41,7 @@ iconAlt:"Flower-icon"
                 iconAlt:"Candles-icon"
         
                 },
-                {
-                    iconName:"Stickers",
-                    iconPath:Stickers,
-                    iconLink:"StickersGift",
-                    iconAlt:"Stickers-icon"
-            
-                    },
+                
                     {
                         iconName:"Plushs",
                         iconPath:Plushs,
