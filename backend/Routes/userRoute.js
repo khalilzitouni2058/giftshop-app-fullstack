@@ -9,7 +9,8 @@ const {
     signIn,
     getFavorites,
     addFavorite,
-    removeFavorite
+    removeFavorite,
+    postLogs
 } = require("../Controllers/userController");
 const isAuth = require("../middleware/isAuth")
 const isAutho=require('../middleware/isAutho')
@@ -22,5 +23,6 @@ userRoute.post("/signIn", signIn);
 userRoute.post("/Profile/addfavorite",addFavorite)
 userRoute.post("/Profile/removefavorite",removeFavorite)
 userRoute.get("/Profile",getFavorites)
+userRoute.post("/Logs",postLogs)
 
 module.exports = userRoute;

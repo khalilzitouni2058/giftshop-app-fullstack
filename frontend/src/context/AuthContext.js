@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
@@ -19,7 +20,8 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('userName');
     localStorage.removeItem('userRole');// added by alaa
-    localStorage.removeItem('user'); // Ensure user is cleared from localStorage
+    localStorage.removeItem('user');
+    // Ensure user is cleared from localStorage
   };
 
   const addToCart = (item) => {

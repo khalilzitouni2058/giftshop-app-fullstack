@@ -6,6 +6,7 @@
   background-color: rgb(255, 255, 255);
 }
 
+
 .icon-container {
   display: flex;
   flex-direction: column;
@@ -30,6 +31,7 @@
   transform: scale(1.2); /* Slightly enlarge the image on hover */
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
 }
+
 
 .icon-container p {
   margin-top: 8px;

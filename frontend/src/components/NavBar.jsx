@@ -20,7 +20,10 @@ function NavBar() {
 
   const { cart,resetCart,removeFromCart } = useContext(AuthContext);
   const [isPopoverVisible, setPopoverVisible] = useState(false);
-
+  const handleLogout = () => {
+    logout(); // Log the user out
+    navigate("/"); // Redirect to homepage (or wherever you want)
+  };
   const togglePopover = () => {
     setPopoverVisible((prev) => !prev);
   };
@@ -51,14 +54,16 @@ function NavBar() {
   };
 
   const handlecheckout = () =>{ 
-
-    navigate("/checkout")
+    if(!user){
+      navigate("/SignIn")
+    }else{
+    navigate("/checkout")}
   }
   return (
     <>
     <div>
-    <nav>
-        <a href='/' className='brand'><img style={{width:"100px"}} src={logoHedya}alt="" /></a>
+    <nav >
+        <a href='/' className='brand'><img style={{width:"80px",position:"relative",right:"210px",marginBottom:"0px",}} src={logoHedya}alt="" /></a>
        
         <ul className='nav_menu'>
             
@@ -67,7 +72,7 @@ function NavBar() {
         <div style={{ display: "flex", alignItems: "center", marginLeft: "2px", textTransform: "uppercase" }}>
           <span style={{ marginRight: "15px",color:"black",fontSize:"16px" }}>Hello, {user.userName}</span>
           <Button
-            onClick={logout}
+            onClick={handleLogout}
             variant="outline-light"
             style={{
               display: "flex",
@@ -243,7 +248,7 @@ function NavBar() {
     </nav>
     <nav>
        {isHomePage && ( // Conditionally render the navbar if on the home page
-                <ul className="nav_menu">
+                <ul className="nav_menu"  >
                     <li className="nav_item2">
                         <Button variant="outline-secondary" onClick={handleRedirect}>
                             Flowers
@@ -253,10 +258,10 @@ function NavBar() {
                         <Button variant="outline-secondary">Cosmetic Products</Button>
                     </li>
                     <li className="nav_item2">
-                        <Button variant="outline-secondary">Chocolate</Button>
+                        <Button variant="outline-secondary" onClick={handleRedirect}>Chocolate</Button>
                     </li>
                     <li className="nav_item2">
-                        <Button variant="outline-secondary">Occasion</Button>
+                        <Button variant="outline-secondary" >Occasion</Button>
                     </li>
                     <li className="nav_item2">
                         <Button variant="outline-secondary">Gift Set</Button>

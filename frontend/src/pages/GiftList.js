@@ -47,7 +47,7 @@ function GiftList() {
   return (
     <>
       <NavBar />
-      <div style={{ marginTop: "-20px" }}>
+      <div style={{ marginTop: "20px" }}>
         <ListOfIcons />
 
         <div

@@ -1,38 +1,51 @@
-.card-container {
-  position: relative;
-  opacity: 0.5; /* Make the card semi-transparent */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+.product-cards {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping of cards if needed */
+  justify-content: center; /* Centers cards horizontally */
 }
 
-.card-container:hover {
-  transform: translateY(-30px); /* Lift effect */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow effect */
-  opacity: 1; /* Regain full opacity */
+.Card {
+  background-color: white;
+  padding: 20px;
+  margin: 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for both transform and opacity */
+  opacity: 0.9; /* Default reduced opacity */
 }
 
-.hover-button {
-  position: absolute;
+.Card img {
+  border-radius: 10px;
+  width: 80%;
+}
 
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.9
-  ); /* Semi-transparent button background */
-  color: black;
+.Card h4 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.Card p {
+  color: #555;
+}
+
+.Card button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #000000;
+  color: white;
   border: none;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 1.5rem;
-  font-family: "Anton, sans-serif";
-  text-transform: uppercase;
+  border-radius: 5px;
   cursor: pointer;
-  display: none; /* Hide the button initially */
-  transition: opacity 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.card-container:hover .hover-button {
-  display: block; 
+.Card button:hover {
+  background-color: #000000;
+}
+
+.Card:hover {
+  transform: translateY(-20px); /* Moves card up */
+  opacity: 1; /* Restores full opacity */
 }

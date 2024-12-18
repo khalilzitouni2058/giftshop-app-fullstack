@@ -19,12 +19,7 @@ nav {
   
   background: rgb(255, 255, 255);
 }
-.nav_menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-}
+
 .brand {
   font-size: 40px;
   color: rgb(18, 18, 18);
@@ -32,6 +27,13 @@ nav {
   position: relative;
 
   top: 5px;
+}
+.nav_menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  z-index: 10;
 }
 div::-webkit-scrollbar {
   display: none;
