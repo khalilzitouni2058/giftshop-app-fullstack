@@ -5,7 +5,8 @@ const {
     postProduct,
     deleteProduct,
     getProductById,
-    getProduct
+    getProduct,
+    addReviewToProduct,
     
 } = require("../Controllers/productsController");
 const isAuth = require("../middleware/isAuth")
@@ -16,7 +17,10 @@ productsRoute.get("/products/:category", getProductsByCategory);
 productsRoute.get("/products",getProduct)
 productsRoute.get("/products/:category/:id", getProductById);
 productsRoute.post("/products", postProduct);
-productsRoute.delete("/products/:title",isAuth,isAutho(['admin']),deleteProduct)
+productsRoute.delete("/products/:title",isAuth,isAutho(['admin']),deleteProduct);
+productsRoute.post("/products/:productId/reviews", addReviewToProduct);
+
+
 
 
 
