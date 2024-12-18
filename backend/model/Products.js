@@ -1,9 +1,14 @@
-
-
 const mongoose = require('mongoose');
 
+const reviewSchema = new mongoose.Schema({
+    userName: { type: String, required: true },
+    comment: { type: String, required: false },
+    rating: { type: Number, required: true, min: 1, max: 5 },
+    date: { type: Date, default: Date.now },
+  });
+
 const ProductsSchema = new mongoose.Schema({
-    category:{
+    category: {
         type: String,
         required: true,
     },
@@ -11,11 +16,11 @@ const ProductsSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    brand:{
-        type:String,
+    brand: {
+        type: String,
         required: true,
     },
-    price:{
+    price: {
         type: Number,
         required: true
     },
@@ -23,7 +28,7 @@ const ProductsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    rating:{
+    rating: {
         type: Number,
         required: true
     },
@@ -43,15 +48,15 @@ const ProductsSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    quantity:{
+    quantity: {
         type: Number,
+        required: false,
+    },
+    tags: {
+        type: [String],
         required: true,
     },
-    tags:{
-        type: [String],
-        required:true,
-    }
-    
+    reviews: [reviewSchema] // Embedding the reviews as an array of subdocuments
 });
 
 module.exports = mongoose.model('Products', ProductsSchema);
