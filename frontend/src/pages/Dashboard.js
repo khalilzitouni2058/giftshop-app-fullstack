@@ -1,33 +1,51 @@
 import React, { useState } from 'react';
-import '../styles/Dashboard.css';
+import '../styles/Dashboard/Dashboard.css';
 import logoHedyaRemovebgWhite from '../assets/logoHedyaRemovebgWhite.png'
 import AddItem from '../components/AddItem';
+import ListOfProducts from '../components/ListOfProducts';
+import Orders from '../components/Orders';
+import Users from '../components/Users';
 
 
 const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState('addItem'); // State to track the active sidebar tab
+  const [activeTab, setActiveTab] = useState('addItem'); 
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-  // Function to render the main content based on the active tab
+ 
   const renderContent = () => {
     switch (activeTab) {
       case 'addItem':
         return (
           <>
           <div className={`content ${isSidebarOpen ? 'open' : ''}`}>Add Product</div>
-          <AddItem/>
+          <AddItem />
           </>
         );
       case 'listProducts':
-        return <div className={`content ${isSidebarOpen ? 'open' : ''}`}> List of Products</div>;
+        return (
+          <>
+            <div className={`content ${isSidebarOpen ? 'open' : ''}`}>Products</div>;
+            <ListOfProducts isSidebarOpen={isSidebarOpen}/>
+          </>
+      )
       case 'orders':
-        return <div className={`content ${isSidebarOpen ? 'open' : ''}`}> Orders</div>;
+        return (
+          <>
+            <div className={`content ${isSidebarOpen ? 'open' : ''}`}> Orders</div>;
+            <Orders/>
+          </>
+        )
       case 'users':
-        return <div className={`content ${isSidebarOpen ? 'open' : ''}`}> Users</div>;
+        return( 
+          <>
+            <div className={`content ${isSidebarOpen ? 'open' : ''}`}> Users</div>;
+            <Users/>
+          </>
+        )
       default:
         return <div className={`content ${isSidebarOpen ? 'open' : ''}`}>Welcome to the Admin Dashboard</div>;
     }
@@ -55,7 +73,7 @@ const Dashboard = () => {
             className={activeTab === 'listProducts' ? 'active' : ''}
             onClick={() => setActiveTab('listProducts')}
           >
-            List of Products
+            Products
           </li>
           <li
             className={activeTab === 'orders' ? 'active' : ''}

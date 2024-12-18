@@ -1,0 +1,210 @@
+/* General Card Styles */
+.card-da.open {
+    margin-top: 25px;
+    position: relative; 
+    display: flex;
+    align-items: left;
+    width:100%;  
+    width: 580px;
+    height: 120px;
+    background: linear-gradient(to bottom, #72baff, #1e73e0); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-right: auto;
+    margin-left: 250px;
+    transition:all  0.5s ease-in-out;
+  }
+  .card1-da.open{
+    margin-top: 25px;
+    position: relative; 
+    display: flex;
+    align-items: left; 
+    width:100%;  
+    width: 580px;
+    height: 120px;
+    background: linear-gradient(to bottom, #67e87d, #159831); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-right: auto;
+    margin-left: 30px;
+    transition:all  0.5s ease-in-out;
+  }
+
+  .card-da {
+    margin-top: 25px;
+    position: relative; 
+    display: flex;
+    align-items: left;
+    width:100%;  
+    width: 710px;
+    height: 120px;
+    background: linear-gradient(to bottom, #72baff, #1e73e0); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-right: auto;
+    margin-left: 5px;
+    transition:all  0.5s ease-in-out;
+  }
+  .card1-da{
+    margin-top: 25px;
+    position: relative; 
+    display: flex;
+    align-items: left; 
+    width:100%;  
+    width: 710px;
+    height: 120px;
+    background: linear-gradient(to bottom, #67e87d, #159831); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin-right: auto;
+    margin-left: 30px;
+    transition:all  0.5s ease-in-out;
+  }
+  
+  /* Left Content */
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: left; /* Vertically center text */
+  }
+  
+  .card-number {
+    font-size: 3rem; /* Big Number */
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .card-text {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  /* Right Icon Positioned on Top Right */
+  .card-icon {
+    position: absolute;
+    top: -35px; /* Distance from top */
+    right: 8px; /* Distance from right */
+  }
+  
+  .card-icon img {
+    width: 70px;
+    height: 70px;
+    opacity: 0.7;
+    box-shadow:black;
+  }
+
+  .span-da{
+    display: flex;
+    justify-content:space-around   ;
+  }
+
+  
+
+/* Change for table container width when sidebar is open */
+.table-container {
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+    margin-right: 0;
+    margin-left: auto;
+    transition: all 0.5s ease-in-out;
+    background: #f9f9f9; /* Light background for contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    border-radius: 8px; /* Rounded corners for the container */
+}
+
+.table-container.open {
+    width: calc(100% - 250px); /* Adjust the width when the sidebar is open */
+    transition: all 0.5s ease-in-out;
+}
+
+.table-da {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow: hidden; /* Prevent borders from overflowing */
+    background: linear-gradient(to bottom, #ffffff, #f4f4f4); /* Subtle gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Elevation for the table */
+}
+
+th, td {
+    margin-top: 0px;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    
+}
+
+th {
+    background: linear-gradient(to right, #0056b3, #0056b3); /* Gradient for header */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow under header */
+}
+
+td {
+    color: #333;
+    
+    word-wrap: break-word; /* Ensure long text breaks properly */
+    
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light grey for even rows */
+}
+
+tr:hover {
+    background-color: #e3f2fd; /* Subtle blue highlight on hover */
+    cursor: pointer;
+    transform: scale(1.01); /* Slight zoom effect */
+    transition: all 0.2s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Buttons in table */
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+button:active {
+    transform: translateY(0); /* Reset on click */
+    box-shadow: none; /* Remove shadow on click */
+}
+.td-des{
+  white-space: nowrap; /* Prevents wrapping */
+  overflow: hidden; /* Hides overflowing text */
+  text-overflow: ellipsis; /* Adds ellipsis when text is too long */
+  max-width: 200px;
+}
+
+  
+  

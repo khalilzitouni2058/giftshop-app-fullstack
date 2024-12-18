@@ -1,6 +1,21 @@
 const Product = require("../model/Products");  
 const productsRoute = require("../Routes/productsRoute");
 
+const getProducts = async (req, res) => {
+      
+    try {
+        const products = await Product.find();
+        /*console.log(products)*/  
+        if (products && products.length > 0) {
+            res.status(200).json({ products: products });
+        } else {
+            res.status(404).json({ msg: "No products found " });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: "Error on getting products" });
+    }
+};
 
 const getProductsByCategory = async (req, res) => {
     const category = req.params.category;  
@@ -82,14 +97,14 @@ const postProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
     //console.log("hello")
-    const title = req.params.title; 
-    //console.log(title)
+    const {id} = req.params.id; 
+    console.log(id)
     try {
-        const deletedProduct = await Product.findOneAndDelete({ title: title });
+        const deletedProduct = await Product.findOneAndDelete({ id: id });
         if (deletedProduct) {
             res.status(200).json({ msg: "Product successfully deleted" });
         } else {
-            res.status(404).json({ msg: "No product found with the given title" });
+            res.status(404).json({ msg: "No product found with the given id" });
         }
     } catch (error) {
         console.error(error);
@@ -102,5 +117,6 @@ module.exports = {
     postProduct,
     deleteProduct,
     getProductById,
-    getProduct
+    getProduct,
+    getProducts
 };
