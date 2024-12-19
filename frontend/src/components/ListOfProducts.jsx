@@ -33,7 +33,7 @@ function ListOfProducts({ isSidebarOpen }) {
         };
 
         const closeOverlay = () => {
-            setSelectedProduct(null); // Close the overlay
+            setSelectedProduct(null); 
           };
 
         const handleCloseModal = () => {
@@ -42,7 +42,6 @@ function ListOfProducts({ isSidebarOpen }) {
           
           const handleEdit = (product) => {
             console.log('Editing product');
-            // Implement edit logic (e.g., open an edit form or navigate to an edit page)
           };
           
           const handleDelete = async (product) => {
@@ -103,14 +102,14 @@ function ListOfProducts({ isSidebarOpen }) {
                 <th>DESCRIPTION</th>
                 <th>RATING</th>
                 <th>QUANTITY</th>
-                <th>ACTION</th> {/* New column for Action */}
+                <th>ACTION</th> 
             </tr>
             </thead>
             <tbody>
             {Array.isArray(products) && products.length > 0 ? (
                 products.map((product, index) => (
                 <tr key={index}>
-                    <td style={{ //display: 'flex',
+                    <td style={{ 
                     alignItems: 'center', width: '250px' }}>
                         <div style={{display:'flex',alignItems: 'center'}}>
                     <img 
@@ -132,7 +131,6 @@ function ListOfProducts({ isSidebarOpen }) {
                             marginTop: '0px',
                             textAlign: 'center', 
                             width: '200px', 
-                            //display: 'flex', 
                             alignItems: 'center', 
                             justifyContent: 'center', 
                             gap: '5px', 

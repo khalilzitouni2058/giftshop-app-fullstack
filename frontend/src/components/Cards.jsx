@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import '../styles/cards.css'; // Add the CSS here
+import '../styles/cards.css'; 
 import mom from '../assets/moms.jpg';
 import Card from 'react-bootstrap/Card';
 import flo from '../assets/flo.jpg';
@@ -14,13 +14,11 @@ function RotatingCard({ title, frontImage, backContent }) {
   return (
     
     <div className="rotating-card">
-      {/* Front Side */}
       <div className="card-side front " style={{backgroundColor:"rgb(255 255 255)"}} >
         <img src={frontImage} alt="Front" style={{ width: '100%', height: '100%', objectFit: 'cover', }} />
         <div  style={{fontSize:"  30px",fontFamily:"Anton",textTransform:"uppercase",color:"black",}}>{title}</div>
       </div>
 
-      {/* Back Side */}
       <div className="card-side back">
         {backContent}
       </div>
@@ -35,7 +33,6 @@ function Cards() {
     navigate("/Flower")
   }
   const handleSwipe = () => {
-    // Toggle between card 0 and card 1
     setActiveCard((prevCard) => (prevCard === 0 ? 1 : 0));
   };
   const cards = [
@@ -69,9 +66,8 @@ function Cards() {
       setActiveCard((prevCard) => (prevCard + 1) % cards.length);
     }, 2000); 
   
-    // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
-  }, [cards.length]); // Include cards.length as a dependency to handle dynamic card arrays
+  }, [cards.length]); 
   
   const activeCardData = cards[activeCard];
   return (

@@ -53,7 +53,6 @@ const Dashboard = () => {
 
   return (
     <div className={`dashboard ${isSidebarOpen ? 'open' : ''}`}>
-      {/* Sidebar */}
       <button className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}>
       {isSidebarOpen ? '✖' : '☰'}
       </button>
@@ -90,7 +89,6 @@ const Dashboard = () => {
         </ul>
       </div>
 
-      {/* Main Content Area */}
       <div className="main-content">
         {renderContent()}
       </div>

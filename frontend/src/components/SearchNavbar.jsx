@@ -8,7 +8,6 @@ const SearchBar = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     alert(`Searching for: ${searchTerm}`);
-    // Replace this with your search logic
   };
 
   return (
