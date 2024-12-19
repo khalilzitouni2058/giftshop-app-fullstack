@@ -164,59 +164,59 @@
 
 /* Button Styling */
 .add-to-cart-btn {
-  height: 70px;
-  width: 400px;
-  font-size: 20px;
-  position: relative;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  background-color: black;
-  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-  border:none ,
+  height: 70px ;
+  width: 400px ;
+  font-size: 20px ;
+  position: relative !important;
+  border-radius: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: white !important;
+  background-color: black !important ;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease !important; /* Smooth transition */
+  border:none !important ;
 }
 
 /* Hover Effect */
 .add-to-cart-btn:hover {
-  background-color: gray;  /* Change to gray when hovered */
-  border-color: gray; /* Change border to gray */
-  transform: scale(1.05); /* Slightly scale up */
+  background-color: gray !important;  /* Change to gray when hovered */
+  border-color: gray !important; /* Change border to gray */
+  transform: scale(1.05) !important; /* Slightly scale up */
   
 }
 
 .dropDown > button {
-  width: 400px;
-  background-color: gray;
-  border: none;
-  outline: none;
-  padding: 10px 10px;
-  border-radius: 20px;
-  font-size: 20px;
+  width: 400px !important;
+  background-color: gray !important;
+  border: none !important;
+  outline: none !important;
+  padding: 10px 10px !important;
+  border-radius: 20px !important;
+  font-size: 20px !important;
 }
 .dropDown > button:hover {
-  width: 400px;
-  background-color: rgb(77, 77, 77);
-  border: none;
-  outline: none;
-  padding: 10px 10px;
-  border-radius: 20px;
+  width: 400px !important;
+  background-color: rgb(77, 77, 77) !important;
+  border: none !important;
+  outline: none !important;
+  padding: 10px 10px !important;
+  border-radius: 20px !important;
 }
 .dropDown > button:focus {
-  width: 400px;
-  background-color: gray;
-  border: none;
-  outline: none;
-  padding: 10px 10px;
-  border-radius: 20px;
+  width: 400px !important;
+  background-color: gray !important;
+  border: none !important;
+  outline: none !important;
+  padding: 10px 10px !important;
+  border-radius: 20px !important;
 }
 
 .dropDown {
-  width: 400px;
-  display: flex;
-  justify-content: center;
-  border-radius: 20px;
+  width: 400px !important;
+  display: flex !important;
+  justify-content: center !important;
+  border-radius: 20px !important;
 
 }
 

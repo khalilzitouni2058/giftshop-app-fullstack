@@ -17,6 +17,8 @@ import { TbMoodLookUp } from "react-icons/tb";
 import { IoPricetagsOutline } from "react-icons/io5";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import { IoArrowBackCircleOutline } from "react-icons/io5";
+
 
 
 
@@ -197,13 +199,13 @@ if (userReview) {
     <>
       <NavBar />
       <div>
-        <FaCircleArrowLeft
+        <IoArrowBackCircleOutline
           onClick={() => navigate(`/${category}`)}
           style={{
             color: "black",
             position: "absolute",
-            left: "100px",
-            top: "130px",
+            left: "85px",
+            top: "110px",
             width: "50px",
             height: "50px",
           }}
@@ -243,21 +245,23 @@ if (userReview) {
                   marginRight:"30px",
                 }}
               >
-                {images.map((img, index) => (
-                  <img
-                    key={index}
-                    src={img}
-                    alt={`subimage${index}`}
-                    style={{
-                      width: "80px",
-                      height: "80px",
-                      cursor: "pointer",
-                      border: index === currentIndex ? "3px solid red" : "1px solid gray",
-                      borderRadius: "5px",
-                    }}
-                    onClick={() => setCurrentIndex(index)}
-                  />
-                ))}
+                {images.map((img, index) => 
+  img && ( 
+    <img
+      key={index}
+      src={img}
+      alt={`subimage${index}`}
+      style={{
+        width: "80px",
+        height: "80px",
+        cursor: "pointer",
+        border: index === currentIndex ? "3px solid red" : "1px solid gray",
+        borderRadius: "5px",
+      }}
+      onClick={() => setCurrentIndex(index)}
+    />
+  )
+)}
               </div>
               
             </div>
@@ -327,16 +331,21 @@ if (userReview) {
 >
   <TbMoodLookDown
     style={{
-      opacity: isExpanded ? 0 : 1, // Fade out the "up" icon when expanded
+      color:"black",
+      boxShadow:"none",
+      opacity: isExpanded ? 0 : 1 , // Fade out the "up" icon when expanded
       transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", // Optional: rotate for added effect
       transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out", // Smooth opacity and rotation transition
     }}
   />
   <TbMoodLookUp
     style={{
+      color:"black",
+      boxShadow:"none",
       opacity: isExpanded ? 1 : 0, // Fade in the "down" icon when expanded
       transform: isExpanded ? "rotate(0deg)" : "rotate(-180deg)", // Optional: rotate for added effect
       transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out", // Smooth opacity and rotation transition
+      border:"none" ,
     }}
   />
 </button>
