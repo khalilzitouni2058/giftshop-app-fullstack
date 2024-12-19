@@ -181,13 +181,14 @@ tr:hover {
 /* Buttons in table */
 button {
     margin: 5px;
-    padding: 10px 15px;
+    padding: 1px 10px;
     border: none;
     border-radius: 5px;
     font-size: 14px;
     color: white;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    
 }
 
 button:hover {

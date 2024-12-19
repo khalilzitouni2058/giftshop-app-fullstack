@@ -117,7 +117,7 @@ function ListOfProducts({ isSidebarOpen }) {
                   <td className="td-des">{product.description}</td>
                   <td>⭐ {product.rating}</td>
                   <td>{product.quantity}</td>
-                  <td style={{ display: 'flex', justifyContent: 'center', gap: '5px' }}>
+                  <td  style={{ justifyContent: 'center', gap: '5px',width:"200px" }}>
                     <button
                       onClick={() => handleView(product)}
                       style={{ backgroundColor: '#17a2b8', color: 'white' }}
