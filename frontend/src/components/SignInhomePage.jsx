@@ -9,7 +9,7 @@ function SignInhomePage() {
         justifyContent: "center", // Centers both the left and right sides horizontally
         alignItems: "center", // Centers the content vertically
         height: "100vh", // Full screen height
-        width: "100vw", // Full screen width
+        // Full screen width
          // Space between the left and right sections
       }}>
         
@@ -38,7 +38,7 @@ function SignInhomePage() {
         <div style={{
           backgroundColor: "rgb(254 215 170)", 
           width: "50%", 
-          height: "730px",
+          height: "100vh",
           padding: "20px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
           display: "flex",
