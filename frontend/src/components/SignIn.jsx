@@ -132,7 +132,7 @@ function SignIn() {
             />
             <div style={{display:"flex",alignItems:"left",justifyContent:"center"}}>
             <p style={{fontSize:"15px"}}>Don't have an account yet?</p>
-            <button style={{marginLeft:"12px",fontSize:"15px"}} onClick={handleredirectSignUP}>Sign Up</button>
+            <button style={{marginLeft:"12px",fontSize:"15px",color:"black"}} onClick={handleredirectSignUP}>Sign Up</button>
             </div>
             <button
               type="submit"

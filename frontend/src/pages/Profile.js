@@ -13,7 +13,7 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isPasswordEditing, setIsPasswordEditing] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     userName: userdata?.userName || '',
     email: userdata?.email || '',
@@ -132,6 +132,9 @@ const Profile = () => {
       alert("Error: " + error.message);
     }
   };
+  const handleshowdetails = (product) =>{
+    navigate(`/${product.category}/${product._id}`)
+  }
 
   return (
     <>
@@ -244,7 +247,7 @@ const Profile = () => {
         <h3 className="product-titleProfile">{product.title}</h3>
         <p className="product-priceProfile">Price: ${product.price}</p>
         {/* Optional: Add an 'Add to Cart' or similar action button */}
-        <button className="add-to-cart-btn">Add to Cart</button>
+        <button className="add-to-cart-btn" onClick={()=>handleshowdetails(product)}>Go to Details</button>
       </li>
     ))
   ) : (

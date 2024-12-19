@@ -268,17 +268,7 @@ function NavBar() {
                         <Button variant="outline-secondary" >Cosmetic Products</Button>
                     </li>
                     <li className="nav_item2">
-      <Dropdown as={ButtonGroup}>
-        <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
-          Occasion
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          <Dropdown.Item href="#mothers-day"style={{fontSize:"30px",fontFamily:"regular"}}>Mother's Day</Dropdown.Item>
-          <Dropdown.Item href="#birthday" style={{fontSize:"30px",fontFamily:"regular"}}>Birthday</Dropdown.Item>
-          <Dropdown.Item href="#valentine"   style={{fontSize:"30px",fontFamily:"regular"}}>Valentine's</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+                    <Button variant="outline-secondary" >Cosmetic Products</Button>
     </li>
                     <li className="nav_item2">
                         <Button variant="outline-secondary">Handmade Gift</Button>

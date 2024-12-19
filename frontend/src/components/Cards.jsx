@@ -8,6 +8,8 @@ import motherday from "../assets/Motherday.png"
 import mother from "../assets/momo.jpg"
 import birthday from "../assets/birthday.png"
 import valentine from '../assets/vv.png'
+import chocaltepassion from "../assets/chocaltepassion.jpg"
+import { useNavigate } from 'react-router-dom';
 function RotatingCard({ title, frontImage, backContent }) {
   return (
     
@@ -15,7 +17,7 @@ function RotatingCard({ title, frontImage, backContent }) {
       {/* Front Side */}
       <div className="card-side front " style={{backgroundColor:"rgb(255 255 255)"}} >
         <img src={frontImage} alt="Front" style={{ width: '100%', height: '100%', objectFit: 'cover', }} />
-        <div  style={{fontSize:"30px",fontFamily:"Anton",textTransform:"uppercase",color:"black",}}>{title}</div>
+        <div  style={{fontSize:"  30px",fontFamily:"Anton",textTransform:"uppercase",color:"black",}}>{title}</div>
       </div>
 
       {/* Back Side */}
@@ -28,6 +30,10 @@ function RotatingCard({ title, frontImage, backContent }) {
 
 function Cards() {
   const [activeCard, setActiveCard] = useState(0);
+  const navigate = useNavigate()
+  const handlegoshop =() =>{
+    navigate("/Flower")
+  }
   const handleSwipe = () => {
     // Toggle between card 0 and card 1
     setActiveCard((prevCard) => (prevCard === 0 ? 1 : 0));
@@ -35,25 +41,38 @@ function Cards() {
   const cards = [
     {
       id: 1,
-      image: flo, 
+      image: chocaltepassion, 
       title: "Flower Bouquet Box Gifts 1",
       price: "40 DT",
     },
     {
       id: 2,
-      image: flo, 
-      title: "Flower Bouquet Box Gifts 3 ",
-      price: "20 DT",
+      image: "https://i.etsystatic.com/6048649/r/il/5e5b79/5093224472/il_794xN.5093224472_azik.jpg", 
+      title: "Mini Paper Flower Bouquet",
+      price: "12 DT",
+    },
+    {
+      id: 3,
+      image: "https://i.postimg.cc/PfYskzGF/34b4824f-8744-42ac-8ecf-d36bc47e8225-f30c90a9696253b5571769db0fd39aba.webp", 
+      title: "Lindt Excellence 70% Cocoa Dark Chocolate",
+      price: "39.99DT",
+    },
+    {
+      id: 4,
+      image: "https://i.etsystatic.com/6048649/r/il/5e5b79/5093224472/il_794xN.5093224472_azik.jpg", 
+      title: "Mini Paper Flower Bouquet",
+      price: "12 DT",
     },
   ];
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setActiveCard((prevCard) => (prevCard === 0 ? 1 : 0));
-    }, 3000); 
-
+      setActiveCard((prevCard) => (prevCard + 1) % cards.length);
+    }, 2000); 
+  
     // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
-  }, []);
+  }, [cards.length]); // Include cards.length as a dependency to handle dynamic card arrays
+  
   const activeCardData = cards[activeCard];
   return (
     <>
@@ -71,8 +90,8 @@ function Cards() {
           }}
         >
           <Card className='rotating-card'>
-            <Card.Img variant="top" src={activeCardData.image} />
-            <Card.Text className="custom-heading">{activeCardData.title}</Card.Text>
+            <Card.Img variant="top" src={activeCardData.image} style={{maxHeight:"200px",objectFit:"cover"}} />
+            <Card.Text className="custom-heading"  style={{fontSize:"20px",marginTop:"50px",marginLeft:"10px"}}>{activeCardData.title}</Card.Text>
             <div
               style={{
                 display: "flex",
@@ -84,7 +103,7 @@ function Cards() {
               }}
             >
               <h2>{activeCardData.price}</h2>
-              <Button size='lg' style={{backgroundColor:"black",borderColor:"black"}}>Go shop</Button>
+              <Button size='lg' style={{backgroundColor:"black",borderColor:"black",marginBottom:"20px"}} onClick={()=>handlegoshop()}>Go shop</Button>
             </div>
           </Card>
         </div>
@@ -104,8 +123,8 @@ function Cards() {
          }}
        >
          <Card className='rotating-card'>
-           <Card.Img variant="top" src={activeCardData.image} />
-           <Card.Text className="custom-heading">{activeCardData.title}</Card.Text>
+           <Card.Img variant="top" src={activeCardData.image}  style={{maxHeight:"200px",objectFit:"cover"}} />
+           <Card.Text className="custom-heading" style={{fontSize:"20px",marginTop:"50px",marginLeft:"10px"}} >{activeCardData.title} </Card.Text>
            <div
              style={{
                display: "flex",
@@ -113,11 +132,11 @@ function Cards() {
                justifyContent: "space-between",
                padding: "0 10px 100px",
                marginTop:'20px',
-               fontSize:"20px"
+               fontSize:"12px"
              }}
            >
              <h2>{activeCardData.price}</h2>
-             <Button size='lg'  style={{backgroundColor:"black",borderColor:"black"}}>Go shop</Button>
+             <Button size='lg'  style={{backgroundColor:"black",borderColor:"black",marginBottom:"20px"}} onClick={()=>handlegoshop()} >Go shop</Button>
            </div>
          </Card>
        </div>
@@ -137,8 +156,8 @@ function Cards() {
          }}
        >
          <Card className='rotating-card'>
-           <Card.Img variant="top" src={activeCardData.image} />
-           <Card.Text className="custom-heading">{activeCardData.title}</Card.Text>
+           <Card.Img variant="top" src={activeCardData.image} style={{maxHeight:"200px",objectFit:"cover"}} />
+           <Card.Text className="custom-heading" style={{fontSize:"20px",marginTop:"50px",marginLeft:"10px"}} onClick={()=>handlegoshop()}>{activeCardData.title}</Card.Text>
            <div
              style={{
                display: "flex",
@@ -149,7 +168,7 @@ function Cards() {
              }}
            >
              <h2>{activeCardData.price}</h2>
-             <Button size='lg' style={{backgroundColor:"black",borderColor:"black"}}>Go shop</Button>
+             <Button size='lg' style={{backgroundColor:"black",borderColor:"black",marginBottom:"20px"}}>Go shop</Button>
            </div>
          </Card>
        </div>
