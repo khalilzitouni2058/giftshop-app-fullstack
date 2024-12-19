@@ -48,10 +48,10 @@ const Profile = () => {
             fetchProductDetails(productId) 
           );
 
-          // Wait for all the product details to be fetched
+         
           const products = await Promise.all(productRequests);
 
-          // Filter out null results in case of failed product fetch
+          
           setProductDetails(products.filter((product) => product !== null));
         } catch (err) {
           setError("Error fetching product details.");
@@ -83,7 +83,7 @@ const Profile = () => {
   const handleSave = async () => {
     const token = localStorage.getItem("token");
 
-    // Check if the current password matches the user's stored password
+    
     if (formData.currentpassword !== userdata.password && isPasswordEditing) {
       alert("Current password is incorrect.");
       return;
@@ -95,14 +95,14 @@ const Profile = () => {
     }
 
     const updatedData = { ...formData };
-    delete updatedData.confirmPassword; // Remove confirmPassword field
+    delete updatedData.confirmPassword; 
 
-    // Remove password if it's empty
+   
     if (!formData.password) {
       delete updatedData.password;
     }
 
-    // Ensure the current password is provided if editing password
+    
     if (isPasswordEditing && !formData.currentpassword) {
       alert("Current password is required.");
       return;
@@ -123,7 +123,7 @@ const Profile = () => {
         throw new Error(result.message || "Failed to update user.");
       }
 
-      // After successful profile update, update user data in the context
+     
       updateUser(updatedData);
 
       alert("Profile updated successfully!");

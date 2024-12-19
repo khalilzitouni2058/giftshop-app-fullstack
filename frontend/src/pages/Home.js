@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 import { Alert } from "@material-tailwind/react";
 import imageproducts from "../assets/ourPproduct.png"
 import { Form, FormControl,ListGroup,Button  } from 'react-bootstrap';
-// Memoizing the Spline component
+
 
 
 const sectionStyles = [
@@ -32,11 +32,11 @@ function Home() {
   const fetchAllProducts = async () => {
     setLoading(true);
     try {
-        const response = await fetch('http://localhost:9002/api/allproducts'); // Fetch all products
+        const response = await fetch('http://localhost:9002/api/allproducts'); 
         if (response.ok) {
             const data = await response.json();
             setProducts(data.products);
-            setFilteredProducts(data.products); // Initially set filtered products to all fetched products
+            setFilteredProducts(data.products);
         } else {
             setError("No products found.");
         }
@@ -48,31 +48,31 @@ function Home() {
     }
 };
 
-// Handle search input change
+
 const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
 
-    // Filter products based on the search query (case-insensitive) in title
+   
     const filtered = products.filter(product =>
-        product.title.toLowerCase().includes(query.toLowerCase()) // Check if title matches the search query
+        product.title.toLowerCase().includes(query.toLowerCase()) 
     );
 
-    setFilteredProducts(filtered); // Update the filtered products state
+    setFilteredProducts(filtered);
 };
 
 useEffect(() => {
-    fetchAllProducts(); // Fetch all products when the component mounts
-}, []); // Empty dependency array ensures it runs only once
+    fetchAllProducts(); 
+}, []); 
 const handleshowdetails = (product) =>{
   navigation(`/${product.category}/${product._id}`)
 }
-// Render component
+
 const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [selectedTag, setSelectedTag] = useState(""); // State for selected dropdown item
+  const [selectedTag, setSelectedTag] = useState(""); 
   const [searchQuery, setSearchQuery] = useState("");
   
   const sections = [
@@ -111,7 +111,7 @@ const [products, setProducts] = useState([]);
           
         }}
         value={searchQuery}
-        onChange={handleSearchChange} // Update search query on change
+        onChange={handleSearchChange} 
       />
     </Form>
 
@@ -125,8 +125,8 @@ const [products, setProducts] = useState([]);
             width: "100%",
             marginLeft:"20px",
            
-            position: "absolute", // Position the list below the search bar
-            top: "0px", // Adjust based on the search bar's height to prevent overlap
+            position: "absolute", 
+            top: "0px", 
             zIndex: 10, 
           }}
         >
@@ -184,7 +184,7 @@ const [products, setProducts] = useState([]);
           bottom: 0,
           left: 0,
           width: "100%",
-          height: "100px", // Adjust height for fade coverage
+          height: "100px", 
           background: "linear-gradient(transparent, white)",
           zIndex: 0,
         }}
@@ -198,7 +198,7 @@ const [products, setProducts] = useState([]);
     <SignInhomePage key="section4" />
   ];
 
-  // Debounced Scroll Handler
+ 
   const handleWheel = useCallback((event) => {
     if (isScrolling) return;
     setIsScrolling(true);

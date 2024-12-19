@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthContext";// Replace with your actual CartContext path
+import { AuthContext } from "../context/AuthContext";
 import "../styles/checkoutPage.css"
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ const CheckoutPage = () => {
     (total, item) => total + item.product.price * item.count,
     0
   ).toFixed(2);
-  // Access cart context
+  
   const [shippingDetails, setShippingDetails] = useState({
     fullName: "",
     address: "",
@@ -91,19 +91,19 @@ const CheckoutPage = () => {
   const handleCheckout = () => {
     
 
-    // Process checkout
+   
     alert("Order placed successfully!");
-    resetCart(); // Clear the cart after successful checkout
-    navigate("/"); // Navigate to home page after checkout
+    resetCart();
+    navigate("/"); 
   };
 
   return (
     <div className="checkout-wrapper max-w-4xl mx-auto p-6">
   <h1 className="checkout-heading text-2xl font-bold text-center mb-6">Checkout</h1>
 
-  {/* Checkout Content */}
+  
   <div className="checkout-content-container" >
-    {/* Cart Items */}
+    
     <div className="cart-summary" style={{display:"flex",flexDirection:"row",flexWrap:"wrap",gap:"20px",marginTop:"20px",marginBottom: "0%"}}>
       <h2 className="section-title text-2xl font-semibold border-b pb-2"  style={{margin:"50px"}}>Order Summary</h2>
       {cart.length > 0 ? (

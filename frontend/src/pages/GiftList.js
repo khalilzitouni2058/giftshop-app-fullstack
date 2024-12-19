@@ -12,36 +12,36 @@ import { useParams } from "react-router-dom";
 
 function GiftList() {
   const [products, setProducts] = useState([]);
-  const [visibleItems, setVisibleItems] = useState(7); // Initially show 5 items
-  const [loading, setLoading] = useState(false); // Track loading state
+  const [visibleItems, setVisibleItems] = useState(7); 
+  const [loading, setLoading] = useState(false); 
   const { category } = useParams();
   const url = `http://localhost:9002/api/products/${category}`;
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        setLoading(true); // Set loading to true before fetching
+        setLoading(true);
         const response = await axios.get(url);
-        setProducts(response.data.products); // Update products state
-        setLoading(false); // Set loading to false after fetching
+        setProducts(response.data.products); 
+        setLoading(false); 
       } catch (error) {
         console.error("Error fetching products:", error);
-        setLoading(false); // Set loading to false if there's an error
+        setLoading(false); 
       }
     };
 
     fetchProducts();
   }, [category]);
 
-  // Function to show more items
+  
   const showMoreItems = () => {
-    setLoading(true); // Start loading when Show More is clicked
+    setLoading(true); 
 
-    // Simulate loading time (e.g., 1 second delay)
+    
     setTimeout(() => {
-      setVisibleItems((prev) => prev + 5); // Increase visible items by 5
-      setLoading(false); // Stop loading after delay
-    }, 1000); // Adjust the delay as needed
+      setVisibleItems((prev) => prev + 5);
+      setLoading(false);
+    }, 1000);
   };
   console.log(products);
   return (
@@ -52,18 +52,18 @@ function GiftList() {
 
         <div
           style={{
-            columnCount: 4, // Number of columns
-            // Gap between columns
+            columnCount: 4, 
+           
             marginTop: "100px",
             marginLeft: "50px",
           }}
         >
           {products.slice(0, visibleItems).map((product) => (
             <div
-              key={product._id} // Add a key prop to prevent React warnings
+              key={product._id} 
               style={{
-                breakInside: "avoid", // Prevent items from breaking inside the column
-                marginBottom: "30px", // Add spacing between items
+                breakInside: "avoid", 
+                marginBottom: "30px", 
               }}
             >
               <GiftCard
@@ -91,22 +91,22 @@ function GiftList() {
                
               }}
             >
-              {/* Semicircle behind the button */}
+            
               <div
                 style={{
                   position: "absolute",
-                  bottom: "0", // Aligns with the button's bottom
+                  bottom: "0", 
                   left: "50%",
-                  transform: "translateX(-50%)", // Centers the semicircle
-                  width: "800px", // Adjust width to match the button
-                  height: "100px", // Half of the width to create a semicircle
+                  transform: "translateX(-50%)",
+                  width: "800px",
+                  height: "100px", 
                   backgroundColor: "lightgray",
-                  borderTopLeftRadius: "300px", // Makes a semicircle
+                  borderTopLeftRadius: "300px", 
                   borderTopRightRadius: " 300px",
-                  zIndex: "0", // Places it behind the button
+                  zIndex: "0", 
                 }}
               />
-              {/* Button */}
+            
               <Button
                 onClick={showMoreItems}
                 style={{
@@ -114,30 +114,30 @@ function GiftList() {
                   marginBottom: "50px",
                   fontSize: "15px",
                   borderRadius: "50px",
-                  border: "2px solid black", // Adds a bold border for definition
+                  border: "2px solid black",
                   backgroundColor: "white",
                   color: "black",
-                  padding: "10px 40px", // Adjusted for better spacing
-                  zIndex: "1", // Ensures the button is on top of the semicircle
+                  padding: "10px 40px", 
+                  zIndex: "1", 
                   position: "relative",
-                  fontFamily: "Anton, sans-serif", // Use a sans-serif fallback for Anton
+                  fontFamily: "Anton, sans-serif", 
                   textTransform: "uppercase",
-                  letterSpacing: "2px", // Slight spacing for better readability
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Adds subtle shadow for depth
-                  transition: "all 0.3s ease", // Smooth hover transition
-                  cursor: "pointer", // Ensure it’s clear that it’s clickable
+                  letterSpacing: "2px", 
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", 
+                  transition: "all 0.3s ease", 
+                  cursor: "pointer", 
                 }}
                 onMouseEnter={
                   (e) => (
                     (e.currentTarget.style.backgroundColor = "black"),
                     (e.currentTarget.style.color = "white")
-                  ) // Reverses colors on hover
+                  ) 
                 }
                 onMouseLeave={
                   (e) => (
                     (e.currentTarget.style.backgroundColor = "white"),
                     (e.currentTarget.style.color = "black")
-                  ) // Restores colors on hover out
+                  ) 
                 }
               >
                 Show More
