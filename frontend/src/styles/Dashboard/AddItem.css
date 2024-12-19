@@ -1,0 +1,234 @@
+/* Container for the form */
+.add-item-form {
+    width: 70%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1rem; /* Global font size update */
+  }
+
+  /* Form title */
+  .add-item-form h2 {
+    text-align: center;
+    font-size: 2.2rem; /* Larger title size for clarity */
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: bold;
+  }
+
+  /* Style for each input field group */
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  /* Label styles */
+  .form-group label {
+    font-size: 1.1rem; /* Slightly larger label text */
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* Input and Textarea Styles */
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1.1rem; /* Larger font size in input fields */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Input and Textarea focus state */
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+  }
+
+  /* Specific styles for number input */
+  .form-group input[type="number"] {
+    width: 50%;
+  }
+
+  /* Style for the tag input and tags container */
+  .form-group input[type="text"] {
+    width: calc(100% - 100px);
+    display: inline-block;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    font-size: 1.1rem; /* Larger font size in tag input */
+    margin-right: 10px;
+  }
+
+  .form-group .tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 6px 12px;
+    margin: 5px 8px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #333;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Hover effect on tags */
+  .form-group .tag:hover {
+    background-color: #007bff;
+    color: white;
+  }
+
+  /* Remove tag button inside tags */
+  .form-group .tag button {
+    background: none;
+    border: none;
+    color: #ff4d4d;
+    font-size: 1.2rem;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .form-group .tag button:hover {
+    color: #ff0000;
+  }
+
+  /* Button styles */
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.2rem; /* Larger font size for button */
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  /* Button hover effect */
+  .submit-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+
+  /* Input container for multiple images */
+  .form-group input[type="url"] {
+    width: 100%;
+  }
+
+  .form-group input[type="url"]:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+
+  .form-group .tags-container {
+    margin-top: 15px;
+  }
+
+  /* Drag and drop area */
+  .drag-drop-container {
+    width: 100%;
+    padding: 20px;
+    border: 2px dashed #007bff;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .drag-drop-container:hover {
+    background-color: #f0f8ff;
+  }
+
+  .drag-drop-container p {
+    margin-top: 10px;
+  }
+
+  .add-item-form {
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: #f9f9f9;
+  }
+
+  .add-item-form input,
+  .add-item-form textarea,
+  .add-item-form button {
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* Style for the input field icons (if any) */
+  .form-group input[type="url"] {
+    padding-left: 35px;
+    background: #f9f9f9 url('https://via.placeholder.com/20') no-repeat 10px center;
+    background-size: 20px;
+  }
+
+  /* Drag-and-Drop Integration with Inputs */
+.drag-drop-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Updated to arrange items horizontally */
+    border: 2px dashed #007bff;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .drag-drop-container:hover {
+    background-color: #e6f2ff;
+    border-color: #0056b3;
+  }
+
+  .drag-drop-container .rectangle {
+    width: 30%;
+    height: 100px;
+    background-color: #e0e0e0;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #007bff;
+  }
+
+  .drag-drop-container .rectangle:hover {
+    background-color: #f0f8ff;
+  }
+
+  .drag-drop-container input {
+    width: 100%;
+    padding: 12px 16px;
+    border: none;
+    background: none;
+    font-size: 1.1rem;
+    outline: none;
+  }
+
+  .drag-drop-container input::placeholder {
+    color: #888;
+    font-size: 1rem;
+  }
+
+  .drag-drop-container input:focus {
+    border: none;
+    outline: none;
+  }

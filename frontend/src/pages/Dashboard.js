@@ -36,14 +36,14 @@ const Dashboard = () => {
         return (
           <>
             <div className={`content ${isSidebarOpen ? 'open' : ''}`}> Orders</div>;
-            <Orders/>
+            <Orders isSidebarOpen={isSidebarOpen}/>
           </>
         )
       case 'users':
         return( 
           <>
             <div className={`content ${isSidebarOpen ? 'open' : ''}`}> Users</div>;
-            <Users/>
+            <Users isSidebarOpen={isSidebarOpen}/>
           </>
         )
       default:
@@ -52,9 +52,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className={`dashboard ${isSidebarOpen ? 'open' : ''}`}>
+    <div className={`dashboard ${isSidebarOpen ? 'open' : ''}`} style={{fontFamily:'Arial, sans-serif'}}>
       {/* Sidebar */}
-      <button className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}>
+      <button className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar} >
       {isSidebarOpen ? '✖' : '☰'}
       </button>
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`} >

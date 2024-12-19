@@ -29,9 +29,9 @@ const overlayStyles = {
   left: 0,
   width: '100%',
   height: '100%',
-  backgroundColor: 'rgba(0, 0, 0, 0.7)', // Darker semi-transparent background
+  backgroundColor: 'rgba(0, 0, 0, 0.7)', 
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'flex-end',
   alignItems: 'center',
   zIndex: 1000,
 };
@@ -40,19 +40,22 @@ const cardStyles = {
   backgroundColor: '#ffffff',
   borderRadius: '15px',
   padding: '20px',
-  width: '400px',
-  height: '600px', // Fixed size
+  width: '30%', 
+  maxWidth: '400px',
+  height: '95%', 
+  maxHeight: '95vh', 
   boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
   position: 'relative',
   overflow: 'hidden',
   display: 'flex',
   flexDirection: 'column',
+  marginLeft: '20px', 
 };
 
 const closeButtonStyles = {
-  position: 'absolute',
-  top: '10px',
-  right: '10px',
+  position: 'absolute', 
+  top: '10px', 
+  right: '10px', 
   backgroundColor: '#e74c3c',
   color: 'white',
   border: 'none',
@@ -62,12 +65,18 @@ const closeButtonStyles = {
   cursor: 'pointer',
   fontSize: '16px',
   fontWeight: 'bold',
+  display: 'flex', 
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: 0, 
 };
 
 const contentWrapperStyles = {
-  overflowY: 'auto', // Make content scrollable if it exceeds the fixed size
+  overflowY: 'auto',
   marginTop: '40px',
   paddingRight: '10px',
+  scrollbarWidth: 'none', 
+  msOverflowStyle: 'none', 
 };
 
 const titleStyles = {
@@ -78,7 +87,7 @@ const titleStyles = {
 
 const imageStyles = {
   width: '100%',
-  height: '200px',
+  height: '300px', 
   objectFit: 'cover',
   borderRadius: '10px',
   marginBottom: '15px',
@@ -86,8 +95,8 @@ const imageStyles = {
 
 const detailsStyles = {
   color: '#2c3e50',
-  fontSize: '14px',
-  lineHeight: '1.6',
+  fontSize: '16px', 
+  lineHeight: '1.8', 
 };
 
 export default OverlayCard;
