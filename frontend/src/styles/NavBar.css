@@ -3,7 +3,6 @@ html {
 }
 body {
   font-size: 1rem;
-  
 }
 li {
   list-style: none;
@@ -16,7 +15,7 @@ nav {
   align-items: center;
   justify-content: space-around;
   height: 8vh;
-  
+
   background: rgb(255, 255, 255);
 }
 
@@ -33,7 +32,8 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 3rem;
-  z-index: 10;
+
+  z-index: 20;
 }
 div::-webkit-scrollbar {
   display: none;

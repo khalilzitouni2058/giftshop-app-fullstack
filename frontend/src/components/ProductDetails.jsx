@@ -225,7 +225,7 @@ if (userReview) {
         >
           <div style={{ display: "flex" }}>
             <div style={{ display: "flex", flexDirection: "row-reverse" }}>
-              <div style={{  maxWidth: "400px",height:"500px" ,border: "2px solid", borderRadius:"5px" }}>
+              <div style={{  maxWidth: "400px",height:"500px" , borderRadius:"5px" }}>
                 <Carousel activeIndex={currentIndex} onSelect={(selectedIndex) => setCurrentIndex(selectedIndex)} indicators={false}>
                   {images.map((img, index) => (
                     <Carousel.Item key={index}>

@@ -24,7 +24,7 @@
 .stock-ticker {
   font-size: 30px;
   padding-block: 8px;
-  
+
   overflow: hidden; /* Ensures text outside the container is hidden */
   user-select: none;
   display: flex;
@@ -96,8 +96,8 @@ li {
   transform: rotateY(0deg);
 }
 .custom-heading {
-  font-size: 2rem; /* text-xl */
-  font-weight: 500; /* font-semibold */
+  font-size: 12px; /* text-xl */
+  font-weight: 400; /* font-semibold */
   letter-spacing: -0.01562em; /* tracking-tight */
-  color: #111827; /* text-gray-900 */
+  color: #000000; /* text-gray-900 */
 }
