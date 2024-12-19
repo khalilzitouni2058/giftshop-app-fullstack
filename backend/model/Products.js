@@ -30,7 +30,7 @@ const ProductsSchema = new mongoose.Schema({
     },
     rating: {
         type: Number,
-        required: true
+        required: false
     },
     imageURL: {
         type: String,
@@ -56,7 +56,10 @@ const ProductsSchema = new mongoose.Schema({
         type: [String],
         required: true,
     },
-    reviews: [reviewSchema] // Embedding the reviews as an array of subdocuments
+    reviews: [reviewSchema], 
+    
+
+     
 });
 
 module.exports = mongoose.model('Products', ProductsSchema);

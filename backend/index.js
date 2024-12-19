@@ -2,6 +2,7 @@ const express=require("express");
 const app=express();
 const userRoute=require("./Routes/userRoute")
 const productsRoute = require("./Routes/productsRoute");
+const logsRoute = require("./Routes/logsRoute");
 
 const dotenv=require("dotenv");
 const connectDb = require("./Configurations/connectDB");
@@ -21,3 +22,4 @@ app.listen(port, (error)=>{
 app.use(express.json());
 app.use("/api", userRoute);
 app.use("/api",productsRoute);
+app.use("/api",logsRoute);

@@ -70,6 +70,30 @@ const deleteUser = async (req, res) => {
         res.status(500).json({ msg: "error on deleting user" });
     }
 };
+const updateRole = async (req, res) => {
+    const { id } = req.params;
+    console.log("hello")
+    console.log({id})
+
+    const { role } = req.body; 
+    console.log(role)
+    console.log({role})
+  
+    try {
+      const user = await User.findByIdAndUpdate(id, { role }, { new: true });
+  
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      res.status(200).json({ message: 'User role updated successfully', user });
+    } catch (error) {
+      console.error('Error updating user role:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  };
+
+
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
 const signIn = async (req, res) => {
@@ -186,5 +210,5 @@ const signIn = async (req, res) => {
       };
     
     
-module.exports = { getUsers, postUser, putUser, deleteUser, getOneUser, signIn, getFavorites,addFavorite ,removeFavorite,postLogs};
+module.exports = { getUsers, postUser, putUser, deleteUser, getOneUser, signIn, getFavorites,addFavorite ,removeFavorite,postLogs,updateRole};
 

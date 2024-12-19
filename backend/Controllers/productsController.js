@@ -70,36 +70,69 @@ const getProduct= async (req, res) => {
 
 
 
-// const postOneProduct = async (req, res) => {
-//     const product = req.body;
+const postProduct = async (req, res) => {
+    const product = req.body;
+    try {
+        const newProduct = new Product(product);  
+        await newProduct.save();
+        res.status(200).json({ product: newProduct, msg: "Product successfully added" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: "Error on adding product" });
+    }
+};
+
+
+
+
+
+// const postProduct = async (req, res) => {
+//     const products = req.body;  
 //     try {
-//         const newProduct = new Product(product);  
-//         await newProduct.save();
-//         res.status(200).json({ product: newProduct, msg: "Product successfully added" });
+//         if (Array.isArray(products)) {
+//             const newProducts = await Product.insertMany(products); 
+//             res.status(200).json({ products: newProducts, msg: "Products successfully added" });
+//         } else {
+//             res.status(400).json({ msg: "Invalid input. Expected an array of products." });
+//         }
 //     } catch (error) {
 //         console.error(error);
-//         res.status(500).json({ msg: "Error on adding product" });
+//         res.status(500).json({ msg: "Error on adding products" });
 //     }
 // };
 
+// const postProduct = async(req, res) => {
+//     console.log(req.body); // Log incoming data
+//     res.status(201).json({ message: 'Product added successfully', ...req.body });
+//   };
 
-
-
-
-const postProduct = async (req, res) => {
-    const products = req.body;  
+const updateProduct = async (req, res) => {
     try {
-        if (Array.isArray(products)) {
-            const newProducts = await Product.insertMany(products); 
-            res.status(200).json({ products: newProducts, msg: "Products successfully added" });
-        } else {
-            res.status(400).json({ msg: "Invalid input. Expected an array of products." });
-        }
+      const productId = req.params.id;
+      const updatedData = req.body;
+  
+      // Find the product by ID and update it with the provided data
+      const updatedProduct = await Product.findByIdAndUpdate(
+        productId,
+        updatedData,
+        { new: true } // Return the updated product
+      );
+  
+      if (!updatedProduct) {
+        return res.status(404).json({ msg: 'Product not found' });
+      }
+  
+      res.status(200).json({
+        msg: 'Product updated successfully',
+        product: updatedProduct,
+      });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ msg: "Error on adding products" });
+      console.error('Error updating product:', error);
+      res.status(500).json({ msg: 'Internal server error' });
     }
-};
+  };
+
+
 
 const deleteProduct = async (req, res) => {
     //console.log("hello")
@@ -121,10 +154,10 @@ const deleteProduct = async (req, res) => {
 
 
 const addReviewToProduct = async (req, res) => {
-    const { productId } = req.params;  // Get the product ID from URL params
-    const {  userName, comment, rating } = req.body;  // Get review details from request body
+    const { productId } = req.params;  
+    const {  userName, comment, rating } = req.body;  
 
-    // Validate the review data
+    
     
 
     if (rating < 1 || rating > 5) {
@@ -132,13 +165,13 @@ const addReviewToProduct = async (req, res) => {
     }
 
     try {
-        // Find the product by ID and update the reviews array
+        
         const product = await Product.findById(productId);
         if (!product) {
             return res.status(404).json({ msg: "Product not found" });
         }
 
-        // Create the new review object
+        
         const newReview = {
             userName,
             comment,
@@ -170,4 +203,5 @@ module.exports = {
     getProduct,
     getProducts,
     addReviewToProduct,
+    updateProduct
 };
