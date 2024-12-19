@@ -3,6 +3,7 @@ import { AuthContext } from '../context/AuthContext';
 import NavBar from '../components/NavBar';
 import '../styles/Profile.css';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 const Profile = () => {
   const { user, updateUser } = useContext(AuthContext);
   const [productDetails, setProductDetails] = useState([]);
@@ -12,6 +13,7 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isPasswordEditing, setIsPasswordEditing] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate
   const [formData, setFormData] = useState({
     userName: userdata?.userName || '',
     email: userdata?.email || '',
@@ -22,6 +24,7 @@ const Profile = () => {
   });
   console.log(userdata._id)
   const fetchProductDetails = async (productId) => {
+    
     try {
       const response = await axios.get("http://localhost:9002/api/products", {
         params: { productId }, 
