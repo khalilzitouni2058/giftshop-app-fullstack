@@ -19,7 +19,6 @@ function SignUp() {
 
   const [error, setError] = useState('');
 
-  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -28,11 +27,9 @@ function SignUp() {
     }));
   };
 
-  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Use environment variable or fallback to localhost
     const backendUrl = 'http://localhost:9002/api/users'; 
 
     try {
@@ -51,7 +48,6 @@ function SignUp() {
     <>
       <NavBar />
       <div style={{ display: "flex", alignItems: "center" }}>
-        {/** Left Slide */}
         <div className="hero min-h-screen" style={{ width: "1000px", maxHeight: "830px", backgroundImage: `url(${floflo})` }}>
           <div className="hero-overlay bg-opacity-60">
             <h1 className='mb-5 text-5xl font-bold text-zinc-50' style={{ font: "Anton", textTransform: "uppercase", color:"white",marginTop: "230px", marginLeft: "50px", fontSize: "50px" }}> Join Us</h1>
@@ -59,7 +55,6 @@ function SignUp() {
           </div>
         </div>
 
-        {/** Right Slide */}
         <div
           style={{
             backgroundColor: "",

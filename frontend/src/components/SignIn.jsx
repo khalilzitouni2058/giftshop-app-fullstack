@@ -10,10 +10,10 @@ function SignIn() {
     const navigate = useNavigate();
     const { login } = useContext(AuthContext); 
   const handleRedirect = () => {
-    navigate("/" ,{ state: { showSuccessAlert: true } }); // 
+    navigate("/" ,{ state: { showSuccessAlert: true } }); 
   };
   const handleredirectSignUP = () => {
-    navigate("/SignUp"); // 
+    navigate("/SignUp");  
   };
     const [formData, setFormData] = useState({
         email: '',
@@ -31,7 +31,6 @@ function SignIn() {
       const handleSubmit = async (e) => {
         e.preventDefault();
     
-        // Use environment variable or fallback to localhost
         const backendUrl = 'http://localhost:9002/api/signIn'; 
     
         try {
@@ -81,7 +80,6 @@ function SignIn() {
             Welcome TO Hdeya
           </h1>
 
-           {/* Display error message */}
 
           <form
             style={{

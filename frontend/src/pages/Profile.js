@@ -48,10 +48,8 @@ const Profile = () => {
             fetchProductDetails(productId) 
           );
 
-         
           const products = await Promise.all(productRequests);
 
-          
           setProductDetails(products.filter((product) => product !== null));
         } catch (err) {
           setError("Error fetching product details.");
@@ -83,7 +81,6 @@ const Profile = () => {
   const handleSave = async () => {
     const token = localStorage.getItem("token");
 
-    
     if (formData.currentpassword !== userdata.password && isPasswordEditing) {
       alert("Current password is incorrect.");
       return;
@@ -97,12 +94,10 @@ const Profile = () => {
     const updatedData = { ...formData };
     delete updatedData.confirmPassword; 
 
-   
     if (!formData.password) {
       delete updatedData.password;
     }
 
-    
     if (isPasswordEditing && !formData.currentpassword) {
       alert("Current password is required.");
       return;
@@ -123,7 +118,6 @@ const Profile = () => {
         throw new Error(result.message || "Failed to update user.");
       }
 
-     
       updateUser(updatedData);
 
       alert("Profile updated successfully!");
@@ -246,7 +240,6 @@ const Profile = () => {
         <img className="product-imageprofile" src={product.imageURL} alt={product.title} />
         <h3 className="product-titleProfile">{product.title}</h3>
         <p className="product-priceProfile">Price: ${product.price}</p>
-        {/* Optional: Add an 'Add to Cart' or similar action button */}
         <button className="add-to-cart-btn" onClick={()=>handleshowdetails(product)}>Go to Details</button>
       </li>
     ))

@@ -29,7 +29,7 @@ const overlayStyles = {
   left: 0,
   width: '100%',
   height: '100%',
-  backgroundColor: 'rgba(0, 0, 0, 0.7)', // Darker semi-transparent background
+  backgroundColor: 'rgba(0, 0, 0, 0.7)', 
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -41,7 +41,7 @@ const cardStyles = {
   borderRadius: '15px',
   padding: '20px',
   width: '400px',
-  height: '600px', // Fixed size
+  height: '600px', 
   boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)',
   position: 'relative',
   overflow: 'hidden',
@@ -65,7 +65,7 @@ const closeButtonStyles = {
 };
 
 const contentWrapperStyles = {
-  overflowY: 'auto', // Make content scrollable if it exceeds the fixed size
+  overflowY: 'auto', 
   marginTop: '40px',
   paddingRight: '10px',
 };

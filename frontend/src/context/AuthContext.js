@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
 
   const updateUser = (updatedUserData) => {
     setUser(updatedUserData);
-    localStorage.setItem('user', JSON.stringify(updatedUserData)); // Update user data in localStorage
+    localStorage.setItem('user', JSON.stringify(updatedUserData)); 
   };
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('accessToken');
     const role = localStorage.getItem('userRole');  
     if (storedUser && token) {
-      setUser({ ...JSON.parse(storedUser), role });//modified by alaa
+      setUser({ ...JSON.parse(storedUser), role });
     }
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {

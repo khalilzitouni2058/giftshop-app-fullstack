@@ -36,7 +36,7 @@ function Home() {
         if (response.ok) {
             const data = await response.json();
             setProducts(data.products);
-            setFilteredProducts(data.products);
+            setFilteredProducts(data.products); 
         } else {
             setError("No products found.");
         }
@@ -48,17 +48,15 @@ function Home() {
     }
 };
 
-
 const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
 
-   
     const filtered = products.filter(product =>
         product.title.toLowerCase().includes(query.toLowerCase()) 
     );
 
-    setFilteredProducts(filtered);
+    setFilteredProducts(filtered); 
 };
 
 useEffect(() => {
@@ -95,7 +93,6 @@ const [products, setProducts] = useState([]);
       Occasion!
     </h5>
 
-    {/* Search Bar */}
     <Form className="d-flex" style={{ marginTop: "150px", position: "relative" }}>
       
       <FormControl
@@ -115,7 +112,6 @@ const [products, setProducts] = useState([]);
       />
     </Form>
 
-    {/* Filtered Products List */}
     <div style={{ marginTop: "10px", width: "500px", position: "relative" }}>
       {searchQuery && (
         <ListGroup
@@ -157,7 +153,6 @@ const [products, setProducts] = useState([]);
       )}
     </div>
 
-    {/* BarWithButton and Image */}
     <div
       style={{
         position: "relative",
@@ -198,7 +193,6 @@ const [products, setProducts] = useState([]);
     <SignInhomePage key="section4" />
   ];
 
- 
   const handleWheel = useCallback((event) => {
     if (isScrolling) return;
     setIsScrolling(true);

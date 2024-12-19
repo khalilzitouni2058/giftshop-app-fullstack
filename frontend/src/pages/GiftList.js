@@ -13,14 +13,14 @@ import { useParams } from "react-router-dom";
 function GiftList() {
   const [products, setProducts] = useState([]);
   const [visibleItems, setVisibleItems] = useState(7); 
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const { category } = useParams();
   const url = `http://localhost:9002/api/products/${category}`;
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        setLoading(true);
+        setLoading(true); 
         const response = await axios.get(url);
         setProducts(response.data.products); 
         setLoading(false); 
@@ -33,15 +33,14 @@ function GiftList() {
     fetchProducts();
   }, [category]);
 
-  
   const showMoreItems = () => {
     setLoading(true); 
 
     
     setTimeout(() => {
-      setVisibleItems((prev) => prev + 5);
-      setLoading(false);
-    }, 1000);
+      setVisibleItems((prev) => prev + 5); 
+      setLoading(false); 
+    }, 1000); 
   };
   console.log(products);
   return (
@@ -53,7 +52,6 @@ function GiftList() {
         <div
           style={{
             columnCount: 4, 
-           
             marginTop: "100px",
             marginLeft: "50px",
           }}
@@ -91,14 +89,13 @@ function GiftList() {
                
               }}
             >
-            
               <div
                 style={{
                   position: "absolute",
                   bottom: "0", 
                   left: "50%",
-                  transform: "translateX(-50%)",
-                  width: "800px",
+                  transform: "translateX(-50%)", 
+                  width: "800px", 
                   height: "100px", 
                   backgroundColor: "lightgray",
                   borderTopLeftRadius: "300px", 
@@ -106,7 +103,6 @@ function GiftList() {
                   zIndex: "0", 
                 }}
               />
-            
               <Button
                 onClick={showMoreItems}
                 style={{
@@ -114,7 +110,7 @@ function GiftList() {
                   marginBottom: "50px",
                   fontSize: "15px",
                   borderRadius: "50px",
-                  border: "2px solid black",
+                  border: "2px solid black", 
                   backgroundColor: "white",
                   color: "black",
                   padding: "10px 40px", 

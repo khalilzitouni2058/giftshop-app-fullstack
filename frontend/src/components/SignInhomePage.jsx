@@ -6,14 +6,11 @@ function SignInhomePage() {
     <>
       <div style={{
         display: "flex",
-        justifyContent: "center", // Centers both the left and right sides horizontally
-        alignItems: "center", // Centers the content vertically
-        height: "100vh", // Full screen height
-        // Full screen width
-         // Space between the left and right sections
+        justifyContent: "center", 
+        alignItems: "center", 
+        height: "100vh", 
       }}>
         
-        {/** Left Slide */}
         <div className="hero min-h-screen" style={{
           width: "50%", 
           backgroundImage: `url(${floflo})`, 
@@ -34,7 +31,6 @@ function SignInhomePage() {
           </div>
         </div>
 
-        {/** Right Slide */}
         <div style={{
           backgroundColor: "rgb(254 215 170)", 
           width: "50%", 
@@ -158,7 +154,6 @@ function SignInhomePage() {
         </div>
       </div>
 
-      {/* Footer */}
       <ul style={{
         backgroundColor: "white", 
         width: '100%', 

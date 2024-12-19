@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
-import { StarFill, StarHalf, Star } from "react-bootstrap-icons"; // For star icons
+import { StarFill, StarHalf, Star } from "react-bootstrap-icons"; 
 import NavBar from "./NavBar";
 import Button from "react-bootstrap/Button";
-import "../styles/ProductDetails.css"; // External CSS for styling the ribbon
+import "../styles/ProductDetails.css"; 
 import { FaCircleArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
@@ -30,18 +30,18 @@ import Accordion from 'react-bootstrap/Accordion';
 
 function ProductDetails() {
 
-  const [oneProduct, setOneProduct] = useState(null); // Start with null to check data later
+  const [oneProduct, setOneProduct] = useState(null); 
   const [loading, setLoading] = useState(false);
   const [count,Setcount] = useState(1)
   const [userHasReviewed, setUserHasReviewed] = useState(false);
-  const [rating, setRating] = useState(0); // Store the rating (1-5)
-  const [Productrating, setProductRating] = useState(0); // Store the rating (1-5)
+  const [rating, setRating] = useState(0); 
+  const [Productrating, setProductRating] = useState(0); 
   const [similarItems, setSimilarItems] = useState([]);
-  const [reviewAdded, setReviewAdded] = useState(false); // State to trigger re-render
+  const [reviewAdded, setReviewAdded] = useState(false); 
 
 
-  const [comment, setComment] = useState(''); // Store the comment
-  const [hover, setHover] = useState(0); // Store the hover state for stars
+  const [comment, setComment] = useState(''); 
+  const [hover, setHover] = useState(0); 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const userdata = JSON.parse(localStorage.getItem("user"));
@@ -67,11 +67,10 @@ function ProductDetails() {
       try {
         setLoading(true);
   
-        // Fetch product by id
         const response = await axios.get(url_1);
-        setOneProduct(response.data.product); // Update oneProduct
+        setOneProduct(response.data.product); 
   
-        // Update product rating
+       
         if (response.data.product.reviews && response.data.product.reviews.length > 0) {
           const totalRating = response.data.product.reviews.reduce((acc, review) => acc + review.rating, 0);
           const averageRating = totalRating / response.data.product.reviews.length;
@@ -80,7 +79,7 @@ function ProductDetails() {
           setProductRating(0);
         }
   
-        // Check if user has reviewed the product
+        
         const userReview = response.data.product.reviews.find(review => review.userName == userdata.userName);
 if (userReview) {
   setUserHasReviewed(true);
@@ -93,13 +92,13 @@ if (userReview) {
       }
     };
   
-    // Trigger fetch only when id or category change, but prevent infinite re-fetch
+    
     if (id && category) {
       fetchProductById();
     }
-  }, [id, category, reviewAdded]); // Trigger on id or category change
+  }, [id, category, reviewAdded]); 
   
-  // Separate useEffect to fetch similar items after oneProduct is updated
+  
   useEffect(() => {
     if (oneProduct && oneProduct.category) {
       const fetchSimilarItems = async () => {
@@ -108,15 +107,15 @@ if (userReview) {
           
           const allProducts = allProductsResponse.data.products;
           setSimilarItems(allProducts);
-          console.log(allProducts); // Check fetched similar products
+          console.log(allProducts); 
         } catch (error) {
           console.error("Error fetching similar products:", error);
         }
       };
   
-      fetchSimilarItems(); // Fetch similar items after oneProduct is updated
+      fetchSimilarItems(); 
     }
-  }, [oneProduct]);  // Trigger re-fetch when the user has reviewed
+  }, [oneProduct]);  
   
 
   
@@ -138,7 +137,7 @@ if (userReview) {
     
     try {
       await axios.post(url_2, reviewData);
-      // Optionally save the review locally
+      
       localStorage.setItem('userReview', JSON.stringify(reviewData));
       alert("Review added successfully!");
       setReviewAdded(!reviewAdded);
@@ -151,8 +150,8 @@ if (userReview) {
  
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    if (isNaN(date)) return "Invalid Date"; // Handle invalid dates gracefully
-    return date.toISOString().split("T")[0]; // Formats to "YYYY-MM-DD"
+    if (isNaN(date)) return "Invalid Date"; 
+    return date.toISOString().split("T")[0]; 
   };
 
 
@@ -193,7 +192,7 @@ if (userReview) {
 
   
 
-  if (loading) return <div>Loading...</div>; // Show loading state if fetching
+  if (loading) return <div>Loading...</div>; 
 
   return (
     <>
@@ -309,9 +308,9 @@ if (userReview) {
     <TbFileDescription style={{ marginTop: "10px" }} />
     <span
       style={{
-        maxHeight: isExpanded ? "1000px" : "60px", // Control the height based on the expanded state
+        maxHeight: isExpanded ? "1000px" : "60px", 
         overflow: "hidden",
-        transition: "max-height 0.3s ease-in-out", // Smooth transition for expanding/collapsing
+        transition: "max-height 0.3s ease-in-out", 
         wordWrap: "break-word",
         maxWidth: "450px",
       }}
@@ -326,25 +325,25 @@ if (userReview) {
     padding: "5px 10px",
     cursor: "pointer",
     fontSize: "20px",
-    transition: "transform 0.3s ease-in-out, opacity 0.3s ease-in-out", // Add transition for smooth swap
+    transition: "transform 0.3s ease-in-out, opacity 0.3s ease-in-out", 
   }}
 >
   <TbMoodLookDown
     style={{
       color:"black",
       boxShadow:"none",
-      opacity: isExpanded ? 0 : 1 , // Fade out the "up" icon when expanded
-      transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", // Optional: rotate for added effect
-      transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out", // Smooth opacity and rotation transition
+      opacity: isExpanded ? 0 : 1 , 
+      transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", 
+      transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out", 
     }}
   />
   <TbMoodLookUp
     style={{
       color:"black",
       boxShadow:"none",
-      opacity: isExpanded ? 1 : 0, // Fade in the "down" icon when expanded
-      transform: isExpanded ? "rotate(0deg)" : "rotate(-180deg)", // Optional: rotate for added effect
-      transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out", // Smooth opacity and rotation transition
+      opacity: isExpanded ? 1 : 0, 
+      transform: isExpanded ? "rotate(0deg)" : "rotate(-180deg)", 
+      transition: "opacity 0.3s ease-in-out, transform 0.3s ease-in-out", 
       border:"none" ,
     }}
   />
@@ -363,7 +362,7 @@ if (userReview) {
               <div style={{ display: "flex",gap:"20px", flexDirection: "column-reverse",justifyContent:"center",alignItems:"center",maxWidth:"600px",marginTop:"-50px" }}>
               <Button
     onClick={() => addToCart(purchasedProduct)}
-    className="add-to-cart-btn" // Apply the CSS class
+    className="add-to-cart-btn" 
    style={{borderRadius:"50px", fontSize:"25px"}} >
     Add to Cart
   </Button>
@@ -372,7 +371,7 @@ if (userReview) {
             id="dropdown-button-drop-'up-centered'"
             drop='up-centered'  
             title={count}
-            onSelect={(eventKey) => Setcount(parseInt(eventKey))} // Update count on selection
+            onSelect={(eventKey) => Setcount(parseInt(eventKey))} 
             style={{width:"400px",backgroundColor:"gray"}}
             className="dropDown"
           >
@@ -398,13 +397,13 @@ if (userReview) {
   {oneProduct.reviews && oneProduct.reviews.length > 0 ? (
     oneProduct.reviews.map((review, index) => (
       <div key={index} className="review-item">
-        {/* Stars */}
+        
         <div className="review-stars" style={{fontSize:"10px"}}>{renderStars(review.rating,18,"black")}</div>
 
-        {/* Review Content */}
+        
         <p className="review-comment">{review.comment}</p>
 
-        {/* User Details */}
+        
         <div className="review-footer">
          
           <span className="review-username">{review.userName}</span>
@@ -419,7 +418,7 @@ if (userReview) {
   {!userHasReviewed && (<div className="add-review" >
   <h3>Add a Review</h3>
   <form onSubmit={handleSubmitReview} className="review-form">
-    {/* Rating */}
+    
     <div className="rating-container">
       <p>Rating:</p>
       {[...Array(5)].map((_, index) => {
@@ -450,7 +449,7 @@ if (userReview) {
       })}
     </div>
 
-    {/* Comment */}
+    
     <textarea
       placeholder="Write your comment here..."
       value={comment}
@@ -460,11 +459,10 @@ if (userReview) {
       className="review-textarea"
     ></textarea>
 
-    {/* Submit */}
+    
     <button type="submit" className="submit-btn">Submit Review</button>
   </form>
 
-  {/* Show error or success messages */}
   {error && <p className="error-message">{error}</p>}
   {success && <p className="success-message">{success}</p>}
   
