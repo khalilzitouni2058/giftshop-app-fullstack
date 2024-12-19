@@ -52,7 +52,7 @@ function SignUp() {
       <NavBar />
       <div style={{ display: "flex", alignItems: "center" }}>
         {/** Left Slide */}
-        <div className="hero min-h-screen" style={{ width: "1000px", height: "730px", backgroundImage: `url(${floflo})` }}>
+        <div className="hero min-h-screen" style={{ width: "1000px", maxHeight: "830px", backgroundImage: `url(${floflo})` }}>
           <div className="hero-overlay bg-opacity-60">
             <h1 className='mb-5 text-5xl font-bold text-zinc-50' style={{ font: "Anton", textTransform: "uppercase", color:"white",marginTop: "230px", marginLeft: "50px", fontSize: "50px" }}> Join Us</h1>
             <h1 className='mb-5 text-5xl font-bold text-zinc-50' style={{ font: "Anton", textTransform: "uppercase", color:"white", marginLeft: "50px", fontSize: "50px" }}> unwrap the joy of giving!</h1>
@@ -62,11 +62,12 @@ function SignUp() {
         {/** Right Slide */}
         <div
           style={{
-            backgroundColor: "rgb(254 215 170)",
+            backgroundColor: "",
             width: "1000px",
-            height: "730px",
+            Height: "1500px",
+           marginTop:"150px",
             padding: "20px",
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
