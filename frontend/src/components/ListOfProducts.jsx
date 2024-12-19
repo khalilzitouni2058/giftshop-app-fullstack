@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ViewProductModal from './ViewProductModal';
+import OverlayCard from './OverlayCard';
 import '../styles/Dashboard/Products.css';
 import bag from '../assets/bag.png'
 import category from '../assets/application.png'
@@ -26,9 +26,18 @@ function ListOfProducts({ isSidebarOpen }) {
           fetchProducts();
         }, []);
 
+        const [selectedProduct, setSelectedProduct] = useState(null); 
+
         const handleView = (product) => {
-            console.log('Viewing ');
-            // Implement view logic (e.g., navigate to a product details page)
+            setSelectedProduct(product); 
+        };
+
+        const closeOverlay = () => {
+            setSelectedProduct(null); // Close the overlay
+          };
+
+        const handleCloseModal = () => {
+            setSelectedProduct(null); 
           };
           
           const handleEdit = (product) => {
@@ -84,124 +93,119 @@ function ListOfProducts({ isSidebarOpen }) {
 
     <div className={`table-container ${isSidebarOpen ? 'open' : ''}`}>
   
-  <table className={`table-da ${isSidebarOpen ? 'open' : ''}`}>
-    <thead>
-      <tr>
-        <th>TITLE</th>
-        <th>CATEGORY</th>
-        <th>BRAND</th>
-        <th>PRICE</th>
-        <th>DESCRIPTION</th>
-        <th>RATING</th>
-        <th>QUANTITY</th>
-        <th>ACTION</th> {/* New column for Action */}
-      </tr>
-    </thead>
-    <tbody>
-      {Array.isArray(products) && products.length > 0 ? (
-        products.map((product, index) => (
-          <tr key={index}>
-            <td style={{ //display: 'flex',
-             alignItems: 'center', width: '250px' }}>
-                <div style={{display:'flex',alignItems: 'center'}}>
-              <img 
-                src={product.imageURL} 
-                alt={product.title} 
-                style={{ width: '50px', height: '50px', marginRight: '10px' }} 
-              />
-              {product.title}
-              </div>
-            </td>
-            <td>{product.category}</td>
-            <td>{product.brand}</td>
-            <td>${product.price.toFixed(2)}</td>
-            <td className='td-des'>{product.description}</td>
-            <td>⭐ {product.rating}</td>
-            <td>{product.quantity}</td>
-            <td 
-  style={{ 
-    marginTop: '0px',
-    textAlign: 'center', 
-    width: '200px', 
-    //display: 'flex', 
-    alignItems: 'center', // Ensures buttons are vertically centered
-    justifyContent: 'center', // Centers buttons horizontally
-    gap: '5px', // Adds spacing between buttons
-  }}
->
-  <button 
-    onClick={(e) => { 
-      e.stopPropagation(); 
-      handleView(product); 
-    }} 
-    style={{
-      padding: '6px 10px', // Slightly smaller padding
-      borderRadius: '5px', 
-      border: 'none',
-      backgroundColor: '#17a2b8',
-      color: 'white',
-      cursor: 'pointer',
-      boxSizing: 'border-box', // Prevents padding from increasing size
-    }}
-    title="View Product"
-  >
-    <i className="fas fa-eye"></i>
-  </button>
+        <table className={`table-da ${isSidebarOpen ? 'open' : ''}`}>
+            <thead>
+            <tr>
+                <th>TITLE</th>
+                <th>CATEGORY</th>
+                <th>BRAND</th>
+                <th>PRICE</th>
+                <th>DESCRIPTION</th>
+                <th>RATING</th>
+                <th>QUANTITY</th>
+                <th>ACTION</th> {/* New column for Action */}
+            </tr>
+            </thead>
+            <tbody>
+            {Array.isArray(products) && products.length > 0 ? (
+                products.map((product, index) => (
+                <tr key={index}>
+                    <td style={{ //display: 'flex',
+                    alignItems: 'center', width: '250px' }}>
+                        <div style={{display:'flex',alignItems: 'center'}}>
+                    <img 
+                        src={product.imageURL} 
+                        alt={product.title} 
+                        style={{ width: '50px', height: '50px', marginRight: '10px' }} 
+                    />
+                    {product.title}
+                    </div>
+                    </td>
+                    <td>{product.category}</td>
+                    <td>{product.brand}</td>
+                    <td>{product.price.toFixed(2)}</td>
+                    <td className='td-des'>{product.description}</td>
+                    <td>⭐ {product.rating}</td>
+                    <td>{product.quantity}</td>
+                    <td 
+                        style={{ 
+                            marginTop: '0px',
+                            textAlign: 'center', 
+                            width: '200px', 
+                            //display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center', 
+                            gap: '5px', 
+                        }}
+                    >
+                        <button 
+                            onClick={(e) => { 
+                            e.stopPropagation(); 
+                            handleView(product); 
+                            }} 
+                            style={{
+                            padding: '6px 10px', 
+                            borderRadius: '5px', 
+                            border: 'none',
+                            backgroundColor: '#17a2b8',
+                            color: 'white',
+                            cursor: 'pointer',
+                            boxSizing: 'border-box', 
+                            }}
+                            title="View Product"
+                        >
+                            <i className="fas fa-eye"></i>
+                        </button>
 
-  <button 
-    onClick={(e) => { 
-      e.stopPropagation(); 
-      handleEdit(product); 
-    }} 
-    style={{
-      padding: '6px 10px', 
-      borderRadius: '5px', 
-      border: 'none',
-      backgroundColor: '#ffc107',
-      color: 'white',
-      cursor: 'pointer',
-      boxSizing: 'border-box', // Prevents padding from increasing size
-    }}
-    title="Edit Product"
-  >
-    <i className="fas fa-pencil-alt"></i>
-  </button>
+                        <button 
+                            onClick={(e) => { 
+                                e.stopPropagation(); 
+                                handleEdit(product); 
+                            }} 
+                            style={{
+                                padding: '6px 10px', 
+                                borderRadius: '5px', 
+                                border: 'none',
+                                backgroundColor: '#ffc107',
+                                color: 'white',
+                                cursor: 'pointer',
+                                boxSizing: 'border-box', 
+                            }}
+                            title="Edit Product"
+                        >
+                            <i className="fas fa-pencil-alt"></i>
+                        </button>
 
-  <button 
-    onClick={(e) => { 
-      e.stopPropagation(); 
-      handleDelete(product); 
-    }} 
-    style={{
-       
-      padding: '6px 10px', // Slightly smaller padding
-      borderRadius: '5px', 
-      border: 'none',
-      backgroundColor: '#dc3545',
-      color: 'white',
-      cursor: 'pointer',
-      boxSizing: 'border-box', // Prevents padding from increasing size
-    }}
-    title="Delete Product"
-  >
-    <i className="fas fa-trash-alt"></i>
-  </button>
-</td>
-
-
- 
-          </tr>
-        ))
-      ) : (
-        <tr><td colSpan="8">No products available</td></tr>
-      )}
-    </tbody>
-  </table>
-</div>
-
-
-    
-    </>
+                        <button 
+                            onClick={(e) => { 
+                                e.stopPropagation(); 
+                                handleDelete(product); 
+                            }} 
+                            style={{
+                            
+                                padding: '6px 10px', 
+                                borderRadius: '5px', 
+                                border: 'none',
+                                backgroundColor: '#dc3545',
+                                color: 'white',
+                                cursor: 'pointer',
+                                boxSizing: 'border-box', 
+                            }}
+                            title="Delete Product"
+                        >
+                            <i className="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+                ))
+            ) : (
+                <tr><td colSpan="8">No products available</td></tr>
+            )}
+            </tbody>
+        </table>
+        {selectedProduct && <OverlayCard product={selectedProduct} onClose={closeOverlay} />}
+    </div>
+  </>
     
   );}
 
