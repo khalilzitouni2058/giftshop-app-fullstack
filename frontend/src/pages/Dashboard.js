@@ -52,9 +52,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div className={`dashboard ${isSidebarOpen ? 'open' : ''}`} style={{fontFamily:'Arial, sans-serif'}}>
-      {/* Sidebar */}
-      <button className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar} >
+    <div className={`dashboard ${isSidebarOpen ? 'open' : ''}`}>
+      <button className={`toggle-btn ${isSidebarOpen ? 'open' : ''}`} onClick={toggleSidebar}>
       {isSidebarOpen ? '✖' : '☰'}
       </button>
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`} >
@@ -90,7 +89,6 @@ const Dashboard = () => {
         </ul>
       </div>
 
-      {/* Main Content Area */}
       <div className="main-content">
         {renderContent()}
       </div>

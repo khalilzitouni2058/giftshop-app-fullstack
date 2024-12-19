@@ -34,20 +34,20 @@
   }
   
   button {
-    z-index: 0; /* Ensure the button is below the ribbon */
+    z-index: 0; 
   }
   
   .similar-item {
     border: 1px solid #ddd;
     border-radius: 10px;
     text-align: center;
-    overflow: hidden; /* Ensures the image stays within the border */
+    overflow: hidden; 
     transition: transform 0.3s ease;
-    cursor: pointer; /* Indicate that the whole div is clickable */
+    cursor: pointer;
   }
   
   .similar-item:hover {
-    transform: scale(1.1); /* Slight scaling effect on hover */
+    transform: scale(1.1); 
   }
   
   .similar-item-image {
@@ -58,7 +58,7 @@
   }
   
   .similar-item-image:hover {
-    transform: scale(1.05); /* Slight zoom-in effect for the image on hover */
+    transform: scale(1.05);
   }
   
   .similar-item-title {
@@ -67,50 +67,50 @@
   }
   
   .carousel-image {
-    width: 400px; /* Fixed width */
-    height: 497px; /* Fixed height */
-    object-fit: cover; /* Ensures the image fits while maintaining aspect ratio */
-    border-radius: 5px; /* Optional: rounded corners */
+    width: 400px;
+    height: 497px; 
+    object-fit: cover; 
+    border-radius: 5px; 
   }
   
   .custom-accordion-header {
-     /* Add a border */
-    border-radius: 20px; /* Rounded corners */
-    background-color: #eaeaea; /* Light gray background */
+     
+    border-radius: 20px;
+    background-color: #eaeaea; 
     transition: border-color 0.3s ease-in-out;
     outline: none;
   }
   
   .custom-accordion-header:hover {
-    border-color: #999; /* Darker border color on hover */
-    background-color: #eaeaea; /* Darker gray background */
+    border-color: #999; 
+    background-color: #eaeaea; 
     outline: none;
   }
-  /* Style for the accordion button */
 
 
-/* Style for the active (pressed) accordion button */
-/* General accordion button styling */
+
+
+
 .accordion-button {
   outline: none;
-  border-radius: 20px; /* Rounded corners */
-  background-color: #eaeaea; /* Default background */
-  border: 2px solid #ccc; /* Default border color */
-  box-shadow: none; /* Remove shadow */
-  transition: all 0.3s ease; /* Smooth transitions for hover/click effects */
+  border-radius: 20px; 
+  background-color: #eaeaea; 
+  border: 2px solid #ccc; 
+  box-shadow: none; 
+  transition: all 0.3s ease; 
   text-decoration: black;
   
 }
 
 
 
-/* Active (clicked/open) accordion button */
+
 .accordion-button:not(.collapsed) {
-  background-color: white; /* Darker background for active state */
-  border-color: white; /* Slightly darker border */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* More prominent shadow */
-  border-radius: 20px; /* Ensure border-radius remains */
-  transition: all 0.3s ease; /* Smooth transition */
+  background-color: white; 
+  border-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px; 
+  transition: all 0.3s ease; 
 
   outline: none;
   font-size: 25px;
@@ -120,10 +120,10 @@
 }
 
 .accordion-button.collapsed {
-  background-color: white; /* Darker background for active state */
-  border-color: white; /* Slightly darker border */
-  border-radius: 20px; /* Ensure border-radius remains */
-  transition: all 0.3s ease; /* Smooth transition */
+  background-color: white;
+  border-color: white; 
+  border-radius: 20px; 
+  transition: all 0.3s ease; 
   outline: none;
   font-weight: 600;
   font-size: 15px;
@@ -132,14 +132,14 @@
 
 }
 
-/* Focus state - clean look */
+
 .accordion-button:focus {
-  outline: none; /* Remove default outline */
+  outline: none; 
 }
 
-/* Custom hover effect for the header container */
+
 .custom-accordion-header .accordion-button:hover {
-  cursor: pointer; /* Indicate interactivity */
+  cursor: pointer; 
   outline: none;
   text-decoration: black;
 
@@ -147,80 +147,80 @@
 
 /* Smooth transition for collapsed state */
 .accordion-button.collapsed:hover {
-  transition: all 0.3s ease; /* Smooth transition when collapsed */
-  background-color: #eaeaea; /* Default background */
+  transition: all 0.3s ease; 
+  background-color: #eaeaea; 
   border-color: #ccc;
-  transform: scale(1.05); /* Reset scaling */
+  transform: scale(1.05); 
   outline: none;
 }
 
 .accordion-button:not(collapsed):hover {
-  transition: all 0.3s ease; /* Smooth transition when collapsed */
-  background-color: #eaeaea; /* Default background */
+  transition: all 0.3s ease; 
+  background-color: #eaeaea; 
   border-color: #ccc;
-  transform: scale(1.05); /* Reset scaling */
+  transform: scale(1.05); 
   outline: none;
 }
 
 /* Button Styling */
 .add-to-cart-btn {
-  height: 70px;
-  width: 400px;
-  font-size: 20px;
-  position: relative;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  background-color: black;
-  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-  border:none ,
+  height: 70px ;
+  width: 400px ;
+  font-size: 20px ;
+  position: relative !important;
+  border-radius: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: white !important;
+  background-color: black !important ;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease !important; 
+  border:none !important ;
 }
 
 /* Hover Effect */
 .add-to-cart-btn:hover {
-  background-color: gray;  /* Change to gray when hovered */
-  border-color: gray; /* Change border to gray */
-  transform: scale(1.05); /* Slightly scale up */
+  background-color: gray !important;  
+  border-color: gray !important; 
+  transform: scale(1.05) !important; 
   
 }
 
 .dropDown > button {
-  width: 400px;
-  background-color: gray;
-  border: none;
-  outline: none;
-  padding: 10px 10px;
-  border-radius: 20px;
-  font-size: 20px;
+  width: 400px !important;
+  background-color: gray !important;
+  border: none !important;
+  outline: none !important;
+  padding: 10px 10px !important;
+  border-radius: 20px !important;
+  font-size: 20px !important;
 }
 .dropDown > button:hover {
-  width: 400px;
-  background-color: rgb(77, 77, 77);
-  border: none;
-  outline: none;
-  padding: 10px 10px;
-  border-radius: 20px;
+  width: 400px !important;
+  background-color: rgb(77, 77, 77) !important;
+  border: none !important;
+  outline: none !important;
+  padding: 10px 10px !important;
+  border-radius: 20px !important;
 }
 .dropDown > button:focus {
-  width: 400px;
-  background-color: gray;
-  border: none;
-  outline: none;
-  padding: 10px 10px;
-  border-radius: 20px;
+  width: 400px !important;
+  background-color: gray !important;
+  border: none !important;
+  outline: none !important;
+  padding: 10px 10px !important;
+  border-radius: 20px !important;
 }
 
 .dropDown {
-  width: 400px;
-  display: flex;
-  justify-content: center;
-  border-radius: 20px;
+  width: 400px !important;
+  display: flex !important;
+  justify-content: center !important;
+  border-radius: 20px !important;
 
 }
 
-/* Container for the entire reviews list */
+
 .reviews-container {
   display: column;
   align-items: flex-start;
@@ -229,34 +229,33 @@
   color: #333;
 }
 
-/* Individual review item */
+
 .review-item {
   border-bottom: 1px solid #ddd;
   padding: 20px 0;
   margin-bottom: 10px;
 }
 
-/* Stars */
+
 .review-stars {
   margin-bottom: 10px;
   display: flex;
 }
 
-/* Review comment */
 .review-comment {
   font-size: 16px;
   line-height: 1.6;
   color: #555;
 }
 
-/* Footer for user details */
+
 .review-footer {
   display: flex;
   align-items: center;
   margin-top: 10px;
 }
 
-/* User avatar */
+
 .review-avatar {
   width: 30px;
   height: 30px;
@@ -264,20 +263,19 @@
   margin-right: 10px;
 }
 
-/* Username */
+
 .review-username {
   font-weight: bold;
   margin-right: 10px;
   font-size: 14px;
 }
 
-/* Date */
 .review-date {
   color: #999;
   font-size: 12px;
 }
 
-/* No reviews text */
+
 .no-reviews {
   font-size: large;
   text-align: start;

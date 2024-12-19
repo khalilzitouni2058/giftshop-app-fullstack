@@ -21,8 +21,8 @@ function NavBar() {
   const { cart,resetCart,removeFromCart } = useContext(AuthContext);
   const [isPopoverVisible, setPopoverVisible] = useState(false);
   const handleLogout = () => {
-    logout(); // Log the user out
-    navigate("/"); // Redirect to homepage (or wherever you want)
+    logout(); 
+    navigate("/"); 
   };
   const togglePopover = () => {
     setPopoverVisible((prev) => !prev);
@@ -111,8 +111,8 @@ function NavBar() {
   <Button
     variant="outline-light"
     onClick={(e) => {
-      e.stopPropagation(); // Prevents click from closing the popover
-      setPopoverVisible((prev) => !prev); // Toggles the popover
+      e.stopPropagation(); 
+      setPopoverVisible((prev) => !prev); 
     }}
   >
     <FaShoppingBag />
@@ -156,7 +156,6 @@ function NavBar() {
           borderBottom: "1px solid #f0f0f0",
         }}
       >
-        {/* Product Image */}
         <img
           src={item.product.imageURL}
           alt={item.product.title}
@@ -170,24 +169,21 @@ function NavBar() {
         />
         
         <div style={{ flex: 1 }}>
-          {/* Product Name */}
           <span style={{ fontSize: "14px", fontWeight: "bold", color: "black" }}>
             {item.product.title}
           </span>
           <br />
-          {/* Product Quantity and Total Price */}
           <span style={{ fontSize: "14px", color: "#555" }}>
             Quantity: {item.count} × ${item.product.price.toFixed(2)} = $
             {(item.count * item.product.price).toFixed(2)}
           </span>
         </div>
 
-        {/* Delete Button */}
         <button
           onClick={(e) => {
             e.stopPropagation(); 
             
-            removeFromCart(index); // Remove the item from the cart
+            removeFromCart(index); 
           }}
           style={{
             backgroundColor: "#ff4d4f",
@@ -251,7 +247,7 @@ function NavBar() {
         
     </nav>
     <nav>
-       {isHomePage && ( // Conditionally render the navbar if on the home page
+       {isHomePage && ( 
                 <ul className="nav_menu"  >
                     <li className="nav_item2">
                         <Button variant="outline-secondary" onClick={handleRedirect}>
@@ -268,17 +264,7 @@ function NavBar() {
                         <Button variant="outline-secondary" >Cosmetic Products</Button>
                     </li>
                     <li className="nav_item2">
-      <Dropdown as={ButtonGroup}>
-        <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
-          Occasion
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          <Dropdown.Item href="#mothers-day"style={{fontSize:"30px",fontFamily:"regular"}}>Mother's Day</Dropdown.Item>
-          <Dropdown.Item href="#birthday" style={{fontSize:"30px",fontFamily:"regular"}}>Birthday</Dropdown.Item>
-          <Dropdown.Item href="#valentine"   style={{fontSize:"30px",fontFamily:"regular"}}>Valentine's</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+                    <Button variant="outline-secondary" >Cosmetic Products</Button>
     </li>
                     <li className="nav_item2">
                         <Button variant="outline-secondary">Handmade Gift</Button>

@@ -1,9 +1,8 @@
-/* Dashboard Container */
 .dashboard.open {
   display: flex;
   height: 100vh;
-  font-family: 'Roboto', sans-serif; /* Professional and modern font */
-  background-color: #e3f2fd; /* Light Blue Background */
+  font-family: 'Roboto', sans-serif; 
+  background-color: #e3f2fd; 
   transition: all 0.5s ease-in-out;
 }
 
@@ -11,20 +10,19 @@
   display: flex;
   align-items: start;
   height: 100vh;
-  font-family: 'Roboto', sans-serif; /* Professional and modern font */
-  background-color: #e3f2fd; /* Light Blue Background */
+  font-family: 'Roboto', sans-serif; 
+  background-color: #e3f2fd; 
   transition: margin-left 0.5s ease-in-out;
 }
 
 
-/* Sidebar */
 .sidebar {
   width: 260px;
-  background-color: #0d47a1; /* Dark Blue */
+  background-color: #0d47a1; 
   color: #fff;
   position: fixed;
   top: 0;
-  left: -260px; /* Initially hidden */
+  left: -260px; 
   height: 100%;
   z-index: 1000;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
@@ -41,7 +39,7 @@
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 40px;
-  color: #ffff; /* Light Blue for Text */
+  color: #ffff; 
   letter-spacing: 1px;
   width: 100%;
   text-align: center;
@@ -62,7 +60,7 @@
   font-weight: 500;
   text-transform: capitalize;
   letter-spacing: 0.5px;
-  color: #bbdefb; /* Light Blue Text */
+  color: #bbdefb; 
   border-radius: 6px;
   transition: all 0.5s ease;
   cursor: pointer;
@@ -70,8 +68,8 @@
 
 .sidebar li:hover,
 .sidebar li.active {
-  background-color: #1e88e5; /* Brighter Blue for Hover/Active */
-  color: #e3f2fd; /* Light Background */
+  background-color: #1e88e5; 
+  color: #e3f2fd; 
   font-weight: bold;
   transform: translateX(8px);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
@@ -118,12 +116,12 @@
   height: 100%;
   max-height: 20px;
   max-width: 1450px;
-  background-color: #f3f7fa; /* Very Light Blue */
+  background-color: #f3f7fa; 
   padding: 35px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-size: 1.2rem;
-  color: #1565c0; /* Mid Blue for Text */
+  color: #1565c0; 
   text-align:left;
   font-size: 40px;
   margin-top: 30px;
@@ -134,7 +132,6 @@
   
 }
 
-/* Sidebar Hover Indicator */
 .sidebar li::before {
   content: '';
   position: absolute;
@@ -147,15 +144,14 @@
 
 .sidebar li:hover::before,
 .sidebar li.active::before {
-  background-color: #42a5f5; /* Bright Blue Hover Indicator */
+  background-color: #42a5f5; 
 }
 
-/* Toggle Button */
 .toggle-btn {
   position: fixed;
   top: 20px;
   left: 20px;
-  background-color: #1565c0; /* Mid Blue */
+  background-color: #1565c0; 
   color: white;
   padding: 10px 15px;
   border-radius: 6px;
@@ -165,12 +161,12 @@
 }
 
 .toggle-btn:hover {
-  background-color: #1e88e5; /* Brighter Blue on Hover */
+  background-color: #1e88e5; 
   transform: scale(1.1);
 }
 
 .toggle-btn.open {
-  background-color: #1e88e5; /* Matching Hover Style */
+  background-color: #1e88e5; 
 }
 .header.open{
   display:flex;
@@ -186,7 +182,6 @@
 }
 
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .dashboard {
       flex-direction: column;

@@ -16,10 +16,8 @@ import Profile from './pages/Profile';
 
 import {ToastContainer} from "react-toastify"
 
-import Dashboard from './pages/Dashboard'; // Import the admin dashboard component
+import Dashboard from './pages/Dashboard'; 
 
-
-// Helper function for ProtectedRoute with roles
 const ProtectedRoute = ({ children, role }) => {
   const token = localStorage.getItem('accessToken');
   const userRole = localStorage.getItem('userRole');
@@ -29,7 +27,7 @@ const ProtectedRoute = ({ children, role }) => {
   }
 
   if (role && userRole !== role) {
-    return <Navigate to="/" />; // Redirect to home if role doesn't match
+    return <Navigate to="/" />; 
   }
 
   return children;
@@ -61,17 +59,14 @@ function App() {
   };
 
   const handleSumIncrement = (price) => {
-    setSum(sum + price); //setSum(prevSum=>prevSum+price)
+    setSum(sum + price); 
   };
   const handleSumDecrement = (article) => {
     if (article.qte > 0) {
       setSum(sum - article.price);
     }
   };
-  // const ProtectedRoute = ({ children }) => {
-  //   const token = localStorage.getItem('accessToken');
-  //   return token ? children : <Navigate to="/signIn" />;
-  // };
+  
 
   return (
     <div className="App">

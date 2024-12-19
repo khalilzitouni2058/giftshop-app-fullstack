@@ -1,7 +1,7 @@
 .product-cards {
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping of cards if needed */
-  justify-content: center; /* Centers cards horizontally */
+  flex-wrap: wrap; 
+  justify-content: center; 
 }
 
 .Card {
@@ -12,8 +12,8 @@
   width: 300px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for both transform and opacity */
-  opacity: 0.9; /* Default reduced opacity */
+  transition: transform 0.3s ease, opacity 0.3s ease; 
+  opacity: 0.9; 
 }
 
 .Card img {
@@ -46,6 +46,6 @@
 }
 
 .Card:hover {
-  transform: translateY(-20px); /* Moves card up */
-  opacity: 1; /* Restores full opacity */
+  transform: translateY(-20px); 
+  opacity: 1; 
 }

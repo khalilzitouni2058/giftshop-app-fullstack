@@ -29,7 +29,7 @@ function Carousels() {
       <Carousel.Item
         style={{
           position: "relative",
-          backgroundColor: "rgba(169,138,123,1)", // Fallback background color
+          backgroundColor: "rgba(169,138,123,1)", 
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -39,7 +39,6 @@ function Carousels() {
           width: "1540px",
         }}
       >
-        {/* Background Image */}
         <img
           src={choclate}
           alt="Background"
@@ -55,7 +54,6 @@ function Carousels() {
           }}
         />
 
-        {/* Title Section */}
         <div
           style={{
             textAlign: "center",
@@ -102,7 +100,6 @@ function Carousels() {
           </button>
         </div>
 
-        {/* Product Cards Section */}
         <div
           style={{
             display: "flex",

@@ -30,6 +30,7 @@ const overlayStyles = {
   width: '100%',
   height: '100%',
   backgroundColor: 'rgba(0, 0, 0, 0.7)', 
+  backgroundColor: 'rgba(0, 0, 0, 0.7)', 
   display: 'flex',
   justifyContent: 'flex-end',
   alignItems: 'center',
@@ -40,6 +41,8 @@ const cardStyles = {
   backgroundColor: '#ffffff',
   borderRadius: '15px',
   padding: '20px',
+  width: '400px',
+  height: '600px', 
   width: '30%', 
   maxWidth: '400px',
   height: '95%', 
@@ -72,6 +75,7 @@ const closeButtonStyles = {
 };
 
 const contentWrapperStyles = {
+  overflowY: 'auto', 
   overflowY: 'auto',
   marginTop: '40px',
   paddingRight: '10px',

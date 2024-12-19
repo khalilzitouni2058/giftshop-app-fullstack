@@ -15,39 +15,39 @@
   z-index: 1;
 }
 .custom-button {
-  background-color: #000000; /* Initial background color */
+  background-color: #000000; 
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 90px;
   cursor: pointer;
   border-radius: 5px;
-  transition: background-color 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease; 
 }
 
 .custom-button:hover {
-  background-color: #f023db; /* Hover background color */
+  background-color: #f023db; 
 }
 /* Chill Welcome Text Styling */
 .welcome-text {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; /* A more relaxed and modern font */
-  color: #3a3a3a; /* Soft, dark gray color */
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; 
+  color: #3a3a3a; 
   background: transparent;
-  font-size: 6rem; /* Moderate size for a chill vibe */
+  font-size: 6rem; 
   text-align: left;
   line-height: 1.2;
 
-  font-weight: 400; /* Lighter weight for a relaxed look */
-  padding: 0 20px; /* Subtle padding */
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  font-weight: 400; 
+  padding: 0 20px; 
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); 
   position: relative;
-  animation: fadeIn 1s ease-out; /* Smooth fade-in animation */
+  animation: fadeIn 1s ease-out; 
   z-index: 0;
   margin-top: 80px;
 }
 
-/* Animation for Gentle Fade-In */
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -59,8 +59,88 @@
   }
 }
 
-/* Hover Effect */
+
 .welcome-text:hover {
-  /* Slight upward movement on hover */
+  
   text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.15);
+}
+.home-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.home-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.home-card-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.home-card-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+  line-height: 1.2;
+}
+
+.home-card-price {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0 0 0;
+}
+
+.home-card-bottom {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.home-card-bottom:hover {
+  background-color: #000000;
+}
+
+.list-group {
+  max-height: 200px; 
+  overflow-y: auto; 
+  position: relative;
+  margin-left: 20px;
+  transition: max-height 0.3s ease-in-out, overflow 0.3s ease-in-out;
+}
+
+
+.list-group:hover {
+  max-height: none; 
+  overflow-y: visible; 
 }

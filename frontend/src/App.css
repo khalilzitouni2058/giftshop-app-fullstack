@@ -18,7 +18,7 @@
 }
 
 .icon-container:hover {
-  transform: scale(1.1); /* Slightly enlarge the icon and text */
+  transform: scale(1.1);
 }
 
 .icon-img {
@@ -28,7 +28,7 @@
 }
 
 .icon-container:hover .icon-img {
-  transform: scale(1.2); /* Slightly enlarge the image on hover */
+  transform: scale(1.2); 
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
 }
 
@@ -41,7 +41,7 @@
 }
 
 .icon-container:hover p {
-  color: rgb(210, 173, 41); /* Change text color on hover */
+  color: rgb(210, 173, 41); 
 }
 
 .GiftCard {

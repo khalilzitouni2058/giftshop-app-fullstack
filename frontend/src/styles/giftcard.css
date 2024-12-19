@@ -1,4 +1,4 @@
-/* Heart container with a smooth pop-up effect */
+
 .heart-container {
   position: relative;
   display: inline-flex;
@@ -15,23 +15,22 @@
 }
 
 .heart-container:hover {
-  background-color: #f1f1f1; /* Light background when hovered */
+  background-color: #f1f1f1; 
 }
 
-/* Heart icon styles */
 .heart-icon {
   font-size: 24px;
   transition: transform 0.2s, color 0.3s;
   position: relative;
 }
 
-/* Pop-up effect when liked */
+
 .heart-icon.liked {
-  transform: scale(1.5); /* Increase size */
-  animation: pop 0.3s ease-in-out forwards; /* Apply the bounce animation */
+  transform: scale(1.5);
+  animation: pop 0.3s ease-in-out forwards; 
 }
 
-/* Animation for the pop effect (bounce like Instagram) */
+
 @keyframes pop {
   0% {
     transform: scale(1);
@@ -44,35 +43,33 @@
   }
 }
 
-/* Optional: Add a nice transition on hover */
+
 .heart-container:hover .heart-icon {
-  color: #ff5959; /* Change heart color when hovered */
+  color: #ff5959;
 }
 
-/* Optional: Adjust the size of the icon if necessary */
+
 .heart-icon {
-  font-size: 30px; /* Adjust size if needed */
+  font-size: 30px; 
 }
-/* Container for the product details section */
 .product-details {
-  padding: 15px; /* Padding around the product details */
+  padding: 15px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* Product title styling */
+
 .product-title {
   font-size: 20px;
   font-weight: 600;
-  color: #333; /* Dark gray color for title */
+  color: #333; 
   margin-bottom: 8px;
-  text-overflow: ellipsis; /* Prevent overflow */
-  overflow: hidden; /* Hide excess text */
-  white-space: nowrap; /* Prevent line breaks */
+  text-overflow: ellipsis; 
+  overflow: hidden; 
+  white-space: nowrap; 
 }
 
-/* Product price styling */
 .product-price {
   font-size: 18px;
   font-weight: 700;
@@ -81,19 +78,19 @@
 }
 
 .product-price:hover {
-  color: #e74c3c; /* Change price color on hover */
-  cursor: pointer; /* Pointer cursor for interactivity */
+  color: #e74c3c; 
+  cursor: pointer; 
 }
 .GiftCard {
-  /* Adjust based on your content */
+ 
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer; /* Show pointer cursor on hover */
+  cursor: pointer;
 }
 .GiftCard:hover {
-  transform: scale(1.05); /* Slightly scale up the card */
-  box-shadow: 0 8px 16px rgba(0.2, 0.2, 0.2, 0.2); /* Add a larger shadow to make it stand out */
+  transform: scale(1.05); 
+  box-shadow: 0 8px 16px rgba(0.2, 0.2, 0.2, 0.2); 
 }

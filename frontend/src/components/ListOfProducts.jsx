@@ -34,10 +34,55 @@
                 setSelectedProduct(product); 
             };
 
+        const closeOverlay = () => {
+            setSelectedProduct(null); 
+          };
             const closeOverlay = () => {
                 setSelectedProduct(null); // Close the overlay
             };
 
+        const handleCloseModal = () => {
+            setSelectedProduct(null); 
+          };
+          
+          const handleEdit = (product) => {
+            console.log('Editing product');
+          };
+          
+          const handleDelete = async (product) => {
+            try {
+              const confirmed = window.confirm(`Are you sure you want to delete "${product.title}"?`);
+              if (!confirmed) return; 
+          
+              console.log('Deleting product:', product._id);
+          
+              const response = await axios.delete(`http://localhost:9002/api/products/${product._id}`);
+          
+              console.log(response.data.msg); 
+          
+              
+              setProducts((prevProducts) => prevProducts.filter((p) => p.title !== product.title));
+          
+            } catch (error) {
+              console.error('Error deleting product:', error);
+              alert('Failed to delete the product. Please try again.');
+            }
+          };
+    
+    
+  return (
+  <>
+  
+    <span className='span-da'>
+        <div class={`card-da ${isSidebarOpen ? 'open' : ''}`}>
+            <div class="card-content">
+                <div class="card-number">{products.length}</div>
+                <div class="card-text">Total Products</div>
+            </div>
+            <div class="card-icon">
+                <img src={bag} alt="icon" />
+            </div>
+        </div>
             const handleCloseModal = () => {
                 setSelectedProduct(null); 
             };
@@ -120,6 +165,70 @@
             </div>
         </span>
 
+    <div className={`table-container ${isSidebarOpen ? 'open' : ''}`}>
+  
+        <table className={`table-da ${isSidebarOpen ? 'open' : ''}`}>
+            <thead>
+            <tr>
+                <th>TITLE</th>
+                <th>CATEGORY</th>
+                <th>BRAND</th>
+                <th>PRICE</th>
+                <th>DESCRIPTION</th>
+                <th>RATING</th>
+                <th>QUANTITY</th>
+                <th>ACTION</th> 
+            </tr>
+            </thead>
+            <tbody>
+            {Array.isArray(products) && products.length > 0 ? (
+                products.map((product, index) => (
+                <tr key={index}>
+                    <td style={{ 
+                    alignItems: 'center', width: '250px' }}>
+                        <div style={{display:'flex',alignItems: 'center'}}>
+                    <img 
+                        src={product.imageURL} 
+                        alt={product.title} 
+                        style={{ width: '50px', height: '50px', marginRight: '10px' }} 
+                    />
+                    {product.title}
+                    </div>
+                    </td>
+                    <td>{product.category}</td>
+                    <td>{product.brand}</td>
+                    <td>{product.price.toFixed(2)}</td>
+                    <td className='td-des'>{product.description}</td>
+                    <td>⭐ {product.rating}</td>
+                    <td>{product.quantity}</td>
+                    <td 
+                        style={{ 
+                            marginTop: '0px',
+                            textAlign: 'center', 
+                            width: '200px', 
+                            alignItems: 'center', 
+                            justifyContent: 'center', 
+                            gap: '5px', 
+                        }}
+                    >
+                        <button 
+                            onClick={(e) => { 
+                            e.stopPropagation(); 
+                            handleView(product); 
+                            }} 
+                            style={{
+                            padding: '6px 10px', 
+                            borderRadius: '5px', 
+                            border: 'none',
+                            backgroundColor: '#17a2b8',
+                            color: 'white',
+                            cursor: 'pointer',
+                            boxSizing: 'border-box', 
+                            }}
+                            title="View Product"
+                        >
+                            <i className="fas fa-eye"></i>
+                        </button>
         <div className={`table-container ${isSidebarOpen ? 'open' : ''}`}>
     
             <table className={`table-da ${isSidebarOpen ? 'open' : ''}`}>

@@ -47,7 +47,6 @@ function GiftCard({ product }) {
 
   const handleLikeClick = async () => {
     if (!user) {
-      // If the user is not logged in, redirect them to the SignIn page
       navigate('/SignIn');
       return;
     }
@@ -110,14 +109,12 @@ function GiftCard({ product }) {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Main Image */}
           <Card.Img
             src={imageURL}
             onClick={showDetails}
             style={{ cursor: 'pointer' }}
           />
 
-          {/* Subimage */}
           {subImage1 && (
             <Card.Img
               variant="top"
@@ -130,7 +127,7 @@ function GiftCard({ product }) {
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                opacity: isHovered ? 1 : 0, // Fade in on hover
+                opacity: isHovered ? 1 : 0, 
               }}
             />
           )}
@@ -152,7 +149,7 @@ function GiftCard({ product }) {
           fontSize: '30px',
           transition: 'color 0.3s ease',
         }}
-        onClick={handleLikeClick} // If not logged in, will redirect to /SignIn
+        onClick={handleLikeClick} 
       >
         <div
           style={{
